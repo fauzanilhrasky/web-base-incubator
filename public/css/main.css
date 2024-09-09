@@ -1,0 +1,1073 @@
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.pl-150 {
+    padding-left: 150px;
+}
+
+.copyright {
+    padding: 70px 0 0 0;
+}
+
+.copyright p {
+    text-align: center;
+    font-weight: 400;
+    color: #6f6a86;
+}
+
+.header-third {
+    font-size: 22px;
+    color: #211b3d;
+    font-weight: 600;
+}
+
+.subheader {
+    font-size: 16px;
+    font-weight: 400;
+    color: #b6b6b6;
+    text-align: center;
+}
+
+
+
+/*Global Login*/
+
+.login-user .left .header-third {
+    height: 32px;
+    font-size: 22px;
+    color: #ffffff;
+    font-weight: 400;
+    margin-top: 170px;
+}
+
+.login-user .right .btn-link{
+  position: absolute;
+  text-align: end;
+  right: 100px;
+}
+
+.login-user .right .flex .btn{
+  text-align: center;
+}
+
+.login-user .right .form-control {
+    margin-top: 30px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.login-user .right .subheader{
+    margin-bottom: 70px;
+
+}
+
+.login-user .right .header-third {
+    height: 20px;
+    font-size: 22px;
+    color: #f3bf39;
+    font-weight: 500;
+    margin-top: -20px;
+    margin-bottom: 50px;
+    text-align: center;
+    
+}
+
+.login-user .left .header-third {
+  margin-top: 100px;
+}
+
+.login-user .left .subheader {
+    font-size: 17px;
+    font-weight: 400;
+    color: #b6b6b6;;
+    margin-top: 28px;
+}
+
+.login-user .right {
+    width: 50%;
+    float: left;
+    padding: 120px;
+    
+}
+
+
+.login-user .left .logo {
+    height: 52px;
+    margin-bottom: -45px;
+    margin-top: 40px;
+    
+}
+
+.login-user .right .btn-border {
+    border: 1px solid #e7e5f4;
+    border-radius: 50px;
+    padding: 12px 80px 12px 80px;
+}
+
+.login-user .right .btn-google-login {
+    margin-top: 40px;
+}
+
+.login-user .right .btn-google-login .icon {
+    margin-right: 8px;
+}
+
+.login-user .left {
+    background-color: #222226;
+    width: 50%;
+    min-height: 950px;
+    text-align: center;
+    float: left;
+    border-radius: 0px 40px 30px 0px; /* Masing-masing nilai untuk kiri atas, kanan atas, kanan bawah, kiri bawah */
+}
+
+.login-user .left img {
+    margin-top: 20px;
+    height: 400px;
+}
+
+.login-user .left .logo {
+  margin-top: 20px;
+  height: 100px;
+}
+
+.login-user .left .btn-primary {
+    background: #f3bf39;
+    color: #fff;
+    width: 200px;
+}
+
+.login-user .right .btn-primary {
+    background: #f3bf39;
+    color: #fff;
+    width: 300px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+
+.clear {
+    clear: both;
+}
+
+.steps .item-step .cover {
+    height: 497px;
+}
+
+.steps .item-step .copywriting {
+    padding-top: 100px;
+}
+
+.steps .item-step .support {
+    font-size: 16px;
+    font-weight: 400;
+    color: #5b5575;
+    line-height: 30px;
+    margin-top: 30px;
+}
+
+.btn-master,
+.btn-thirdty,
+.btn-primary,
+.btn-secondary {
+    padding: 11px 36px 11px 36px;
+    border-radius: 100px;
+    border: 0;
+    font-weight: 500;
+    
+}
+
+.btn-thirdty {
+    background: #31b380;
+    color: #fff;
+}
+
+.btn-primary {
+    background: #ffc530;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #0980e2;
+}
+
+
+.story {
+    font-weight: 600;
+    font-size: 16px;
+    color: #b6b6b6;
+}
+
+.primary-header {
+    font-weight: 600;
+    font-size: 30px;
+    color: #ffc530;
+}
+
+/*explanation*/
+.explanation {
+  padding: 40px 0;
+  position: relative;
+  clip-path: inset(0);
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.explanation img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.explanation:before {
+  content: "";
+  background: color-mix(in srgb, var(--background-color), transparent 50%);
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.explanation .container {
+  position: relative;
+  z-index: 3;
+}
+
+
+.explanation .story{
+    margin-top: 30px;
+    color: #ffffff;
+}
+
+.explanation .support {
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 450;
+    color: #fff;
+    line-height: 30px;
+}
+
+.benefits {
+    margin-top: 100px;
+    margin-bottom: 150px;
+}
+
+.benefits .item-benefit .icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 20px;
+}
+
+.benefits .item-benefit .title {
+    font-size: 20px;
+    color: #211b3d;
+    font-weight: 500;
+}
+
+.benefits .item-benefit .support {
+    font-size: 16px;
+    font-weight: 400;
+    color: #5b5575;
+    line-height: 30px;
+}
+
+.pb-70 {
+    padding-bottom: 70px;
+}
+
+.header-wrap .primary-header {
+    margin-top: 8px;
+}
+
+.header-wrap .story {
+    margin-bottom: 0;
+}
+
+.text-yellow {
+    color: #ffc530;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.btn-secondary {
+    background: #f5efff;
+    color: #7839f3;
+}
+
+/*Global Banner*/
+
+.banner {
+    padding: 80px 0 80px 0;
+    background-color: #222226;
+    box-shadow: #f3bf39;
+}
+
+.banner .copywriting {
+    padding-top: 80px;
+}
+
+.banner .header {
+    margin: 20px 0 20px 0;
+    font-size: 42px;
+    color: #211b3d;
+    font-weight: 600;
+}
+
+.banner .story{
+  color: #f3bf39;
+}
+
+.banner .support {
+    font-size: 16px;
+    font-weight: 500;
+    color: #b6b6b6;
+    line-height: 30px;
+}
+
+.banner .cta-btn {
+    font-family: var(--heading-font);
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 12px 40px;
+    border-radius: 50px;
+    transition: 0.3s;
+    margin: 10px;
+    border: 2px solid #f3bf39;
+    color: var(--contrast-color);
+  }
+  
+  .banner .cta-btn:hover {
+    background: var(--accent-color);
+    border: 2px solid var(--accent-color);
+  }
+
+.banner .cta {
+    margin-top: 30px;
+}
+
+.banner .brands {
+    margin-top: 60px;
+}
+
+.banner .brands img {
+    height: 30px;
+}
+
+.banner2 .brands img {
+    height: 40px;
+    margin-top: 50px;
+}
+
+/*Banner3*/
+.banner3 h1{
+    color: #060606;
+    font-size: 26px;
+    font-weight: 600;
+    color: #f3bf39;
+    margin-top: 30px;
+}
+
+.banner3 p{
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.banner3 .carousel-item img{
+    margin-top: 100px;
+    height: 50px;
+    
+}
+
+
+.banner3{
+    height: 380px;
+    background-color: #222226;
+    margin-top: 100px;
+    border: 2px #f3bf39;
+
+}
+
+
+.dashboard .table tr {
+    border: 1px solid #fff;
+}
+
+.basic-form input {
+    border: 1px solid #e7e5f4;
+    border-radius: 50px;
+    padding: 12px 20px 12px 20px;
+}
+
+.checkout {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.checkout .item-bootcamp .cover {
+    height: 255px;
+    margin-bottom: 30px;
+}
+
+.checkout .item-bootcamp .package {
+    font-size: 22px;
+    color: #31b380;
+    font-weight: 600;
+}
+
+.checkout .item-bootcamp .description {
+    font-size: 16px;
+    color: #211b3d;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.text-green {
+    color: #31b380 !important;
+}
+
+.text-white {
+    color: #e7e5f4;
+}
+
+.text-red {
+    color: #f73353 !important;
+}
+
+/*Global Signup*/
+
+.signup-user .right .header-third {
+    height: 32px;
+    font-size: 22px;
+    color: #ffffff;
+    font-weight: 400;
+    margin-top: 170px;
+}
+
+.signup-user .left .form-control {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.signup-user .left .subheader{
+    margin-bottom: 35px;
+    color: #A7A7A7;
+}
+
+.signup-user .left .header-third {
+    height: 20px;
+    font-size: 22px;
+    color: #f3bf39;
+    font-weight: 500;
+    margin-top: -90px;
+    margin-bottom: 30px;
+    text-align: center;
+    
+}
+
+.signup-user .right .subheader {
+    font-size: 17px;
+    font-weight: 400;
+    color: #b6b6b6;
+    margin-top: 28px;
+}
+
+.signup-user .left {
+    width: 50%;
+    float: left;
+    padding: 120px;
+    text-align: center;
+}
+
+
+
+.signup-user .right .logo {
+    height: 120px;
+    margin-bottom: -90px;
+    
+}
+
+.signup-user .right .header-third {
+    margin-bottom: 0px;
+}
+
+.signup-user .left .header-second {
+    height: 20px;
+    font-size: 22px;
+    color: #222226;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.signup-user .left .btn-border {
+    border: 1px solid #e7e5f4;
+    border-radius: 50px;
+    padding: 12px 80px 12px 80px;
+}
+
+.signup-user .left .btn-google-login {
+    margin-top: 40px;
+}
+
+.signup-user .left .btn-google-login .icon {
+    margin-right: 8px;
+}
+
+.signup-user .right {
+    background-color: #222226;
+    width: 50%;
+    min-height: 75rem;
+    text-align: center;
+    float: right;
+    border-radius: 35px 0px 0px 35px; /* Masing-masing nilai untuk kiri atas, kanan atas, kanan bawah, kiri bawah */
+}
+
+.signup-user .right img {
+    margin-top: 20px;
+    height: 350px;
+}
+
+.signup-user .right .btn-primary {
+    background: #202020;
+    border: 2px solid #f3bf39;
+    color: #f3bf39;
+    width: 200px;
+    margin-top: 25px;
+}
+
+.signup-user .left .btn-primary {
+    background: #f3bf39;
+    color: #fff;
+    width: 300px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+/*css Navbar*/
+
+.navbar {
+    box-shadow: 1px 8px 61px 0px rgba(22, 28, 51, 0.08);
+    -webkit-box-shadow: 1px 8px 61px 0px rgba(22, 28, 51, 0.08);
+    -moz-box-shadow: 1px 8px 61px 0px rgba(235, 236, 236, 0.08);
+    padding: 10px 0 10px 0;
+    background-color: black;
+    /*border: 2px solid #f3bf39; */
+}
+
+.navbar .user-logged a {
+    color: #211b3d;
+    text-decoration: none;
+}
+
+.navbar .user-logged .user-photo {
+    width: 56px;
+    height: 56px;
+    margin-left: 10px;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: 400;
+    padding-left: 30px;
+}
+
+.navbar .navbar-nav .active {
+    color: #f3bf39 !important;
+    font-weight: 500;
+}
+
+.navbar .navbar-brand img {
+    height: 80px;
+    
+}
+
+.navbar .d-flex .btn1{
+color: white;
+}
+
+
+
+/*Global footer*/
+
+.footer {
+    color: var(--default-color);
+    background-color: var(--background-color);
+    font-size: 14px;
+    padding-bottom: 50px;
+    position: relative;
+    border-top:  2px solid #f3bf39;
+  }
+  
+  .footer .footer-top {
+    padding-top: 50px;
+    border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  }
+  
+  .footer .footer-about .logo {
+    line-height: 1;
+    margin-bottom: 25px;
+  }
+  
+  .footer .footer-about .logo img {
+    max-height: 40px;
+    margin-right: 6px;
+  }
+  
+  .footer .footer-about .logo span {
+    color: var(--heading-color);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: var(--heading-font);
+  }
+  
+  .footer .footer-about p {
+    font-size: 14px;
+    font-family: var(--heading-font);
+  }
+  
+  .footer .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
+    font-size: 16px;
+    color: color-mix(in srgb, var(--default-color), transparent 50%);
+    margin-right: 10px;
+    transition: 0.3s;
+  }
+  
+  .footer .social-links a:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+  }
+  
+  .footer h4 {
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 12px;
+  }
+  
+  .footer .footer-links {
+    margin-bottom: 30px;
+  }
+  
+  .footer .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer .footer-links ul i {
+    padding-right: 2px;
+    font-size: 12px;
+    line-height: 0;
+  }
+  
+  .footer .footer-links ul li {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer .footer-links ul li:first-child {
+    padding-top: 0;
+  }
+  
+  .footer .footer-links ul a {
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    display: inline-block;
+    line-height: 1;
+  }
+  
+  .footer .footer-links ul a:hover {
+    color: var(--accent-color);
+  }
+  
+  .footer .footer-contact p {
+    margin-bottom: 5px;
+  }
+  
+  .footer .copyright {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: color-mix(in srgb, var(--default-color), transparent 95%);
+  }
+  
+  .footer .copyright p {
+    margin-bottom: 0;
+  }
+  
+  .footer .credits {
+    margin-top: 6px;
+    font-size: 13px;
+  }
+
+  /*--------------------------------------------------------------
+# Services Section
+--------------------------------------------------------------*/
+.services .service-item {
+    background-color: var(--surface-color);
+    box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+    padding: 70px 30px;
+    transition: all 0.3s ease-in-out;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .services .service-item:before {
+    content: "";
+    position: absolute;
+    background: var(--accent-color);
+    inset: 100% 0 0 0;
+    transition: all 0.3s;
+    z-index: -1;
+  }
+  
+  .services .service-item .icon {
+    margin-bottom: 10px;
+  }
+  
+  .services .service-item .icon i {
+    color: var(--accent-color);
+    font-size: 36px;
+    transition: ease-in-out 0.3s;
+  }
+  
+  .services .service-item h4 {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+
+  .services .container h2{
+    color: #fff;
+    background-color: #f3bf39;
+  }
+  
+  .services .service-item h4 a {
+    color: var(--heading-color);
+    transition: ease-in-out 0.3s;
+  }
+  
+  .services .service-item p {
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 0;
+    transition: ease-in-out 0.3s;
+  }
+  
+  .services .service-item:hover h4 a,
+  .services .service-item:hover .icon i,
+  .services .service-item:hover p {
+    color: var(--contrast-color);
+  }
+  
+  .services .service-item:hover:before {
+    background: var(--accent-color);
+    inset: 0;
+    border-radius: 0px;
+  }
+  
+  /*--------------------------------------------------------------
+# Global Section Titles
+--------------------------------------------------------------*/
+.section-title {
+    text-align: center;
+    padding-bottom: 60px;
+    position: relative;
+  }
+  
+  .section-title h2 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 8px 20px;
+    margin: 0;
+    background: color-mix(in srgb, var(--accent-color), transparent 90%);
+    color: var(--accent-color);
+    display: inline-block;
+    text-transform: uppercase;
+    border-radius: 50px;
+    font-family: var(--default-font);
+  }
+  
+  .section-title p {
+    color: var(--heading-color);
+    margin: 10px 0 0 0;
+    font-size: 32px;
+    font-weight: 700;
+    font-family: var(--heading-font);
+  }
+  
+  .section-title p .description-title {
+    color: var(--accent-color);
+  }
+  
+  /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+  :root { 
+    --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+    --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
+    --heading-color: #493c3e; /* Color for headings, subheadings and title throughout the website */
+    --accent-color: #FFC530; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+    --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+    --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  }
+
+
+  
+  .light-background {
+    --background-color: #f9f9f9;
+    --surface-color: #ffffff;
+  }
+  
+  .dark-background {
+    --background-color: #060606;
+    --default-color: #ffffff;
+    --heading-color: #ffffff;
+    --surface-color: #252525;
+    --contrast-color: #ffffff;
+  }
+  
+  /* Smooth scroll */
+  :root {
+    scroll-behavior: smooth;
+  }
+
+  /*--------------------------------------------------------------
+# Call To Action Section
+--------------------------------------------------------------*/
+.call-to-action {
+    padding: 45px 0;
+    position: relative;
+    clip-path: inset(0);
+    margin-top: 100px;
+  }
+  
+  .call-to-action img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  
+  .call-to-action:before {
+    content: "";
+    background: color-mix(in srgb, var(--background-color), transparent 50%);
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  }
+  
+  .call-to-action .container {
+    position: relative;
+    z-index: 3;
+  }
+  
+  .call-to-action h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffc530;
+    margin-bottom: 30px;
+  }
+  
+  .call-to-action p {
+    color: var(--default-color);
+  }
+
+  .call-to-action .cta-btn1 {
+    font-family: var(--heading-font);
+    font-weight: 550;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 12px 40px;
+    border-radius: 50px;
+    transition: 0.3s;
+    margin: 20px;
+    background-color: #ffc530;
+    color: #222226;
+    border: 1px solid #222226;
+  }
+
+  .call-to-action .cta-btn {
+    font-family: var(--heading-font);
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 12px 40px;
+    border-radius: 50px;
+    transition: 0.3s;
+    margin: 20px;
+    border: 2px solid #f3bf39;
+    color: var(--contrast-color);
+  }
+  
+  .call-to-action .cta-btn:hover {
+    background: var(--accent-color);
+    border: 2px solid var(--accent-color);
+  }
+  
+  
+  :root {
+    --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --heading-font: "Nunito",  sans-serif;
+    --nav-font: "Poppins",  sans-serif;
+
+    a {
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      
+      a:hover {
+        color: color-mix(in srgb, var(--heading-color), transparent 25%);
+        text-decoration: none;
+      }
+      
+  }
+
+  /*--------------------------------------------------------------
+# Scroll Top Button
+--------------------------------------------------------------*/
+.scroll-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: -15px;
+    z-index: 99999;
+    background-color: var(--accent-color);
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    transition: all 0.4s;
+  }
+  
+  .scroll-top i {
+    font-size: 24px;
+    color: var(--contrast-color);
+    line-height: 0;
+  }
+  
+  .scroll-top:hover {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+    color: var(--contrast-color);
+  }
+  
+  .scroll-top.active {
+    visibility: visible;
+    opacity: 1;
+    bottom: 15px;
+  }
+  
+
+
+/*--------------------------------------------------------------
+# dashboard
+--------------------------------------------------------------*/
+
+.form-outline .form-control{
+  border: 1px solid #948b8b;
+}
+
+.nav{
+  background-color: #222226;
+  padding: 10px;
+ box-shadow: 10px;
+
+}
+
+
+/* Default styles for larger screens */
+.inc {
+  margin-left: -590px;
+}
+
+.hidden {
+  margin-right: -600px;
+}
+
+/* Media query for smaller screens (e.g., tablet) */
+@media (max-width: 1024px) {
+  .inc {
+    margin-left: -400px; /* Adjust as per desired margin for smaller screens */
+  }
+
+  .hidden {
+    margin-right: -300px; /* Adjust as per desired margin for smaller screens */
+  }
+}
+
+/* Media query for even smaller screens (e.g., mobile devices) */
+@media (max-width: 768px) {
+  .inc {
+    margin-left: -300px; /* Adjust as per desired margin for mobile */
+  }
+
+  .hidden {
+    margin-right: -330px; /* Adjust as per desired margin for mobile */
+  }
+}
+.card {
+  display: flex;
+  justify-content: center; /* Menempatkan konten di tengah secara horizontal */
+  align-items: center;     /* Menempatkan konten di tengah secara vertikal */
+  flex-direction: column;  /* Mengatur elemen di dalamnya secara vertikal */
+}
+
+.card .card-img-top {
+  border-radius: 30px; /* Ujung kotak melengkung */
+  margin-top: 20px;
+  width: 480px;
+  height: 250px;
+}
+
+.col {
+  width: 550px;
+  border-radius: 30px; /* Sudut melengkung */
+  box-shadow: #444444;
+  display: flex;
+  
+}
+
+.card-title{
+  font-weight: bold;
+  font-size: 22px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+/*# sourceMappingURL=main.css.map */
+
+
+
+
+
+
+ 
