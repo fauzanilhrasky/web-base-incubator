@@ -8,10 +8,17 @@
         <a href="">STISLA</a>
         </div>
         <ul class="sidebar-menu">
+            @if (Auth::user()->role == 'user')
             <li class="menu-header">Dashboard</li>
             <li class="{{ Request::is('home') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('home') }}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
+            @endif
+            @if (Auth::user()->role == 'superadmin')
+            <li class="{{ Request::is('/home-admin') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/home-admin') }}"><i class="fas fa-fire"></i><span>Dashboard Admin</span></a>
+            </li>
+            @endif
             @if (Auth::user()->role == 'superadmin')
             <li class="menu-header">Hak Akses</li>
             <li class="{{ Request::is('hakakses') ? 'active' : '' }}">
