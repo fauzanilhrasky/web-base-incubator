@@ -1,11 +1,16 @@
 @auth
-<div class="main-sidebar sidebar-style-2">
+<div class="main-sidebar sidebar-style-3">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-        <a href="">STISLA</a>
+            <a href="#">
+                <img src="{{ asset('img/incubator.png') }}" alt="Logo" style="width: 70px;">
+            </a>
         </div>
+        
         <div class="sidebar-brand sidebar-brand-sm">
-        <a href="">STISLA</a>
+        <a href="">
+            <img src="{{ asset('img/incubator.png') }}" alt="Logo" style="width: 50px;">
+        </a>
         </div>
         <ul class="sidebar-menu">
             @if (Auth::user()->role == 'user')
@@ -22,7 +27,7 @@
             @if (Auth::user()->role == 'superadmin')
             <li class="menu-header">Hak Akses</li>
             <li class="{{ Request::is('hakakses') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('hakakses') }}"><i class="fas fa-user-shield"></i> <span>Hak Akses</span></a>
+                <a class="nav-link" href="{{ url('hakakses') }}"><i class="fas fa-user-shield"></i> <span>access rights</span></a>
             </li>
             @endif
             <!-- profile ganti password -->
@@ -31,7 +36,7 @@
                 <a class="nav-link" href="{{ url('profile/edit') }}"><i class="far fa-user"></i> <span>Profile</span></a>
             </li>
             <li class="{{ Request::is('profile/change-password') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('profile/change-password') }}"><i class="fas fa-key"></i> <span>Ganti Password</span></a>
+                <a class="nav-link" href="{{ url('profile/change-password') }}"><i class="fas fa-key"></i> <span>change password</span></a>
             </li>
             <li class="menu-header">Starter</li>
             <li class="{{ Request::is('blank-page') ? 'active' : '' }}">

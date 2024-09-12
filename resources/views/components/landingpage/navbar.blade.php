@@ -11,15 +11,15 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Program</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link text-white" href="#">Mentor</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link text-white" href="#">Pricing</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link text-white" href="#">Business</a>
-                </li>
+                </li> --}}
             </ul>
             <div class="d-flex">
                 <a href="{{ route('login') }}" class="btn btn-master btn-secondary me-3">

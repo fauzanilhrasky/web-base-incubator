@@ -45,7 +45,7 @@
 </section>
 
 <section id="explanation" class="explanation section dark-background">
-    <img src="{{ asset('img/seminar.png') }}" alt="">
+    <img src="{{ asset('img/penjelasan.png') }}" alt="">
   
         <div class="container">
           <div class="row justify-content-center aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">

@@ -16,7 +16,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-title">
-                    Selamat Datang, {{ auth()->check() ? substr(auth()->user()->name, 0, 10) : 'Tamu' }}
+                    Welcome, {{ auth()->check() ? substr(auth()->user()->name, 0, 10) : 'Tamu' }}
                 </div>
                 <a class="dropdown-item has-icon edit-profile" href="{{ route('profile.edit') }}" data-id="{{ \Auth::id() }}">
                     <i class="fa fa-user"></i> Edit Profile

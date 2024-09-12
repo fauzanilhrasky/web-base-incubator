@@ -51,11 +51,18 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
   background-color: #fff;
-  border-radius: 3px;
-  border: none;
+  border-radius: 5px;
+  border: 2px solid #eaf2f4;
   position: relative;
   margin-bottom: 30px;
 }
+
+.article-image img {
+  width: 100%; /* Membuat gambar mengambil lebar penuh dari kontainer */
+  height: auto; /* Menjaga aspek rasio gambar */
+  object-fit: cover; /* Mengatur gambar agar selalu pas di dalam kontainer */
+}
+
 .article .article-header {
   height: 170px;
   position: relative;
