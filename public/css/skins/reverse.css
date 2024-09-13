@@ -97,4 +97,9 @@ body.skin-reverse .navbar .form-inline .form-control {
   background-color: #222226;
 }
 
+.crt {
+  margin-left: auto; /* Mengatur agar elemen tetap di sebelah kanan */
+  margin-right: 0;
+}
+
 /*# sourceMappingURL=reverse.css.map */

@@ -755,6 +755,23 @@ tr:first-child > td > .fc-day-grid-event {
 .profile-widget {
   margin-top: 35px;
 }
+
+.edit{
+  width: 170px; 
+  height: 170px;
+  background-color: #f0f0f0;
+  color: #394eea;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+}
+
+.card .crd h4{
+  border-bottom: 1px solid #222226; /* Warna biru */
+  font-size: 22px;
+  color: #f3b31a;
+}
+
 .profile-widget .profile-widget-picture {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
   float: left;

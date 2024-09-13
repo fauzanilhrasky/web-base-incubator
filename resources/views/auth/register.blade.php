@@ -3,7 +3,7 @@
 @section('content')
 <section class="signup-user">
     <div class="right">
-        <img src="{{ asset('images/incubator.png') }}" class="logo" alt="">
+        <img src="{{ asset('img/incubator.png') }}" class="logo" alt="">
         <h1 class="header-third">
             Get Ready for the Founder's Journey!
         </h1>
@@ -11,7 +11,7 @@
             First-time Founder? Or is this your second time? No problem, <br>we're here to help. Make sure you fill out the <br> form and choose the incubation method you prefer. <br>
             <br>The next wave will be held in October 2024 - January 2025 <br> (For Mentored Incubation) Self-incubation can be done anytime
         </p>
-        <img src="{{ asset('images/signup.png') }}" alt="">
+        <img src="{{ asset('img/signup.png') }}" alt="">
         <p class="subheader">
             Have you successfully created an account?
         </p>
@@ -72,7 +72,7 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-            </div>
+            </div>--}}
 
             <!-- City -->
             <div class="form-floating mb-3">
@@ -83,7 +83,7 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-            </div> --}}
+            </div>
 
             <!-- Country nationality -->
             <div class="form-floating mb-3">
@@ -128,6 +128,9 @@
             <!-- Submit Button -->
             <div class="flex items-center justify-end mt-4">
                 <button type="submit" class="btn btn-border btn-primary">Register</button>
+            
+            </div>
+            <div class="flex items-center justify-end mt-4">
                 <a class="btn btn-link" href="{{ route('login') }}">Already registered?</a>
             </div>
         </form>
