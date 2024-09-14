@@ -42,7 +42,7 @@
             </div>
 
             <!-- Username -->
-            {{-- <div class="form-floating mb-3">
+            <div class="form-floating mb-3">
                 <input id="username" class="form-control" type="text" name="username" value="{{ old('username') }}" placeholder="username" required autofocus autocomplete="username" />
                 <label for="username">Username</label>
                 @error('username')
@@ -50,7 +50,7 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-            </div> --}}
+            </div>
 
             <!-- Email Address -->
             <div class="form-floating mb-3">
@@ -64,7 +64,7 @@
             </div>
 
             <!-- Phone Number -->
-            {{-- <div class="form-floating mb-3">
+            <div class="form-floating mb-3">
                 <input id="phone" class="form-control" type="tel" name="phone" value="{{ old('phone') }}" placeholder="Phone Number" required autocomplete="phone" />
                 <label for="phone">Phone Number</label>
                 @error('phone')
@@ -72,7 +72,7 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-            </div>--}}
+            </div>
 
             <!-- City -->
             <div class="form-floating mb-3">
