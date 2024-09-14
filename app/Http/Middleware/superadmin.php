@@ -19,6 +19,10 @@ class superadmin
         if (Auth::user()->role== 'superadmin') {
             return $next($request);
         }
+    
+        if (Auth::user()->role== 'mentor') {
+            return $next($request);
+        }
 
         abort(403, 'Tidak Memiliki Akses!');
     }

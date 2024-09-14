@@ -30,6 +30,11 @@ class HomeController extends Controller
         return view('layouts.admin.home');
     }
 
+    public function adminMentor()
+    {
+        return view('layouts.mentor.home');
+    }
+
     public function blank()
     {
         return view('layouts.blank-page');

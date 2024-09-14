@@ -27,11 +27,24 @@
             </li>
             @endif
 
+            @if (Auth::user()->role == 'mentor')
+            <li class="{{ Request::is('/home-mentor') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/home-mentor') }}"><i class="fas fa-fire"></i><span>Dashboard Mentor</span></a>
+            </li>
+            @endif
+
             @if (Auth::user()->role == 'superadmin')
             <li class="menu-header">Hak Akses</li>
             <li class="{{ Request::is('hakakses') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('hakakses') }}"><i class="fas fa-user-shield"></i> <span>Access Rights</span></a>
             </li>
+            @endif
+
+            @if (Auth::user()->role == 'superadmin')
+            <li class="menu-header">Materi Kursus</li>
+            {{-- <li class="{{ Request::is('hakakses') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('hakakses') }}"><i class="fas fa-user-shield"></i> <span>Access Rights</span></a>
+            </li> --}}
             @endif
 
             <!-- Profile and change password -->
