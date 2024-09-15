@@ -40,12 +40,12 @@
             </li>
             @endif
 
-            @if (Auth::user()->role == 'superadmin')
+            {{-- @if (Auth::user()->role == 'superadmin') --}}
             <li class="menu-header">Materi Kursus</li>
-            {{-- <li class="{{ Request::is('hakakses') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('hakakses') }}"><i class="fas fa-user-shield"></i> <span>Access Rights</span></a>
-            </li> --}}
-            @endif
+            <li class="{{ Request::is('/course-admin') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/course-admin') }}"><i class="fas fa-user-shield"></i> <span>Kursus</span></a>
+            </li>
+            {{-- @endif --}}
 
             <!-- Profile and change password -->
             <li class="menu-header">Profile</li>
