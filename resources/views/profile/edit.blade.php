@@ -3,7 +3,7 @@
 @section('content')
 <div class="main-content">
     <div class="row justify-content-center">
-        <div class="col-lg-10">
+        <div class="col-lg-9">
             <div class="card">
                 <div class="card-header">{{ __('Edit Profile') }}</div>
             </div>
@@ -47,7 +47,40 @@
                                 </div>
                         
                             </div>
+
+                              <!-- Name -->
+                        <div class="form-group row justify-content-center">
+                            <div class="col-md-8">
+                                <label for="name" class="col-form-label fw-bold">{{ __('FullName') }}</label>
+                                <input id="name" type="text" 
+                                       class="form-control @error('name') is-invalid @enderror" 
+                                       name="name" value="{{ old('name', $user->name) }}" 
+                                       required autocomplete="name" autofocus>
+                                
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
                             
+                         <!-- 2. userame -->
+                        <div class="form-group row justify-content-center">
+                            <div class="col-md-8">
+                                <label for="name" class="col-form-label fw-bold">{{ __('Username') }}</label>
+                                <input id="name" type="text" 
+                                       class="form-control @error('username') is-invalid @enderror" 
+                                       name="name" value="{{ old('username', $user->username) }}" 
+                                       required autocomplete="name" autofocus>
+                                
+                                @error('username')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>   
                         
                         <!-- Email -->
                         <div class="form-group row justify-content-center">
@@ -66,15 +99,32 @@
                                 @enderror
                             </div>
                         </div>
-                
-                        <!-- Name -->
-                        <div class="form-group row justify-content-center">
+
+                          <!-- city -->
+                          <div class="form-group row justify-content-center">
                             <div class="col-md-8">
-                                <label for="name" class="col-form-label fw-bold">{{ __('Name') }}</label>
+                                <label for="name" class="col-form-label fw-bold">{{ __('City') }}</label>
                                 <input id="name" type="text" 
-                                       class="form-control @error('name') is-invalid @enderror" 
-                                       name="name" value="{{ old('name', $user->name) }}" 
-                                       required autocomplete="name" autofocus>
+                                       class="form-control @error('city') is-invalid @enderror" 
+                                       name="city" value="{{ old('city', $user->city) }}" 
+                                       required autocomplete="city" autofocus>
+                                
+                                @error('city')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                          <!-- phone -->
+                          <div class="form-group row justify-content-center">
+                            <div class="col-md-8">
+                                <label for="phone" class="col-form-label fw-bold">{{ __('Phone') }}</label>
+                                <input id="phone" type="text" 
+                                       class="form-control @error('phone') is-invalid @enderror" 
+                                       name="phone" value="{{ old('phone', $user->phone) }}" 
+                                       required autocomplete="phone" autofocus>
                                 
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -83,6 +133,7 @@
                                 @enderror
                             </div>
                         </div>
+                
                 
                         <!-- Nationality -->
                         <div class="form-group row justify-content-center">
