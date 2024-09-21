@@ -1,5 +1,10 @@
 "use strict";
 
+import { Collapse, initMDB } from 'mdb-ui-kit';
+
+// Initialize MDB components
+initMDB({ Collapse });
+
 (function($, window, i) {
   // Bootstrap 4 Modal
   $.fn.fireModal = function(options) {

@@ -40,21 +40,12 @@
             </li>
             @endif
 
-<<<<<<< HEAD
             @if (Auth::user()->role == 'superadmin') 
             <li class="menu-header">Course materials</li>
             <li class="{{ Request::is('course-admin') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('course-admin') }}"><i class="fas fa-user-shield"></i> <span>Course</span></a>
             </li>
              @endif 
-=======
-            @if (Auth::user()->role == 'superadmin')
-            <li class="menu-header">Materi Kursus</li>
-            <li class="{{ Request::is('/course-admin') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/course-admin') }}"><i class="fas fa-user-shield"></i> <span>Kursus</span></a>
-            </li>
-            @endif
->>>>>>> 5f5c206652f3a302f23b2528b9ff1adbad12913b
 
             <!-- Profile and change password -->
             <li class="menu-header">Profile</li>

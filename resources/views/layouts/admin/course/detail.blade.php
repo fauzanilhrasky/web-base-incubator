@@ -4,50 +4,45 @@
 
 @section('content')
     <div class="main-content">
-        <section class="section">
-            <div class="section-header">
-                <div class="section-header-back">
-                    <a href="{{ route('course.index') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
-                </div>
-                <h1>Show Course</h1>
-                <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Courses</a></div>
-                    <div class="breadcrumb-item">Show Course</div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>
+                            {{ $course->name }}
+                        </h3>
+                    </div>
                 </div>
             </div>
+        </div>
 
+        <section class="section">
             <div class="section-body">
                 <h2 class="section-title">Course Details</h2>
                 <p class="section-lead">
                     Below is the detailed information of the selected course.
                 </p>
 
-                <div class="card">
-                    <div class="card-header">
-                        <h4>{{ $course->name }}</h4>
-                    </div>
-
-                    <div class="card-body">
-                        <div class="form-group">
-                            <strong>Course Name:</strong>
-                            <p>{{ $course->name }}</p>
+                <div class="accordion" id="accordionExampleY">
+                    @for ($i = 1; $i <= 12; $i++)
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading{{ $i }}Y">
+                                <button class="accordion-button {{ $i === 1 ? '' : 'collapsed' }}" type="button" 
+                                        data-mdb-toggle="collapse" 
+                                        data-mdb-target="#collapse{{ $i }}Y" 
+                                        aria-expanded="{{ $i === 1 ? 'true' : 'false' }}" 
+                                        aria-controls="collapse{{ $i }}Y">
+                                    <i class="fas fa-question-circle fa-sm me-2 opacity-70"></i>Accordion Item #{{ $i }}
+                                </button>
+                            </h2>
+                            <div id="collapse{{ $i }}Y" class="accordion-collapse collapse {{ $i === 1 ? 'show' : '' }}" aria-labelledby="heading{{ $i }}Y" data-mdb-parent="#accordionExampleY">
+                                <div class="accordion-body">
+                                    <strong>This is item #{{ $i }}'s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="form-group">
-                            <strong>Details:</strong>
-                            <p>{{ $course->detail }}</p>
-                        </div>
-
-                        <div class="form-group">
-                            <strong>Image:</strong>
-                            <img src="/images/{{ $course->image }}" class="img-fluid" alt="Course Image" style="max-width: 500px;">
-                        </div>
-                    </div>
-
-                    <div class="card-footer text-right">
-                        <a class="btn btn-primary" href="{{ route('course.index') }}">Back to Courses</a>
-                    </div>
+                    @endfor
                 </div>
             </div>
         </section>
