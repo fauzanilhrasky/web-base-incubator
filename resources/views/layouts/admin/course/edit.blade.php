@@ -55,6 +55,30 @@
                                 </div>
                             </div>
 
+                            <!-- Dropdown for isPaid -->
+                            <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Is Paid</label>
+                                <div class="col-sm-12 col-md-7">
+                                    <select name="isPaid" class="form-control">
+                                        <option value="0" {{ $course->isPaid == 0 ? 'selected' : '' }}>Free</option>
+                                        <option value="1" {{ $course->isPaid == 1 ? 'selected' : '' }}>Paid</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Dropdown for category -->
+                            <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category</label>
+                                <div class="col-sm-12 col-md-7">
+                                    <select name="category" class="form-control">
+                                        <option value="programming" {{ $course->category == 'programming' ? 'selected' : '' }}>Programming</option>
+                                        <option value="design" {{ $course->category == 'design' ? 'selected' : '' }}>Design</option>
+                                        <option value="business" {{ $course->category == 'business' ? 'selected' : '' }}>Business</option>
+                                        <!-- Tambahkan kategori lainnya sesuai kebutuhan -->
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Image</label>
                                 <div class="col-sm-12 col-md-7">

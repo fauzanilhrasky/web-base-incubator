@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Course;
 
 class HomeController extends Controller
 {
@@ -23,8 +24,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $courses = Course::all();
+        return view('home', compact('courses'));
     }
+
+    public function detail(Course $course)
+    {
+        return view('layouts.admin.course.detail',compact('course'));
+    }
+
     public function adminHome()
     {
         return view('layouts.admin.home');

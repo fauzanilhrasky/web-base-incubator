@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 
@@ -23,11 +24,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/create-course-admin', [CourseController::class, 'create'])->name('course.create');
     Route::post('/store-course-admin', [CourseController::class, 'store'])->name('course.store');
     Route::get('/show-course-admin/{course}', [CourseController::class, 'show'])->name('course.show');
+   
     Route::get('/edit-course-admin/{course}', [CourseController::class, 'edit'])->name('course.edit');
     Route::put('/edit-course-admin/{course}', [CourseController::class, 'update'])->name('course.update');
     Route::delete('/{course}', [CourseController::class, 'destroy'])->name('course.destroy');
 
 
+    // user
+    Route::get('/detail-course/{course}', [HomeController::class, 'detail'])->name('course.detail');
 
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
