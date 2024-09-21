@@ -18,7 +18,7 @@ body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li ul.dropdown-menu l
 }
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li.active ul.dropdown-menu li.active a,
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li ul.dropdown-menu li.active a {
-  background-color: transparent !important;
+  background-color: #222226;
   color: #ffc530;
 }
 body.skin-reverse .main-sidebar {
@@ -43,7 +43,7 @@ body.skin-reverse .main-sidebar .sidebar-menu li.menu-header {
   color: #afb7ff;
 }
 body.skin-reverse .main-sidebar .sidebar-menu li ul.dropdown-menu li a {
-  color: #dadefb;
+  color: #222226;
 }
 body.skin-reverse .main-sidebar .sidebar-menu li ul.dropdown-menu li a:hover {
   background-color: #ffc530;
@@ -101,5 +101,7 @@ body.skin-reverse .navbar .form-inline .form-control {
   margin-left: auto; /* Mengatur agar elemen tetap di sebelah kanan */
   margin-right: 0;
 }
+
+
 
 /*# sourceMappingURL=reverse.css.map */

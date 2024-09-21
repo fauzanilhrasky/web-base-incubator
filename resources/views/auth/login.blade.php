@@ -69,7 +69,10 @@
 
                 
 
-                    <button type="submit" class="btn btn-border btn-primary ms-3">Sign In</button>
+                <div class="d-flex justify-content-center mt-4">
+                    <button type="submit" class="btn btn-border btn-primary">Sign In</button>
+                </div>
+                
                 
             </form>
         </div>

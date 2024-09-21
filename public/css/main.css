@@ -64,7 +64,7 @@ body {
 .login-user .right .header-third {
     height: 20px;
     font-size: 22px;
-    color: #f3bf39;
+    color: #FDDE55;
     font-weight: 500;
     margin-top: -20px;
     margin-bottom: 50px;
@@ -132,7 +132,7 @@ body {
 }
 
 .login-user .left .btn-primary {
-    background: #f3bf39;
+    background: #FDDE55;
     color: #fff;
     width: 200px;
 }
@@ -183,7 +183,7 @@ body {
 }
 
 .btn-primary {
-    background: #ffc530;
+    background: #FFD31D;
     color: #fff;
 }
 
@@ -295,9 +295,16 @@ body {
     color: #fff !important;
 }
 
+
+
 .btn-secondary {
     background: #f5efff;
     color: #7839f3;
+}
+
+.btn-secondary:hover {
+  background-color: #FFD31D;
+  color:#222226;
 }
 
 /*Global Banner*/
@@ -589,7 +596,8 @@ body {
 }
 
 .navbar .navbar-brand img {
-    height: 80px;
+    height: 60px;
+    width: 70px;
     
 }
 

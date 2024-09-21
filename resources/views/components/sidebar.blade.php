@@ -22,7 +22,7 @@
             @endif
 
             @if (Auth::user()->role == 'superadmin')
-            <li class="{{ Request::is('/home-admin') ? 'active' : '' }}">
+            <li class="{{ Request::is('home-admin') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('/home-admin') }}"><i class="fas fa-fire"></i><span>Dashboard Admin</span></a>
             </li>
             @endif
@@ -40,12 +40,12 @@
             </li>
             @endif
 
-            {{-- @if (Auth::user()->role == 'superadmin') --}}
-            <li class="menu-header">Materi Kursus</li>
-            <li class="{{ Request::is('/course-admin') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/course-admin') }}"><i class="fas fa-user-shield"></i> <span>Kursus</span></a>
+            @if (Auth::user()->role == 'superadmin') 
+            <li class="menu-header">Course materials</li>
+            <li class="{{ Request::is('course-admin') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('course-admin') }}"><i class="fas fa-user-shield"></i> <span>Course</span></a>
             </li>
-            {{-- @endif --}}
+             @endif 
 
             <!-- Profile and change password -->
             <li class="menu-header">Profile</li>
@@ -61,7 +61,7 @@
                 <a class="nav-link" href="{{ url('blank-page') }}"><i class="far fa-square"></i> <span>Blank Page</span></a>
             </li>
 
-            <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
+            <li class="{{ Request::is('Settings') ? 'active' : '' }}">
                 <a class="nav-link" href="#"><i class="fas fa-gear"></i> <span>Settings</span></a>
 
             </li>

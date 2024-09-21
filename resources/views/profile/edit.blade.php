@@ -168,7 +168,7 @@
                         <!-- Update Button -->
                         <div class="form-group row justify-content-center">
                             <div class="col-md-8 text-center">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-dark w-50"  style="margin-top: 70px;">
                                     {{ __('Update Profile') }}
                                 </button>
                             </div>

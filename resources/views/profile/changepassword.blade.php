@@ -7,8 +7,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Ganti Password') }}</div>
+                <div class="card-header fst-normal">{{ __('Change Password') }}</div>
+            </div>
 
+            <div class="card">
                 <div class="card-body">
                     <form method="POST" action="{{ route('profile.password') }}">
                         @csrf
@@ -19,7 +21,7 @@
                                     {{ session('status') }}
                                 </div>
                             @endif
-                            <label for="current_password" class="col-md-4 col-form-label text-md-right">{{ __('Password Sekarang') }}</label>
+                            <label for="current_password" class="col-md-4 col-form-label text-md-right">{{ __('current password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="current_password" type="password" class="form-control @error('current_password') is-invalid @enderror" name="current_password" required autocomplete="current_password">
@@ -32,7 +34,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="new_password" class="col-md-4 col-form-label text-md-right">{{ __('Password Baru') }}</label>
+                            <label for="new_password" class="col-md-4 col-form-label text-md-right">{{ __('New Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="new_password" type="password" class="form-control @error('new_password') is-invalid @enderror" name="new_password" required autocomplete="new_password">
@@ -45,7 +47,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="new_password_confirmation" class="col-md-4 col-form-label text-md-right">{{ __('Konfirmasi Password Baru') }}</label>
+                            <label for="new_password_confirmation" class="col-md-4 col-form-label text-md-right">{{ __('Confirm New Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="new_password_confirmation" type="password" class="form-control @error('new_password_confirmation') is-invalid @enderror" name="new_password_confirmation" required autocomplete="new_password_confirmation">
@@ -62,8 +64,8 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Ganti Password') }}
+                                <button type="submit" class="btn btn-dark">
+                                    {{ __('Change Password') }}
                                 </button>
                             </div>
                         </div>
