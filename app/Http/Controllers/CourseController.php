@@ -35,6 +35,8 @@ class CourseController extends Controller
             'name' => 'required',
             'detail' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg,svg,gif|max:2048',
+            'category' => 'required',
+            'isPaid' => 'required',
         ]);
 
         $input = $request->all();
@@ -58,6 +60,8 @@ class CourseController extends Controller
     {
         return view('layouts.admin.course.show',compact('course'));
     }
+    
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -74,7 +78,9 @@ class CourseController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'detail' => 'required'
+            'detail' => 'required',
+            'category' => 'required',
+            'isPaid'=> 'required'
         ]);
 
         $input = $request->all();

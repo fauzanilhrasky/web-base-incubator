@@ -13,5 +13,7 @@ class Course extends Model
         'name',
         'detail',
         'image',
+        'category',
+        'isPaid'
     ];
 }

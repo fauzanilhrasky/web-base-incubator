@@ -4,12 +4,9 @@
 
 @push('style')
     <!-- CSS Libraries -->
-    <link rel="stylesheet"
-        href="{{ asset('library/summernote/dist/summernote-bs4.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('library/selectric/public/selectric.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('library/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/summernote/dist/summernote-bs4.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/selectric/public/selectric.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
 @endpush
 
 @section('content')
@@ -29,9 +26,7 @@
 
             <div class="section-body">
                 <h2 class="section-title">Create a New Course</h2>
-                <p class="section-lead">
-                    Fill in the information below to add a new course.
-                </p>
+                <p class="section-lead">Fill in the information below to add a new course.</p>
 
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -63,6 +58,30 @@
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Course Details</label>
                                 <div class="col-sm-12 col-md-7">
                                     <textarea class="form-control" style="height:150px" name="detail" placeholder="Course Details">{{ old('detail') }}</textarea>
+                                </div>
+                            </div>
+
+                            <!-- Dropdown for isPaid -->
+                            <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Is Paid</label>
+                                <div class="col-sm-12 col-md-7">
+                                    <select name="isPaid" class="form-control">
+                                        <option value="0">Free</option>
+                                        <option value="1">Paid</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Dropdown for category -->
+                            <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category</label>
+                                <div class="col-sm-12 col-md-7">
+                                    <select name="category" class="form-control">
+                                        <option value="programming">Programming</option>
+                                        <option value="design">Design</option>
+                                        <option value="business">Business</option>
+                                        <!-- Tambahkan kategori lainnya sesuai kebutuhan -->
+                                    </select>
                                 </div>
                             </div>
 
