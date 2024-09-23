@@ -1,8 +1,24 @@
-/**
- *
- * You can write your CSS code here, DO NOT touch the default JavaScript file
- * because it will make it harder for you to update.
- * 
- */
+.btn-custom {
+    background-color: #222226 !important; /* Aturan bootstrap */
+    color: white;
+}
 
-/*# sourceMappingURL=custom.css.map */
+.btn-custom:hover{
+    background-color: blue !important;
+    color: white;
+}
+
+.mdb-btn-custom {
+    background-color: #222226; /* Aturan MDB */
+    color: white;
+    width: 400px;
+}
+
+.mdb-btn-custom:hover{
+    background-color: #00c851 !important;
+    color: white;
+}
+
+.accordion-item {
+    margin-bottom: 15px; /* Memberikan jarak antar accordion item */
+}

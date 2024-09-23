@@ -62,7 +62,7 @@
                                                     <a class="btn btn-info" href="{{ route('course.show', $course->id) }}">
                                                         <i class="fas fa-eye"></i> Show
                                                     </a>
-                                                    <a class="btn btn-primary" href="{{ route('course.edit', $course->id) }}">
+                                                    <a class="btn btn-custom" href="{{ route('course.edit', $course->id) }}">
                                                         <i class="fas fa-edit"></i> Edit
                                                     </a>
                                                     @csrf

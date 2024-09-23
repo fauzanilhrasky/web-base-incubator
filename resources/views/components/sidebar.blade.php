@@ -1,5 +1,5 @@
 @auth
-<div class="main-sidebar sidebar-style-3">
+<div class="main-sidebar sidebar-style-3 ">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
             <a href="#">

@@ -1,19 +1,25 @@
+.main-sidebar {
+  background-color: #222226 !important;
+}
+
+
+
 body.skin-reverse.sidebar-mini .main-sidebar:after {
-  background-color: #ffc530;
+  background-color: #ffc530 ;
 }
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li.active > a {
-  background-color: #222226;
+  background-color: #222226 !important;
   box-shadow: none;
   color: #ffc530;
 }
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li.active ul.dropdown-menu li a,
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li ul.dropdown-menu li a {
-  background-color: transparent;
+  background-color: #222226 !important;
   color: #868e96;
 }
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li.active ul.dropdown-menu li a:hover,
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li ul.dropdown-menu li a:hover {
-  background-color: #fcfcfd;
+  background-color: #222226 !important;
   color: #191d21;
 }
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li.active ul.dropdown-menu li.active a,
@@ -76,31 +82,32 @@ body.skin-reverse .navbar .form-inline .form-control {
 }
 
 .main-sidebar {
-  background-color: #222226;
+  background-color: #222226 !important;
 }
 
 /* Ganti warna background pada sidebar */
 .sidebar-style-4 {
-  background-color: #222226;
+  background-color: #222226 !important;
 }
 
 /* Ganti warna background pada sidebar kecil (responsive) */
 .sidebar-brand-sm {
-  background-color: #222226;
+  background-color: #222226 !important;
 }
 
 .sidebar-menu {
-  background-color: #222226;
+  background-color: #222226 !important;
 }
 
 .sidebar-wrapper {
-  background-color: #222226;
+  background-color: #222226 !important;
 }
 
 .crt {
   margin-left: auto; /* Mengatur agar elemen tetap di sebelah kanan */
   margin-right: 0;
 }
+
 
 
 

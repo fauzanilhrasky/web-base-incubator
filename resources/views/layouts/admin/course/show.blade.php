@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="card-footer text-right">
-                        <a class="btn btn-primary" href="{{ route('course.index') }}">Back to Courses</a>
+                        <a class="btn mdb-btn-custom" href="{{ route('course.index') }}">Back to Courses</a>
                     </div>
                 </div>
             </div>

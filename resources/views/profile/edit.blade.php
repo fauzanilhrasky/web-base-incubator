@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-9">
             <div class="card">
-                <div class="card-header">{{ __('Edit Profile') }}</div>
+                <div class="card-header"><h3>{{ __('Edit Profile') }}</h3></div>
             </div>
 
             <div class="card">
@@ -168,7 +168,7 @@
                         <!-- Update Button -->
                         <div class="form-group row justify-content-center">
                             <div class="col-md-8 text-center">
-                                <button type="submit" class="btn btn-dark w-50"  style="margin-top: 70px;">
+                                <button type="submit" class="btn mdb-btn-custom"  style="margin-top: 70px;">
                                     {{ __('Update Profile') }}
                                 </button>
                             </div>

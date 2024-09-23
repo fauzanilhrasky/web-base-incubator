@@ -41,30 +41,48 @@
                         <!-- Course Cards -->
                         <div class="row">
                             @foreach ($courses as $course)
-                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                                    <a href="{{ route('course.detail', $course->id) }}" class="text-decoration-none">
-                                        <div class="article article-style-b d-flex flex-column h-100">
-                                            <div class="article-header">
-                                                <div class="article-image">
-                                                    <img src="/images/{{ $course->image }}" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;" alt="{{ $course->name }}">
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">     
+                                    @if ($course->isPaid)
+                                        <a href="#" class="text-decoration-none"> <!-- Link ke halaman form pembayaran -->
+                                            <div class="article article-style-b d-flex flex-column h-100">
+                                                <div class="article-header">
+                                                    <div class="article-image">
+                                                        <img src="/images/{{ $course->image }}" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;" alt="{{ $course->name }}">
+                                                    </div>
+                                                    <!-- Badge for Paid Course -->
+                                                    <div class="article-badge">
+                                                        <div class="article-badge-item bg-danger"><i class="fas fa-money-bill-wave"></i> Paid</div> <!-- Badge berwarna merah -->
+                                                    </div>
                                                 </div>
-                        
-                                                <!-- Badge for Free or Paid Course -->
-                                                @if (!$course->isPaid)
+                                                <div class="article-details flex-grow-1">
+                                                    <div class="article-title">
+                                                        <h2 class="text-dark">{{ $course->name }}</h2>
+                                                    </div>
+                                                    <p>{{ \Illuminate\Support\Str::limit($course->detail, 100) }}</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    @else
+                                        <a href="{{ route('course.detail', $course->id) }}" class="text-decoration-none"> <!-- Link ke halaman detail untuk course gratis -->
+                                            <div class="article article-style-b d-flex flex-column h-100">
+                                                <div class="article-header">
+                                                    <div class="article-image">
+                                                        <img src="/images/{{ $course->image }}" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;" alt="{{ $course->name }}">
+                                                    </div>
+                                                    <!-- Badge for Free Course -->
                                                     <div class="article-badge">
                                                         <div class="article-badge-item bg-primary"><i class="fas fa-exclamation"></i> Free</div>
                                                     </div>
-                                                @endif
-                                            </div>
-                        
-                                            <div class="article-details flex-grow-1">
-                                                <div class="article-title">
-                                                    <h2 class="text-dark">{{ $course->name }}</h2>
                                                 </div>
-                                                <p>{{ \Illuminate\Support\Str::limit($course->detail, 100) }}</p>
+                                                <div class="article-details flex-grow-1">
+                                                    <div class="article-title">
+                                                        <h2 class="text-dark">{{ $course->name }}</h2>
+                                                    </div>
+                                                    <p>{{ \Illuminate\Support\Str::limit($course->detail, 100) }}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    @endif
                                 </div>
                             @endforeach
                         </div>

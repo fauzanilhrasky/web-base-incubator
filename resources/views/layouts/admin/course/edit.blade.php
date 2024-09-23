@@ -89,7 +89,7 @@
 
                             <div class="form-group row mb-4">
                                 <div class="col-md-7 offset-md-3">
-                                    <button type="submit" class="btn btn-primary">Update Course</button>
+                                    <button type="submit" class="btn btn-custom">Update Course</button>
                                 </div>
                             </div>
                         </form>
