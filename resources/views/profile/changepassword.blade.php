@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header fst-normal">{{ __('Change Password') }}</div>
+                <div class="card-header fst-normal"><h5>{{ __('Change Password') }}</h5></div>
             </div>
 
             <div class="card">

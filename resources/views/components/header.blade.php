@@ -22,8 +22,8 @@
                     <i class="fa fa-user"></i> Edit Profile
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="{{ url('logout') }}" class="dropdown-item has-icon text-danger"
-                   onclick="event.preventDefault(); localStorage.clear();  document.getElementById('logout-form').submit();">
+                <a href="#" class="dropdown-item has-icon text-danger"
+                   onclick="event.preventDefault(); confirmLogout();">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
                 <form id="logout-form" action="{{ url('/logout') }}" method="POST" class="d-none">
@@ -31,6 +31,25 @@
                 </form>
             </div>
         </li>
-        @endauth
     </ul>
 </nav>
+
+<script>
+    function confirmLogout() {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You will be logged out from your account!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, log me out!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.clear(); // Clear local storage
+                document.getElementById('logout-form').submit(); // Submit the logout form
+            }
+        });
+    }
+</script>
+@endauth

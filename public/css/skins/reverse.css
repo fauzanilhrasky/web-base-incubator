@@ -4,6 +4,7 @@
 
 
 
+
 body.skin-reverse.sidebar-mini .main-sidebar:after {
   background-color: #ffc530 ;
 }
@@ -24,7 +25,7 @@ body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li ul.dropdown-menu l
 }
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li.active ul.dropdown-menu li.active a,
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li ul.dropdown-menu li.active a {
-  background-color: #222226;
+  background-color: #222226 !important;
   color: #ffc530;
 }
 body.skin-reverse .main-sidebar {
@@ -52,7 +53,7 @@ body.skin-reverse .main-sidebar .sidebar-menu li ul.dropdown-menu li a {
   color: #222226;
 }
 body.skin-reverse .main-sidebar .sidebar-menu li ul.dropdown-menu li a:hover {
-  background-color: #ffc530;
+  background-color: #ffc530 ;
   color: #fff;
 }
 body.skin-reverse .main-sidebar .sidebar-menu li ul.dropdown-menu li.active a {
@@ -60,7 +61,7 @@ body.skin-reverse .main-sidebar .sidebar-menu li ul.dropdown-menu li.active a {
 }
 body.skin-reverse .navbar-bg,
 body.skin-reverse .navbar {
-  background-color: #fff;
+  background-color: #222226 !important;
 }
 body.skin-reverse .navbar-bg .nav-link.nav-link-user,
 body.skin-reverse .navbar-bg .nav-link,
@@ -108,7 +109,40 @@ body.skin-reverse .navbar .form-inline .form-control {
   margin-right: 0;
 }
 
+/* Warna default sidebar */
+.main-sidebar {
+  background-color: #222226 !important;
+}
 
+/* Atur warna saat sidebar mini diaktifkan */
+body.sidebar-mini .main-sidebar {
+  background-color: #222226 !important;
+}
+
+body.sidebar-mini .main-sidebar .sidebar-menu li a {
+  color: #fff !important; /* Teks berwarna putih */
+}
+
+/* Warna teks dan hover di sidebar mini */
+body.sidebar-mini .main-sidebar .sidebar-menu li a:hover {
+  background-color: #ffc530 !important; /* Hover warna kuning */
+  color: #222226 !important;
+}
+
+/* Aktifkan warna pada link yang sedang aktif */
+body.sidebar-mini .main-sidebar .sidebar-menu li.active > a {
+  background-color: #ffc530 !important;
+  color: #222226 !important;
+}
+
+/* Atur warna pada menu header dan dropdown jika diperlukan */
+body.sidebar-mini .main-sidebar .sidebar-menu li.menu-header {
+  color: #868e96; /* Warna teks header */
+}
+
+.sidebar-wrapper{
+  background-color: #222226;
+}
 
 
 /*# sourceMappingURL=reverse.css.map */

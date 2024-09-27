@@ -9,6 +9,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/pricing', function () {
+    return view('components.pricing');
+})->name('pricing');
+
+
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {

@@ -28,13 +28,20 @@
             @endif
 
             @if (Auth::user()->role == 'mentor')
-            <li class="{{ Request::is('/home-mentor') ? 'active' : '' }}">
+            <li class="{{ Request::is('home-mentor') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('/home-mentor') }}"><i class="fas fa-fire"></i><span>Dashboard Mentor</span></a>
             </li>
             @endif
 
+            <li class="menu-header">Access</li>
+            @if (Auth::user()->role == 'mentor')
+            <li class="{{ Request::is('hakakses') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('#') }}"><i class="fas fa-book"></i> <span>Materi</span></a>
+            </li>
+            @endif
+
             @if (Auth::user()->role == 'superadmin')
-            <li class="menu-header">Hak Akses</li>
+            
             <li class="{{ Request::is('hakakses') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('hakakses') }}"><i class="fas fa-user-shield"></i> <span>Access Rights</span></a>
             </li>
@@ -56,13 +63,15 @@
                 <a class="nav-link" href="{{ url('profile/change-password') }}"><i class="fas fa-key"></i> <span>Change Password</span></a>
             </li>
 
-            <li class="menu-header">Starter</li>
-            <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('blank-page') }}"><i class="far fa-square"></i> <span>Blank Page</span></a>
-            </li>
 
+            <li class="menu-header">Starter</li>
+            @if (Auth::user()->role == 'users') 
+            <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('blank-page') }}"><i class="far fa-square"></i> <span>my course</span></a>
+            </li>
+            @endif
             <li class="{{ Request::is('Settings') ? 'active' : '' }}">
-                <a class="nav-link" href="#"><i class="fas fa-gear"></i> <span>Settings</span></a>
+                <a class="nav-link" href="#"><i class="fas fa-tag"></i> <span>Settings</span></a>
 
             </li>
             {{-- <footer>

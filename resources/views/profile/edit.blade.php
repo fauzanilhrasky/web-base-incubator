@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-9">
             <div class="card">
-                <div class="card-header"><h3>{{ __('Edit Profile') }}</h3></div>
+                <div class="card-header"><h5>{{ __('Edit Profile') }}</h5></div>
             </div>
 
             <div class="card">
