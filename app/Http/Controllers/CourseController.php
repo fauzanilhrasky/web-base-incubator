@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Material;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -108,5 +109,31 @@ class CourseController extends Controller
         $course->delete();
 
         return redirect()->route('course.index')->with('success', 'Course deleted successfully.');
+    }
+
+    public function createMaterial(Course $course) {
+        return view('layouts.admin.material.create', compact('course'));
+    }
+
+    public function storeMaterial(Request $request, Course $course) {
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'file' => 'nullable|file|mimes:png,jpg,pdf,doc,docx|max:2048'
+        ]);
+
+        $input = $request->all();
+        $input['course_id'] = $course->id;
+
+        if ($file = $request->file('file')) {
+            $destinationPath = 'files/';
+            $materialFile = date('YmdHis') . '.' .$file->getClientOriginalExtension();
+            $file->move($destinationPath,$materialFile);
+            $input['file'] = '$materialFile';
+        }
+
+        Material::create($input);
+
+        return redirect()->route('course.index', $course->id)->with('success','Material added sucessfully');
     }
 }

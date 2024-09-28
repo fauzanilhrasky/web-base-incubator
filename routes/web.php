@@ -33,7 +33,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/edit-course-admin/{course}', [CourseController::class, 'edit'])->name('course.edit');
     Route::put('/edit-course-admin/{course}', [CourseController::class, 'update'])->name('course.update');
     Route::delete('/{course}', [CourseController::class, 'destroy'])->name('course.destroy');
-
+    
+    Route::get('/course/{course}/material/create', [CourseController::class,'createMaterial'])->name('course.material.create');
+    Route::post('/course/{course}/material', [CourseController::class,'storeMaterial'])->name('course.material.store');
 
     // user
     Route::get('/detail-course/{course}', [HomeController::class, 'detail'])->name('course.detail');

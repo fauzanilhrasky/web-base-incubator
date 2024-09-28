@@ -47,7 +47,7 @@
                                         <th>Image</th>
                                         <th>Name</th>
                                         <th>Details</th>
-                                        <th width="280px">Action</th>
+                                        <th width="400px">Action</th> <!-- Increased width for additional button -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -64,6 +64,9 @@
                                                     </a>
                                                     <a class="btn btn-custom" href="{{ route('course.edit', $course->id) }}">
                                                         <i class="fas fa-edit"></i> Edit
+                                                    </a>
+                                                    <a class="btn btn-primary" href="{{ route('course.material.create', $course->id) }}">
+                                                        <i class="fas fa-plus"></i> Add Material
                                                     </a>
                                                     @csrf
                                                     @method('DELETE')

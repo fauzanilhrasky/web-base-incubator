@@ -51,6 +51,9 @@
             <li class="menu-header">Course materials</li>
             <li class="{{ Request::is('course-admin') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('course-admin') }}"><i class="fas fa-user-shield"></i> <span>Course</span></a>
+            </li> 
+            <li class="{{ Request::is('course.material.create') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('course.material.create') }}"><i class="fas fa-user-shield"></i> <span>Materi Pelajaran</span></a>
             </li>
              @endif 
 
