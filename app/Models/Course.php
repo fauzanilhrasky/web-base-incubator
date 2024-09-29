@@ -15,6 +15,8 @@ class Course extends Model
         'detail',
         'image',
         'category',
+        'mentor',
+        'price',
         'isPaid'
     ];
 

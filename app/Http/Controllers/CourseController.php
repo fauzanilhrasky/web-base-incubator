@@ -37,6 +37,8 @@ class CourseController extends Controller
             'detail' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg,svg,gif|max:2048',
             'category' => 'required',
+            'mentor' => 'required',
+            'price' => 'required',
             'isPaid' => 'required',
         ]);
 
@@ -81,6 +83,8 @@ class CourseController extends Controller
             'name' => 'required',
             'detail' => 'required',
             'category' => 'required',
+            // 'mentor' => 'required',
+            // 'price' => 'required',
             'isPaid'=> 'required'
         ]);
 
@@ -115,25 +119,31 @@ class CourseController extends Controller
         return view('layouts.admin.material.create', compact('course'));
     }
 
-    public function storeMaterial(Request $request, Course $course) {
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-            'file' => 'nullable|file|mimes:png,jpg,pdf,doc,docx|max:2048'
-        ]);
+    public function storeMaterial(Request $request, Course $course)
+{
+    $request->validate([
+        'materials.*.title' => 'required',
+        'materials.*.content' => 'required',
+        'materials.*.file' => 'nullable|file|mimes:png,jpg,pdf,doc,docx|max:2048',
+    ]);
 
-        $input = $request->all();
-        $input['course_id'] = $course->id;
+    foreach ($request->materials as $materialData) {
+        $materialInput = $materialData;
 
-        if ($file = $request->file('file')) {
+        if (isset($materialData['file'])) {
+            $file = $materialData['file'];
             $destinationPath = 'files/';
-            $materialFile = date('YmdHis') . '.' .$file->getClientOriginalExtension();
-            $file->move($destinationPath,$materialFile);
-            $input['file'] = '$materialFile';
+            $materialFile = date('YmdHis') . '.' . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $materialFile);
+            $materialInput['file'] = $materialFile;
         }
 
-        Material::create($input);
+        $materialInput['course_id'] = $course->id;
 
-        return redirect()->route('course.index', $course->id)->with('success','Material added sucessfully');
+        Material::create($materialInput);
     }
+
+    return redirect()->route('course.index')->with('success', 'Materials added successfully.');
+}
+
 }

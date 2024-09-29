@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('detail');
             $table->string('image');
             $table->string('category');
+            $table->string('mentor');
+            $table->string('price');
             $table->boolean('isPaid')->default(false);
             $table->timestamps();
         });
