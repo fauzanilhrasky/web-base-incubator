@@ -39,48 +39,42 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>Details</th>
-                                        <th width="400px">Action</th> <!-- Increased width for additional button -->
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($courses as $course)
-                                        <tr>
-                                            <td>{{ ++$i }}</td>
-                                            <td><img src="/images/{{ $course->image }}" width="100px"></td>
-                                            <td>{{ $course->name }}</td>
-                                            <td>{{ $course->detail }}</td>
-                                            <td>
+                        <div class="row">
+                            @foreach ($courses as $course)
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                                    <div class="article article-style-b d-flex flex-column h-100">
+                                        <div class="article-header">
+                                            <div class="article-image">
+                                                <img src="/images/{{ $course->image }}" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;" alt="{{ $course->name }}">
+                                            </div>
+                                        </div>
+                                        <div class="article-details flex-grow-1">
+                                            <div class="article-title">
+                                                <h2 class="text-dark">{{ $course->name }}</h2>
+                                            </div>
+                                            <p>{{ \Illuminate\Support\Str::limit($course->detail, 100) }}</p>
+                                        </div>
+                                        <div class="dropdown article-footer">
+                                            <a href="#" data-toggle="dropdown" class="btn btn-icon btn-outline-secondary dropdown-toggle" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="{{ route('course.show', $course->id) }}"><i class="fas fa-eye"></i> Show</a>
+                                                <a class="dropdown-item" href="{{ route('course.edit', $course->id) }}"><i class="fas fa-edit"></i> Edit</a>
+                                                <a class="dropdown-item" href="{{ route('course.material.create', $course->id) }}"><i class="fas fa-plus"></i> Add Material</a>
                                                 <form action="{{ route('course.destroy', $course->id) }}" method="POST">
-                                                    <a class="btn btn-info" href="{{ route('course.show', $course->id) }}">
-                                                        <i class="fas fa-eye"></i> Show
-                                                    </a>
-                                                    <a class="btn btn-custom" href="{{ route('course.edit', $course->id) }}">
-                                                        <i class="fas fa-edit"></i> Edit
-                                                    </a>
-                                                    <a class="btn btn-primary" href="{{ route('course.material.create', $course->id) }}">
-                                                        <i class="fas fa-plus"></i> Add Material
-                                                    </a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">
-                                                        <i class="fas fa-trash"></i> Delete
-                                                    </button>
+                                                    <button type="submit" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Delete</button>
                                                 </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
+
                     <div class="card-footer text-right">
                         {!! $courses->links() !!}
                     </div>
@@ -89,6 +83,7 @@
         </section>
     </div>
 @endsection
+
 
 @push('scripts')
     <!-- JS Libraries -->
