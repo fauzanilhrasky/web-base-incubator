@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\Material;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -24,7 +25,8 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('layouts.admin.course.create');
+        $mentors = User::where('role', 'mentor')->get();
+        return view('layouts.admin.course.create', compact('mentors'));
     }
 
     /**
@@ -37,7 +39,7 @@ class CourseController extends Controller
             'detail' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg,svg,gif|max:2048',
             'category' => 'required',
-            'mentor' => 'required',
+            'mentor_id' => 'required|exists:users,id',
             'price' => 'required',
             'isPaid' => 'required',
         ]);

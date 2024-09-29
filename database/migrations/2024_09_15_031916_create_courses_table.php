@@ -17,10 +17,13 @@ return new class extends Migration
             $table->string('detail');
             $table->string('image');
             $table->string('category');
-            $table->string('mentor');
+            $table->unsignedBigInteger('mentor_id');
             $table->string('price');
             $table->boolean('isPaid')->default(false);
             $table->timestamps();
+
+            // relasi
+            $table->foreign('mentor_id')->references('id')->on('users')->onDelete('cascade');
         });
 
         

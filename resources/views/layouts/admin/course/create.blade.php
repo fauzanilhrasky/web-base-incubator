@@ -88,10 +88,14 @@
 
                             {{-- Mentor --}}
                             <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Mentor Name</label>
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Mentor</label>
                                 <div class="col-sm-12 col-md-7">
-                                    <input type="text" name="mentor" class="form-control" placeholder="Mentor Name"
-                                        value="{{ old('mentor') }}">
+                                    <select name="mentor_id" class="form-control">
+                                        <option value="">Select a Mentor</option>
+                                        @foreach($mentors as $mentor)
+                                            <option value="{{ $mentor->id }}">{{ $mentor->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 

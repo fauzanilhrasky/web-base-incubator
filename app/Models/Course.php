@@ -15,9 +15,13 @@ class Course extends Model
         'detail',
         'image',
         'category',
-        'mentor',
+        'mentor_id',
         'price',
         'isPaid'
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 
 }
