@@ -127,7 +127,7 @@
 
             <!-- Submit Button -->
             <div class="flex items-center justify-end mt-4">
-                <button type="submit" class="btn btn-border btn-primary">Register</button>
+                <button type="submit" class="btn btn-border btn-primary">SIGN UP</button>
             
             </div>
             <div class="flex items-center justify-end mt-4">
@@ -136,4 +136,19 @@
         </form>
     </div>
 </section>
+
+
+@if(session('success'))
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    Swal.fire({
+        title: 'Success!',
+        text: '{{ session("success") }}',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    }).then(function() {
+        window.location.href = "{{ route('home') }}"; // Redirect to home page
+    });
+</script>
+@endif
 @endsection

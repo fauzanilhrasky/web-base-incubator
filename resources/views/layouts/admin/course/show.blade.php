@@ -1,52 +1,59 @@
 @extends('layouts.app')
 
-@section('title', 'Show Course')
+@section('title', 'Detail Course')
 
 @section('content')
     <div class="main-content">
-        <section class="section">
-            <div class="section-header">
-                <div class="section-header-back">
-                    <a href="{{ route('course.index') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
-                </div>
-                <h1>Show Course</h1>
-                <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Courses</a></div>
-                    <div class="breadcrumb-item">Show Course</div>
-                </div>
-            </div>
-
-            <div class="section-body">
-                <h2 class="section-title">Course Details</h2>
-                <p class="section-lead">
-                    Below is the detailed information of the selected course.
-                </p>
-
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>{{ $course->name }}</h4>
+                        <h3>{{ $course->name }}</h3>
                     </div>
+                </div>
+            </div>
+        </div>
 
-                    <div class="card-body">
-                        <div class="form-group">
-                            <strong>Course Name:</strong>
-                            <p>{{ $course->name }}</p>
+        <section class="section">
+            <div class="section-body">
+                <h2 class="section-title">Course Details</h2>
+                <p class="section-lead">Below is the detailed information of the selected course.</p>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-11 bg-white p-4" style="border-radius: 10px;">
+                       
+                        <div class="accordion" id="accordionPanelsStayOpenExample">
+                            
+                            @foreach ($materials as $index => $material)
+                                <div class="accordion-item" style="margin-bottom: 15px; border-radius: 10px; overflow: hidden;">
+                                    <h1 class="accordion-header" id="heading{{ $index }}">
+                                        <button class="accordion-button {{ $index === 0 ? '' : 'collapsed' }}" type="button" 
+                                                data-bs-toggle="collapse" 
+                                                data-bs-target="#panelsStayOpen-collapse{{ $index }}" 
+                                                aria-expanded="{{ $index === 0 ? 'true' : 'false' }}" 
+                                                aria-controls="panelsStayOpen-collapse{{ $index }}" 
+                                                style="border-radius: 0;">
+                                            <i class="fas fa-question-circle fa-sm me-2 opacity-70"></i> 
+                                            <strong style="font-size: 1.2em;">{{ $material->title }}</strong>
+                                        </button>
+                                    </h1>
+                                    
+                                    <div id="panelsStayOpen-collapse{{ $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" aria-labelledby="heading{{ $index }}">
+                                        <div class="accordion-body">
+                                            <strong>DESKRIPSI :</strong> {{ $material->content }}<br>
+                                            @if ($material->file)
+                                                <strong>File:</strong> <a href="{{ asset('files/' . $material->file) }}">{{ $material->file }}</a><br>
+                                            @endif
+                                            @if ($material->image)
+                                                <strong>Image:</strong> <img src="{{ asset('uploads/' . $material->image) }}" alt="Image" style="max-width: 100px;">
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                           
                         </div>
-
-                        <div class="form-group">
-                            <strong>Details:</strong>
-                            <p>{{ $course->detail }}</p>
-                        </div>
-
-                        <div class="form-group">
-                            <strong>Image:</strong>
-                            <img src="/images/{{ $course->image }}" class="img-fluid" alt="Course Image" style="max-width: 500px;">
-                        </div>
-                    </div>
-
-                    <div class="card-footer text-right">
-                        <a class="btn mdb-btn-custom" href="{{ route('course.index') }}">Back to Courses</a>
                     </div>
                 </div>
             </div>

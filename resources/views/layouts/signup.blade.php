@@ -24,7 +24,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    <!-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) -->
+     @vite(['resources/sass/app.scss', 'resources/js/app.js']) 
 </head>
 <body>
     <div id="app">
@@ -52,7 +52,7 @@
     <script src="{{ asset('js/stisla.js') }}"></script>
 
     @stack('scripts')
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Template JS File -->
     <script src="{{ asset('js/scripts.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>

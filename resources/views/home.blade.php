@@ -10,8 +10,6 @@
         </div>
     </div>
 
-    
-
     <section class="section">
         <div class="section-body">
             <div class="container-fluid">
@@ -19,7 +17,7 @@
                     <!-- Background Column -->
                     <div class="col-12 bg-white-400 p-4 rounded shadow-sm">
                         <!-- Dropdown for category selection -->
-                        <div class=" mb-4">
+                        <div class="mb-4">
                             <select id="url_select66e28d97b5db92" 
                                 class="custom-select w-100" 
                                 name="jump" 
@@ -33,11 +31,11 @@
                                 <option value="#">Microsoft Excel</option>
                             </select>
                         </div>
-    
+
                         <!-- Section Title -->
-                        <h2 class="section-title ">Categories</h2>
-                        <p class="section-lead ">Find online learning tutorials that suit your interests</p>
-                        
+                        <h2 class="section-title">Categories</h2>
+                        <p class="section-lead">Find online learning tutorials that suit your interests</p>
+
                         <!-- Course Cards -->
                         <div class="row">
                             @foreach ($courses as $course)
@@ -59,6 +57,14 @@
                                                         <h2 class="text-dark">{{ $course->name }}</h2>
                                                     </div>
                                                     <p>{{ \Illuminate\Support\Str::limit($course->detail, 100) }}</p>
+                                                </div>
+                                                <!-- Price Section -->
+                                                <div class="article-footer d-flex justify-content-between align-items-center">
+                                                    <div class="text-left">
+                                                        <h5 class="text-dark"><span class="text-dark">Rp.</span> {{ number_format($course->price, 0, ',', '.') }}
+                                                            <span style="font-weight: normal; font-style:italic; font-size: 14px; color: gray;">/6 month</span>
+                                                        </h5>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </a>
@@ -86,12 +92,12 @@
                                 </div>
                             @endforeach
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
 </div>
 @endsection

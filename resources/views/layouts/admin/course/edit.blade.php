@@ -41,6 +41,7 @@
                             @csrf
                             @method('PUT')
 
+                            <!-- Course Name -->
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Name</label>
                                 <div class="col-sm-12 col-md-7">
@@ -48,6 +49,7 @@
                                 </div>
                             </div>
 
+                            <!-- Course Detail -->
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Detail</label>
                                 <div class="col-sm-12 col-md-7">
@@ -55,7 +57,30 @@
                                 </div>
                             </div>
 
-                            <!-- Dropdown for isPaid -->
+                            <!-- Mentor -->
+                            <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Mentor</label>
+                                <div class="col-sm-12 col-md-7">
+                                    <select name="mentor_id" class="form-control">
+                                        <option value="">Select Mentor</option>
+                                        @foreach ($mentors as $mentor)
+                                            <option value="{{ $mentor->id }}" {{ $course->mentor_id == $mentor->id ? 'selected' : '' }}>
+                                                {{ $mentor->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Course Price -->
+                            <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Price</label>
+                                <div class="col-sm-12 col-md-7">
+                                    <input type="number" name="price" value="{{ $course->price }}" class="form-control" placeholder="Course Price">
+                                </div>
+                            </div>
+
+                            <!-- Is Paid -->
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Is Paid</label>
                                 <div class="col-sm-12 col-md-7">
@@ -66,7 +91,7 @@
                                 </div>
                             </div>
 
-                            <!-- Dropdown for category -->
+                            <!-- Category -->
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category</label>
                                 <div class="col-sm-12 col-md-7">
@@ -74,11 +99,11 @@
                                         <option value="programming" {{ $course->category == 'programming' ? 'selected' : '' }}>Programming</option>
                                         <option value="design" {{ $course->category == 'design' ? 'selected' : '' }}>Design</option>
                                         <option value="business" {{ $course->category == 'business' ? 'selected' : '' }}>Business</option>
-                                        <!-- Tambahkan kategori lainnya sesuai kebutuhan -->
                                     </select>
                                 </div>
                             </div>
 
+                            <!-- Image -->
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Image</label>
                                 <div class="col-sm-12 col-md-7">
@@ -87,6 +112,7 @@
                                 </div>
                             </div>
 
+                            <!-- Submit Button -->
                             <div class="form-group row mb-4">
                                 <div class="col-md-7 offset-md-3">
                                     <button type="submit" class="btn btn-custom">Update Course</button>

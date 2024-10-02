@@ -37,7 +37,6 @@
                             <a class="btn btn-success" href="{{ route('course.create') }}">Create New Course</a>
                         </div>
                     </div>
-
                     <div class="card-body">
                         <div class="row">
                             @foreach ($courses as $course)
@@ -54,19 +53,31 @@
                                             </div>
                                             <p>{{ \Illuminate\Support\Str::limit($course->detail, 100) }}</p>
                                         </div>
-                                        <div class="dropdown article-footer">
-                                            <a href="#" data-toggle="dropdown" class="btn btn-icon btn-outline-secondary dropdown-toggle" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </a>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="{{ route('course.show', $course->id) }}"><i class="fas fa-eye"></i> Show</a>
-                                                <a class="dropdown-item" href="{{ route('course.edit', $course->id) }}"><i class="fas fa-edit"></i> Edit</a>
-                                                <a class="dropdown-item" href="{{ route('course.material.create', $course->id) }}"><i class="fas fa-plus"></i> Add Material</a>
-                                                <form action="{{ route('course.destroy', $course->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Delete</button>
-                                                </form>
+                                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                                            <!-- Price in Rupiah -->
+                                            <div class="text-left ml-4">
+                                                <h5 class="text-red">
+                                                    <span class="text-dark ml-2">Rp.</span> 
+                                                    {{ number_format($course->price, 0, ',', '.') }} 
+                                                    <span style="font-weight: normal; font-size: 14px; color: gray;">/6 month</span>
+                                                </h5>
+                                            </div>
+                                            
+                                            <!-- Dropdown Menu for Actions -->
+                                            <div class="dropdown">
+                                                <a href="#" data-toggle="dropdown" class="btn btn-icon btn-outline-secondary dropdown-toggle" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </a>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="{{ route('course.show', $course->id) }}"><i class="fas fa-eye"></i> Show</a>
+                                                    <a class="dropdown-item" href="{{ route('course.edit', $course->id) }}"><i class="fas fa-edit"></i> Edit</a>
+                                                    <a class="dropdown-item" href="{{ route('course.material.create', $course->id) }}"><i class="fas fa-plus"></i> Add Material</a>
+                                                    <form action="{{ route('course.destroy', $course->id) }}" method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Delete</button>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -75,15 +86,17 @@
                         </div>
                     </div>
 
-                    <div class="card-footer text-right">
-                        {!! $courses->links() !!}
+                    <!-- Custom Pagination -->
+                    <div class="card-footer text-right" style="color: #222226">
+                        <nav aria-label="Page navigation example">
+                            {!! $courses->links() !!}
+                        </nav>
                     </div>
                 </div>
             </div>
         </section>
     </div>
 @endsection
-
 
 @push('scripts')
     <!-- JS Libraries -->

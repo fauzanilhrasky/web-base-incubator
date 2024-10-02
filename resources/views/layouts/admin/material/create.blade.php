@@ -8,6 +8,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-center">{{ __('Add Materials to Course: ') . $course->name }}</div>
+            </div>
+            <div class="card">
                 <div class="card-body">
                     <form method="POST" action="{{ route('course.material.store', $course->id) }}" enctype="multipart/form-data">
                         @csrf

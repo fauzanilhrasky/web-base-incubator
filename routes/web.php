@@ -4,6 +4,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\RegisterController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -13,6 +14,8 @@ Route::get('/pricing', function () {
     return view('components.pricing');
 })->name('pricing');
 
+Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('register', [RegisterController::class, 'register']); // Pastikan ini ada
 
 Auth::routes();
 
@@ -36,7 +39,6 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('/course/{course}/material/create', [CourseController::class,'createMaterial'])->name('course.material.create');
     Route::post('/course/{course}/material', [CourseController::class,'storeMaterial'])->name('course.material.store');
-
     // user
     Route::get('/detail-course/{course}', [HomeController::class, 'detail'])->name('course.detail');
 
