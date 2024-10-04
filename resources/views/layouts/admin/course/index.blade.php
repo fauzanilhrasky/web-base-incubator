@@ -71,7 +71,7 @@
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item" href="{{ route('course.show', $course->id) }}"><i class="fas fa-eye"></i> Show</a>
                                                     <a class="dropdown-item" href="{{ route('course.edit', $course->id) }}"><i class="fas fa-edit"></i> Edit</a>
-                                                    <a class="dropdown-item" href="{{ route('course.material.create', $course->id) }}"><i class="fas fa-plus"></i> Add Material</a>
+                                                    {{-- <a class="dropdown-item" href="{{ route('course.material.create', $course->id) }}"><i class="fas fa-plus"></i> Add Material</a> --}}
                                                     <form action="{{ route('course.destroy', $course->id) }}" method="POST" class="d-inline">
                                                         @csrf
                                                         @method('DELETE')
