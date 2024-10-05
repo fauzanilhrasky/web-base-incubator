@@ -22,27 +22,31 @@
             </li>
             @endif
 
+            {{--  SuperAdmin --}}
             @if (Auth::user()->role == 'superadmin')
             <li class="{{ Request::is('home-admin') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('/home-admin') }}"><i class="fas fa-fire"></i><span>Dashboard Admin</span></a>
             </li>
             @endif
 
+            {{-- Mentor --}}
             @if (Auth::user()->role == 'mentor')
             <li class="{{ Request::is('home-mentor') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('/home-mentor') }}"><i class="fas fa-fire"></i><span>Dashboard Mentor</span></a>
             </li>
             @endif
 
-            <li class="menu-header">Access</li>
+            {{-- Mentor --}}
             @if (Auth::user()->role == 'mentor')
-            <li class="{{ Request::is('hakakses') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('#') }}"><i class="fas fa-book"></i> <span>Materi</span></a>
+            <li class="menu-header">Materi Mentor</li>
+            <li class="{{ Request::is('mentor') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('mentor') }}"><i class="fas fa-book"></i> <span>Materi Mentor</span></a>
             </li>
             @endif
 
+            {{--  SuperAdmin --}}
             @if (Auth::user()->role == 'superadmin')
-            
+            <li class="menu-header">Access</li>
             <li class="{{ Request::is('hakakses') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('hakakses') }}"><i class="fas fa-user-shield"></i> <span>Access Rights</span></a>
             </li>

@@ -48,7 +48,7 @@ class CourseController extends Controller
 
         if ($image = $request->file('image')) {
             $destinationPath = 'images/';
-            $profileImage = date('YmdHis'). '.' . $image->getClientOriginalExtension();
+            $profileImage = date('YmdHis') . '.' . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
         }
@@ -63,11 +63,19 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        
+
         $materials = $course->materials; // Retrieve the materials for the course
         return view('layouts.admin.course.show', compact('course', 'materials'));
     }
-    
+
+    public function homeMaterial()
+    {
+        $mentor = auth()->user();
+
+        $courses = Course::where('mentor_id', $mentor->id)->get();
+
+        return view('layouts.mentor.CourseMentor.course_material', compact('courses'));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -96,7 +104,7 @@ class CourseController extends Controller
 
         if ($image = $request->file('image')) {
             $destinationPath = 'images/';
-            $profileImage = date('YmdHis'). '.' . $image->getClientOriginalExtension();
+            $profileImage = date('YmdHis') . '.' . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
         } else {
@@ -156,6 +164,6 @@ class CourseController extends Controller
         return redirect()->route('course.index')->with('success', 'Materials added successfully.');
     }
 
-    
+
 
 }

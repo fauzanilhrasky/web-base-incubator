@@ -42,6 +42,9 @@ Route::middleware(['auth'])->group(function () {
     // user
     Route::get('/detail-course/{course}', [HomeController::class, 'detail'])->name('course.detail');
 
+    // Mentor
+    Route::get('/mentor', [CourseController::class, 'homeMaterial'])->name('mentor');
+
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/profile/change-password', [ProfileController::class, 'changepassword'])->name('profile.change-password');
