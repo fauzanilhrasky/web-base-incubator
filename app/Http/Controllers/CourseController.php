@@ -83,7 +83,7 @@ class CourseController extends Controller
     public function edit(Course $course)
     {
         $mentors = User::where('role', 'mentor')->get();  // Fetch mentors for the edit form
-        return view('layouts.admin.course.edit', compact('course', 'mentors'));
+        return view('layouts.admin.course.edit', compact('course', 'mentor'));
     }
 
     /**

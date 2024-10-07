@@ -63,6 +63,54 @@
                                         <div class="accordion-body">
                                             <strong><h5>Description</h5></strong> {{ $material->content }}<br>
                                             <hr>
+                                        
+                                            <!-- Begin revised code from the activity block -->
+                                            {{-- <ul class="list-unstyled">
+                                                <li class="activity activity-wrapper assign modtype_assign hasinfo" id="module-3522" data-for="cmitem" data-id="3522" data-indexed="true">
+                                                    <div class="activity-item focus-control" data-activityname="Praktikum Pertemuan 2" data-region="activity-card">
+                                                        <div class="bulkselect d-none" data-for="cmBulkSelect">
+                                                            <input id="cmCheckbox3522" type="checkbox" data-id="3522" data-action="toggleSelectionCm" data-bulkcheckbox="1" disabled="">
+                                                            <label class="sr-only" for="cmCheckbox3522">Select activity Praktikum Pertemuan 2</label>
+                                                        </div>
+                                        
+                                                        <div class="activity-grid">
+                                                            <!-- Activity icon -->
+                                                            <div class="activity-icon activityiconcontainer smaller assessment courseicon align-self-start mr-2">
+                                                                <img src="https://learning-if.polibatam.ac.id/theme/image.php/moove/assign/1724726077/monologo?filtericon=1" class="activityicon" data-region="activity-icon" data-id="3522" alt="">
+                                                            </div>
+                                        
+                                                            <!-- Activity name -->
+                                                            <div class="activity-name-area activity-instance d-flex flex-column mr-2">
+                                                                <div class="activitytitle modtype_assign position-relative align-self-start">
+                                                                    <div class="activityname">
+                                                                        <a href="https://learning-if.polibatam.ac.id/mod/assign/view.php?id=3522" class="aalink stretched-link">
+                                                                            <span class="instancename">Praktikum Pertemuan 2 <span class="accesshide">Assignment</span></span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                        
+                                                            <!-- Activity dates -->
+                                                            <div data-region="activity-dates" class="activity-dates mr-sm-2">
+                                                                <div><strong>Opened:</strong> Tuesday, 3 September 2024, 12:00 AM</div>
+                                                                <div><strong>Due:</strong> Tuesday, 10 September 2024, 12:00 AM</div>
+                                                            </div>
+                                        
+                                                            <!-- Activity description -->
+                                                            <div class="activity-altcontent d-flex text-break activity-description">
+                                                                <div class="no-overflow">
+                                                                    <p>Pada materi minggu ke-2 telah dipaparkan beberapa metode yang ada dalam agile project management,</p>
+                                                                    <p>selanjutnya tentukan metode agile yang akan kalian gunakan untuk pengembangan PBL masing-masing tim dan bagaimana kerangka kerjanya.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li> 
+                                            </ul>
+                                            <!-- End revised code -->
+                                        
+                                            <hr>--}}
+                                        
                                             <div class="d-flex justify-content-between mt-3">
                                                 @if ($material->file)
                                                     <div class="col">
@@ -72,12 +120,13 @@
                                                 @endif
                                                 @if ($material->image)
                                                     <div class="col">
-                                                        <strong>Image:</strong> 
+                                                        <strong>Image:</strong>
                                                         <img src="{{ asset('uploads/' . $material->image) }}" alt="Image" style="max-width: 100px;">
                                                     </div>
                                                 @endif
                                             </div>
                                         </div>
+                                        
                                     </div>
                                 </div>
                             @endforeach

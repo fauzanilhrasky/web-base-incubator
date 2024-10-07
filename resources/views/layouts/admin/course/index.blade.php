@@ -57,10 +57,12 @@
                                             <!-- Price in Rupiah -->
                                             <div class="text-left ml-4">
                                                 <h5 class="text-red">
-                                                    {{ $course->price }}
+                                                    Rp {{ number_format((float)$course->price, 0, ',', '.') }}
                                                     <span style="font-weight: normal; font-size: 14px; color: gray;">/6 month</span>
                                                 </h5>
+                                                
                                             </div>
+
                                             
                                             <!-- Dropdown Menu for Actions -->
                                             <div class="dropdown">
