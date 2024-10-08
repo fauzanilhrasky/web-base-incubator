@@ -76,9 +76,14 @@
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Price</label>
                                 <div class="col-sm-12 col-md-7">
-                                    <input type="number" name="price" value="{{ $course->price }}" class="form-control" placeholder="Course Price">
+                                    <div class="input-group">
+                                        <span class="input-group-text">Rp</span>
+                                        <input type="text" name="price" value="{{ number_format((float)$course->price, 0, ',', '.') }}" class="form-control" placeholder="Course Price" required>
+                                    </div>
                                 </div>
                             </div>
+                            
+                            
 
                             <!-- Is Paid -->
                             <div class="form-group row mb-4">

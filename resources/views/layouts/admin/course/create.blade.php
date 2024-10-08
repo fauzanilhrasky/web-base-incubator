@@ -81,6 +81,7 @@
                                         <option value="programming">Programming</option>
                                         <option value="design">Design</option>
                                         <option value="business">Business</option>
+                                        <option value="IoT">Internet of Things</option>
                                         <!-- Tambahkan kategori lainnya sesuai kebutuhan -->
                                     </select>
                                 </div>

@@ -38,9 +38,9 @@
 
             {{-- Mentor --}}
             @if (Auth::user()->role == 'mentor')
-            <li class="menu-header">Materi Mentor</li>
+            <li class="menu-header">mentor material</li>
             <li class="{{ Request::is('mentor') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('mentor') }}"><i class="fas fa-book"></i> <span>Materi Mentor</span></a>
+                <a class="nav-link" href="{{ url('mentor') }}"><i class="fas fa-book"></i> <span>mentor material</span></a>
             </li>
             @endif
 

@@ -22,12 +22,11 @@
                                 class="custom-select w-100" 
                                 name="jump" 
                                 style="max-width: 400px; border-radius: 8px; border: 1px solid #252525;"
-                                data-init-value="/course/index.php?categoryid=26">
-                                <option value="#">Programmer</option>
-                                <option value="#">Bootcamp</option>
+                                data-init-value="/layouts/home.blade.php?categoryid=26">
+                                <option value="programming">Programmer</option>
+                                <option value="design">UI UX design</option>
                                 <option value="#">Internet Of Things (IoT)</option>
-                                <option value="#">UI/UX Design</option>
-                                <option value="#">Sales and Business</option>
+                                <option value="business">Sales and Business</option>
                                 <option value="#">Microsoft Excel</option>
                             </select>
                         </div>
