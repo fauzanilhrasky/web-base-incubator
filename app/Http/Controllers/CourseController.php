@@ -68,6 +68,12 @@ class CourseController extends Controller
         return view('layouts.admin.course.show', compact('course', 'materials'));
     }
 
+    public function detail(Course $course)
+    {
+        $materials = $course->materials;
+        return view('layouts.admin.course.detail',compact('course','materials'));
+    }
+
     public function homeMaterial()
     {
         $mentor = auth()->user();

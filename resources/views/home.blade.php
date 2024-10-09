@@ -60,7 +60,7 @@
                                                 <!-- Price Section -->
                                                 <div class="article-footer d-flex justify-content-between align-items-center">
                                                     <div class="text-left">
-                                                        <h5 class="text-dark"><span class="text-dark">Rp.</span> {{ number_format($course->price, 0, ',', '.') }}
+                                                        <h5 class="text-dark"><span class="text-dark">Rp.</span> {{ $course->price }}
                                                             <span style="font-weight: normal; font-style:italic; font-size: 14px; color: gray;">/6 month</span>
                                                         </h5>
                                                     </div>

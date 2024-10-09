@@ -44,7 +44,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/courses/{course}/material/{material}', [CourseController::class, 'updateMaterial'])->name('course.material.update');
 
     // user
-    Route::get('/detail-course/{course}', [HomeController::class, 'detail'])->name('course.detail');
+    Route::get('/detail-course/{course}', [CourseController::class, 'detail'])->name('course.detail');
 
     // Mentor
     Route::get('/mentor', [CourseController::class, 'homeMaterial'])->name('mentor');

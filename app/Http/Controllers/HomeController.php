@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\Material;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -28,10 +30,6 @@ class HomeController extends Controller
         return view('home', compact('courses'));
     }
 
-    public function detail(Course $course)
-    {
-        return view('layouts.admin.course.detail',compact('course'));
-    }
 
     public function adminHome()
     {
