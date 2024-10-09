@@ -46,7 +46,7 @@
                                             </button>
                                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton{{ $index }}">
                                                 <li>
-                                                    <a class="dropdown-item" href="#">Edit</a>
+                                                    <a class="dropdown-item" href="{{ route('course.material.edit', ['course' => $course->id, 'material' => $material->id]) }}">Edit</a>
                                                 </li>
                                                 <li>
                                                     <form action="#" method="POST" onsubmit="return confirm('Are you sure you want to delete this material?');">

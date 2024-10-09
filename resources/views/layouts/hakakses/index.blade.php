@@ -28,7 +28,7 @@
                         <div class="col-md-6">
                             <form action="{{ route('hakakses.index') }}" method="GET">
                                 <div class="input-group">
-                                    <input type="text" name="search" class="form-control" placeholder="Cari Berdasarkan ID...">
+                                    <input type="text" name="search" class="form-control" placeholder="Search By Name...">
                                     <div class="input-group-append">
                                         <button class="btn btn-primary" style="margin-left:5px;" type="submit">Search</button>
                                     </div>
@@ -40,7 +40,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Nama</th>
+                                <th>Name</th>
                                 <th>Email</th>
                                 <th>Role</th>
                                 <th>Action</th>
@@ -61,16 +61,26 @@
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
-                                    </td> <!-- Add Edit and Delete buttons for each row -->
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    <!-- Pagination Links -->
+                    <div class="d-flex justify-content-center">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination pagination-sm">
+                                {{ $hakakses->links('pagination::bootstrap-4') }}
+                            </ul>
+                        </nav>
+                    </div>
+                    
                 </div>
             </div>
         </section>
     </div>
 @endsection
+
 
 @push('scripts')
     <!-- JS Libraries -->

@@ -165,5 +165,48 @@ class CourseController extends Controller
     }
 
 
+    public function editMaterial(Course $course, Material $material)
+    {
+        return view('layouts.admin.material.edit', compact('course', 'material'));
+    }
+    
+
+    public function updateMaterial(Request $request, Course $course, Material $material)
+    {
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'file' => 'nullable|file|mimes:png,jpg,pdf,doc,docx|max:2048',
+        ]);
+    
+        // Siapkan input untuk diupdate
+        $input = $request->all();
+    
+        // Jika ada file baru yang diunggah
+        if ($request->hasFile('file')) {
+            // Hapus file lama jika ada
+            if ($material->file) {
+                $oldFilePath = public_path('files/' . $material->file);
+                if (file_exists($oldFilePath)) {
+                    unlink($oldFilePath);
+                }
+            }
+    
+            // Simpan file baru
+            $file = $request->file('file');
+            $materialFile = date('YmdHis') . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('files'), $materialFile);
+            $materialInput['file'] = $materialFile;
+        }
+    
+        // Update material dengan data baru
+        $material->update($input);
+    
+        return redirect()->route('course.show', $course->id)->with('success', 'Material updated successfully.');
+    }
+    
+
+
+
 
 }

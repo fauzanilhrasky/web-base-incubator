@@ -27,6 +27,7 @@ Route::middleware(['auth'])->group(function () {
     // home mentor
     Route::get('/home-mentor', [App\Http\Controllers\HomeController::class, 'adminMentor'])->name('admin.mentor')->middleware('superadmin');
 
+
     
     Route::get('/course-admin', [CourseController::class, 'index'])->name('course.index');
     Route::get('/create-course-admin', [CourseController::class, 'create'])->name('course.create');
@@ -39,6 +40,9 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('/course/{course}/material/create', [CourseController::class,'createMaterial'])->name('course.material.create');
     Route::post('/course/{course}/material', [CourseController::class,'storeMaterial'])->name('course.material.store');
+    Route::get('/courses/{course}/material/{material}/edit', [CourseController::class, 'editMaterial'])->name('course.material.edit');
+    Route::put('/courses/{course}/material/{material}', [CourseController::class, 'updateMaterial'])->name('course.material.update');
+
     // user
     Route::get('/detail-course/{course}', [HomeController::class, 'detail'])->name('course.detail');
 

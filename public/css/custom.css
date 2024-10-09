@@ -22,3 +22,23 @@
 .accordion-item {
     margin-bottom: 15px; /* Memberikan jarak antar accordion item */
 }
+
+/* pagination */
+.custom-pagination .page-link {
+    background-color: yellow; /* Mengubah warna tombol menjadi kuning */
+    color: #222226; /* Mengubah warna tulisan angka menjadi #222226 */
+}
+
+.custom-pagination .page-link:hover {
+    background-color: #e0e0e0; /* Warna saat hover (opsional) */
+}
+
+.custom-pagination .active .page-link {
+    background-color: #ffc107; /* Warna tombol aktif */
+    color: white; /* Warna tulisan aktif */
+}
+
+.custom-pagination .page-item.disabled .page-link {
+    background-color: #f8f9fa; /* Warna tombol disable */
+    color: #6c757d; /* Warna tulisan disable */
+}

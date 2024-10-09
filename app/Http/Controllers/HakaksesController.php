@@ -12,15 +12,20 @@ class HakaksesController extends Controller
      */
     public function index(Request $request)
     {
-        //
+        // Menangani pencarian berdasarkan ID
         $search = $request->get('search');
         if ($search) {
-            $data['hakakses'] = hakakses::where('id', 'like', "%{$search}%")->get();
+            // Jika ada pencarian, gunakan paginate dengan pencarian
+            $hakakses = Hakakses::where('name', 'like', "%{$search}%")->paginate(15);
         } else {
-            $data['hakakses'] = hakakses::all();
+            // Jika tidak ada pencarian, ambil semua data dengan paginate
+            $hakakses = Hakakses::paginate(20);
         }
-        return view('layouts.hakakses.index', $data);
+
+        // Mengirim data ke view
+        return view('layouts.hakakses.index', ['hakakses' => $hakakses]);
     }
+
 
     /**
      * Show the form for creating a new resource.
