@@ -5,23 +5,14 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\PaymentController;
 
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
 
-Route::get('/checkout', function () {
-    // Kamu bisa mengirimkan data dummy sementara untuk menguji tampilan
-    $course = (object) [
-        'name' => 'Sample Course',
-        'detail' => 'This is a brief description of the course.',
-        'image' => 'sample-course.jpg',
-        'price' => 200000, // Harga dalam IDR
-    ];
 
-    return view('layouts/checkout', compact('course'));
-})->name('checkout');
 
 
 Route::get('/pricing', function () {
@@ -62,6 +53,11 @@ Route::middleware(['auth'])->group(function () {
 
     // Mentor
     Route::get('/mentor', [CourseController::class, 'homeMaterial'])->name('mentor');
+
+    // Payment
+    Route::get('/checkout', [PaymentController::class, 'checkout'])->name('checkout');
+    Route::post('/course/{id}/payment', [PaymentController::class, 'createPayment'])->name('course.payment');
+    Route::post('/course/{id}/status', [PaymentController::class, 'updatePaymentStatus'])->name('payment.status');
 
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');

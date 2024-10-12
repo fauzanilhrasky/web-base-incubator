@@ -21,12 +21,19 @@ class Course extends Model
         'isPaid'
     ];
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function materials() {
+    public function materials()
+    {
         return $this->hasMany(Material::class);
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
     }
 
 }
