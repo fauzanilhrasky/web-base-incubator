@@ -42,3 +42,11 @@
     background-color: #f8f9fa; /* Warna tombol disable */
     color: #6c757d; /* Warna tulisan disable */
 }
+
+/* checkout */
+
+.mb-negative-20 {
+    margin-bottom: -20px;
+}
+
+

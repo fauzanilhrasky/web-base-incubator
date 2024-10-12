@@ -40,7 +40,7 @@
                                         </button>
                                         
                                         <!-- Dropdown for Edit/Delete -->
-                                        <div class="dropdown">
+                                        {{-- <div class="dropdown">
                                             <button class="btn btn-light" type="button" id="dropdownMenuButton{{ $index }}" data-bs-toggle="dropdown" aria-expanded="false" style="border: none; background-color: transparent;">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </button>
@@ -56,7 +56,7 @@
                                                     </form>
                                                 </li>
                                             </ul>
-                                        </div>
+                                        </div> --}}
                                     </h1>
                                     
                                     <div id="panelsStayOpen-collapse{{ $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" aria-labelledby="heading{{ $index }}">

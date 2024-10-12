@@ -65,7 +65,7 @@
                                             <hr>
                                         
                                             <!-- Begin revised code from the activity block -->
-                                            {{-- <ul class="list-unstyled">
+                                             <ul class="list-unstyled">
                                                 <li class="activity activity-wrapper assign modtype_assign hasinfo" id="module-3522" data-for="cmitem" data-id="3522" data-indexed="true">
                                                     <div class="activity-item focus-control" data-activityname="Praktikum Pertemuan 2" data-region="activity-card">
                                                         <div class="bulkselect d-none" data-for="cmBulkSelect">

@@ -10,6 +10,20 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+
+Route::get('/checkout', function () {
+    // Kamu bisa mengirimkan data dummy sementara untuk menguji tampilan
+    $course = (object) [
+        'name' => 'Sample Course',
+        'detail' => 'This is a brief description of the course.',
+        'image' => 'sample-course.jpg',
+        'price' => 200000, // Harga dalam IDR
+    ];
+
+    return view('layouts/checkout', compact('course'));
+})->name('checkout');
+
+
 Route::get('/pricing', function () {
     return view('components.pricing');
 })->name('pricing');
