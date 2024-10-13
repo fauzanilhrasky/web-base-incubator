@@ -21,5 +21,8 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(CountrySeeder::class);
+        $this->call(UserSeeder::class);
+        // $this->call(MaterialSeeder::class);
+        // $this->call(CourseSeeder::class);
     }
 }

@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\Auth;
 class PaymentController extends Controller
 {
 
-    public function checkout(Course $course)
+    public function checkout($id)
     {
+        $course = Course::findOrFail($id);
         return view('layouts.checkout.checkout',compact('course'));
     }
 
@@ -25,7 +26,7 @@ class PaymentController extends Controller
             'status' => 'pending'
         ]);
 
-        $payment->status = 'completed';
+        $payment->status = 'pending';
         $payment->save();
 
         return redirect()->back()->with('success, Pembayaran berhasil dilakukan');

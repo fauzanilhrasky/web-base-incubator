@@ -55,7 +55,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/mentor', [CourseController::class, 'homeMaterial'])->name('mentor');
 
     // Payment
-    Route::get('/checkout', [PaymentController::class, 'checkout'])->name('checkout');
+    Route::get('/course/{id}/checkout', [PaymentController::class, 'checkout'])->name('checkout');
     Route::post('/course/{id}/payment', [PaymentController::class, 'createPayment'])->name('course.payment');
     Route::post('/course/{id}/status', [PaymentController::class, 'updatePaymentStatus'])->name('payment.status');
 

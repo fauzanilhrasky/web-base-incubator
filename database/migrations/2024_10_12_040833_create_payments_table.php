@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('course_id');
-            $table->decimal('amount',0,2);
+            $table->string('amount');
             $table->string('status')->default('pending');
             $table->timestamps();
 
