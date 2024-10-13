@@ -73,9 +73,9 @@
 
 
             <li class="menu-header">Starter</li>
-            @if (Auth::user()->role == 'users') 
+            @if (Auth::user()->role == 'user') 
             <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('blank-page') }}"><i class="far fa-square"></i> <span>my course</span></a>
+                <a class="nav-link" href="#"><i class="fas fa-university"></i> <span>my course</span></a>
             </li>
             @endif
             <li class="{{ Request::is('Settings') ? 'active' : '' }}">

@@ -50,3 +50,75 @@
 }
 
 
+/* detail users */
+
+/* CSS untuk merapikan teks di sebelah kiri */
+.copy {
+    text-align: left; /* Menyelaraskan teks ke kiri */
+    margin-left: 0; /* Menghilangkan jarak ke tengah */
+    padding-left: 0; /* Menghilangkan padding yang membuat teks bergeser ke kanan */
+    margin-top: 40px;
+    flex: 1;
+    padding-right: 20px;
+}
+
+.copy h5, 
+.copy p {
+    margin-left: 0; 
+    padding-left: 15px; 
+}
+
+.support {
+    line-height: 1.6; 
+    padding-left: 15px; 
+    margin-top: 70px;
+
+}
+
+.cart-content {
+    height: 100%;
+    max-height: 500px; /* Bisa disesuaikan */
+    overflow-y: auto; /* Menggulung jika konten melebihi tinggi */
+}
+
+/* Styling agar layout lebih rapi */
+.custom-border {
+   
+    padding-left: 20px;
+}
+
+/* Menambahkan jarak antar elemen agar tidak saling menumpuk */
+.cart-content .list-group-item {
+    margin-bottom: 10px;
+}
+
+.row.d-flex {
+    display: flex;
+    align-items: flex-start;
+}
+
+.custom-background {
+    background-color: #222226;
+    padding: 40px 0;
+}
+
+.custom-background .text-dark {
+    color: #f8f9fa; /* Ubah warna teks jadi lebih terang */
+}
+
+.custom-background h5 {
+    color: #ffffff; /* Ubah warna judul jadi putih */
+}
+
+.custom-background .badge-course {
+    bottom: 10px; 
+    left: 10px;
+    padding: 5px 10px;
+    color: white;
+}
+
+.custom-background .bg-primary, 
+.custom-background .bg-danger {
+    color: white; /* Pastikan badge terlihat jelas */
+}
+

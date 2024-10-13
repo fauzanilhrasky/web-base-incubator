@@ -8,85 +8,60 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3>{{ $course->name }}</h3>
+                        <h5>Base Incubator | Course Details</h5>
                     </div>
                 </div>
             </div>
         </div>
 
-        <section class="section">
-            <div class="section-body">
-                <h2 class="section-title">Course Details</h2>
-                <p class="section-lead">Below is the detailed information of the selected course.</p>
+        <section class="pricing custom-background">
+            <div class="container">
+                <div class="row pb-70 d-flex">
+                    <!-- Bagian tulisan di sebelah kiri -->
+                    <div class="col-md-7 copy text-left">
+                        <h5>{{ $course->name }}</h5>
+                        <p>{{ \Illuminate\Support\Str::limit($course->detail, 200) }}</p>
+                        <p class="support">
+                            Come learn and develop your skills by learning to understand more deeply and create your final project <br>
+                            and receive important feedback.
+                        </p>
+                    </div>
 
-                <div class="row justify-content-center">
-                    <div class="col-lg-11 bg-white p-4" style="border-radius: 10px;">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4>Course</h4> <!-- Judul atau teks lain yang relevan -->
-                           
-                        </div>
-                        <div class="accordion" id="accordionPanelsStayOpenExample">
-                            @foreach ($materials as $index => $material)
-                                <div class="accordion-item" style="margin-bottom: 15px; border-radius: 10px; overflow: hidden;">
-                                    <h1 class="accordion-header d-flex justify-content-between align-items-center" id="heading{{ $index }}">
-                                        <button class="accordion-button {{ $index === 0 ? '' : 'collapsed' }}" type="button" 
-                                                data-bs-toggle="collapse" 
-                                                data-bs-target="#panelsStayOpen-collapse{{ $index }}" 
-                                                aria-expanded="{{ $index === 0 ? 'true' : 'false' }}" 
-                                                aria-controls="panelsStayOpen-collapse{{ $index }}" 
-                                                style="border-radius: 0;">
-                                            <i class="fas fa-question-circle fa-sm me-2 opacity-70"></i> 
-                                            <strong style="font-size: 1.2em;">{{ $material->title }}</strong>
-                                        </button>
-                                        
-                                        <!-- Dropdown for Edit/Delete -->
-                                        {{-- <div class="dropdown">
-                                            <button class="btn btn-light" type="button" id="dropdownMenuButton{{ $index }}" data-bs-toggle="dropdown" aria-expanded="false" style="border: none; background-color: transparent;">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton{{ $index }}">
-                                                <li>
-                                                    <a class="dropdown-item" href="{{ route('course.material.edit', ['course' => $course->id, 'material' => $material->id]) }}">Edit</a>
-                                                </li>
-                                                <li>
-                                                    <form action="#" method="POST" onsubmit="return confirm('Are you sure you want to delete this material?');">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="dropdown-item">Delete</button>
-                                                    </form>
-                                                </li>
-                                            </ul>
-                                        </div> --}}
-                                    </h1>
+                    <!-- Bagian 'Your Cart' di sebelah kanan -->
+                    <div class="col-md-5 col-lg-4 custom-border">
+                        <div class="cart-content bg-white p-4 rounded shadow-sm">
+                            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-warning">Your cart</span>
+                            </h4>
+
+                            <!-- Gambar kursus dengan badge Free/Paid -->
+                            <ul class="list-group mb-3 position-relative">
+                                <img src="/images/{{ $course->image }}" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;" alt="{{ $course->name }}">
+
+                                <!-- Menampilkan badge Free atau Paid -->
+                                <span class="badge-course position-absolute">
+                                    @if ($course->isPaid)
+                                        <span class="badge bg-danger">Paid</span>
+                                    @else
+                                        <span class="badge bg-primary">Free</span>
+                                    @endif
                                     
-                                    <div id="panelsStayOpen-collapse{{ $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" aria-labelledby="heading{{ $index }}">
-                                        <div class="accordion-body">
-                                            <strong><h5>Description</h5></strong> {{ $material->content }}<br>
-                                            <hr>
-                                        
-                                           
-                                        
-                                            <div class="d-flex justify-content-between mt-3">
-                                                @if ($material->file)
-                                                    <div class="col">
-                                                        <i class="fas fa-book me-2"></i>
-                                                        <a href="{{ asset('files/' . $material->file) }}">{{ $material->file }}</a>
-                                                    </div>
-                                                @endif
-                                                @if ($material->image)
-                                                    <div class="col">
-                                                        <strong>Image:</strong>
-                                                        <img src="{{ asset('uploads/' . $material->image) }}" alt="Image" style="max-width: 100px;">
-                                                    </div>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            @endforeach
+                                </span>
+                                <h5 class="text-dark mt-2">
+                                    {{ $course->price }} 
+                                    <span style="font-weight: normal; font-style:italic; font-size: 14px; color: gray;">/6 months</span>
+                                </h5>
+                            </ul>
+
+                            <!-- Tombol Enroll Me atau Buy Now sesuai kategori kursus -->
+                            <div class="d-grid gap-2">
+                                @if ($course->isPaid)
+                                    <button class="btn btn-primary btn-block">Buy Now</button>
+                                @else
+                                    <button class="btn btn-success btn-block">Enroll Me</button>
+                                @endif
+                            </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>

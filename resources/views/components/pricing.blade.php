@@ -65,7 +65,7 @@
             <!-- Pricing Table 2 -->
             <div class="col-lg-4 col-md-6 col-12 mb-2">
                 <div class="table-pricing paket-gila">
-                    <p class="story">PRO</p>
+                    <p class="story">PREMIUM</p>
                     <h1 class="price">$280K</h1>
                     <div class="item-benefit-pricing mb-4">
                         <img src="{{ asset('images/ic_check.svg') }}" alt="">
@@ -100,7 +100,7 @@
                         <p>Website Builder</p>
                     </div>
                     <p>
-                        <a href="#" class="btn btn-master btn-dark w-100 mt-3">Take This Plan</a>
+                        <a href="{{ route('register') }}" class="btn btn-master btn-dark w-100 mt-3">Take This Plan</a>
                     </p>
                 </div>
             </div>

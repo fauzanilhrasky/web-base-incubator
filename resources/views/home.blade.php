@@ -40,7 +40,7 @@
                             @foreach ($courses as $course)
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">     
                                     @if ($course->isPaid)
-                                        <a href="#" class="text-decoration-none"> <!-- Link ke halaman form pembayaran -->
+                                        <a href="{{ route('course.detail', $course->id) }}" class="text-decoration-none"> <!-- Link ke halaman form pembayaran -->
                                             <div class="article article-style-b d-flex flex-column h-100">
                                                 <div class="article-header">
                                                     <div class="article-image">
