@@ -56,7 +56,9 @@
                             <!-- Tombol Enroll Me atau Buy Now sesuai kategori kursus -->
                             <div class="d-grid gap-2">
                                 @if ($course->isPaid)
-                                    <button class="btn btn-primary btn-block">Buy Now</button>
+                                <form action="{{ route('checkout', $course->id) }}" method="GET">
+                                    <button type="submit" class="btn btn-primary btn-block">Buy Now</button>
+                                </form>
                                 @else
                                     <button class="btn btn-success btn-block">Enroll Me</button>
                                 @endif

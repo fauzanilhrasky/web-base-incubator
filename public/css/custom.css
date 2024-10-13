@@ -57,7 +57,7 @@
     text-align: left; /* Menyelaraskan teks ke kiri */
     margin-left: 0; /* Menghilangkan jarak ke tengah */
     padding-left: 0; /* Menghilangkan padding yang membuat teks bergeser ke kanan */
-    margin-top: 40px;
+    margin-top: 70px;
     flex: 1;
     padding-right: 20px;
 }
@@ -100,6 +100,7 @@
 .custom-background {
     background-color: #222226;
     padding: 40px 0;
+    height: 400px;
 }
 
 .custom-background .text-dark {
