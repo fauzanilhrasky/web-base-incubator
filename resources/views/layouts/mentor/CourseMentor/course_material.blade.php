@@ -28,8 +28,8 @@
                         <td>
                             <div class="d-flex align-items-center">
                                 <img src="{{ $course->image ? asset('images/' . $course->image) : 'https://via.placeholder.com/45' }}"
-                                    alt="{{ $course->name }}" style="width: 45px; height: 45px" class="rounded-circle" />
-                                <div class="ms-3">
+                                    alt="{{ $course->name }}" style="width: 75px; height: 55px"/>
+                                <div class="ms-4">
                                     <p class="fw-bold mb-1">{{ $course->name }}</p>
                                     <p class="text-muted mb-0">{{ $course->detail }}</p>
                                 </div>

@@ -64,7 +64,24 @@
                                             <strong><h5>Description</h5></strong> {{ $material->content }}<br>
                                             <hr>
                                         
-                                            <!-- Begin revised code from the activity block -->
+                                            <div class="d-flex justify-content-between mt-3">
+                                                @if ($material->file)
+                                                    <div class="col">
+                                                        <i class="fas fa-book me-2"></i>
+                                                        <a href="{{ asset('files/' . $material->file) }}">{{ $material->file }}</a>
+                                                    </div>
+                                                @endif
+                                                @if ($material->image)
+                                                    <div class="col">
+                                                        <strong>Image:</strong>
+                                                        <img src="{{ asset('uploads/' . $material->image) }}" alt="Image" style="max-width: 100px;">
+                                                    </div>
+                                                @endif
+                                            </div>
+
+                                            <hr>
+
+                                             <!-- Begin revised code from the activity block -->
                                              <ul class="list-unstyled">
                                                 <li class="activity activity-wrapper assign modtype_assign hasinfo" id="module-3522" data-for="cmitem" data-id="3522" data-indexed="true">
                                                     <div class="activity-item focus-control" data-activityname="Praktikum Pertemuan 2" data-region="activity-card">
@@ -108,23 +125,7 @@
                                                 </li> 
                                             </ul>
                                             <!-- End revised code -->
-                                        
-                                            <hr>--}}
-                                        
-                                            <div class="d-flex justify-content-between mt-3">
-                                                @if ($material->file)
-                                                    <div class="col">
-                                                        <i class="fas fa-book me-2"></i>
-                                                        <a href="{{ asset('files/' . $material->file) }}">{{ $material->file }}</a>
-                                                    </div>
-                                                @endif
-                                                @if ($material->image)
-                                                    <div class="col">
-                                                        <strong>Image:</strong>
-                                                        <img src="{{ asset('uploads/' . $material->image) }}" alt="Image" style="max-width: 100px;">
-                                                    </div>
-                                                @endif
-                                            </div>
+
                                         </div>
                                         
                                     </div>

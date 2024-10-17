@@ -71,8 +71,9 @@
 .support {
     line-height: 1.6; 
     padding-left: 15px; 
-    margin-top: 70px;
-
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-style: italic;
 }
 
 .cart-content {
@@ -100,7 +101,7 @@
 .custom-background {
     background-color: #222226;
     padding: 40px 0;
-    height: 400px;
+    height: 370px;
 }
 
 .custom-background .text-dark {
@@ -123,3 +124,59 @@
     color: white; /* Pastikan badge terlihat jelas */
 }
 
+.paragraf{
+    margin-top: 30px;
+    color: #f8f9fa;
+    font-size: 16px;
+}
+
+.kursus{
+    margin-top: 40px;
+}
+
+.details{
+    display: flex;
+    align-items:
+    center; margin-bottom: 10px;
+}
+
+.dsk{
+    margin-top: -300px;
+    
+}
+
+@media only screen and (max-width: 1024px) {
+    .main-content {
+        padding: 20px; /* Add padding to prevent content from touching edges */
+    }
+
+    .copy {
+        padding-right: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .custom-background {
+        padding: 20px; /* Reduce padding for better fit */
+    }
+
+    .support {
+        margin-top: 30px; /* Reduce margin to fit content better */
+    }
+
+    .custom-border {
+        padding-left: 10px; /* Adjust padding for smaller screens */
+        margin-top: 20px; /* Add margin for separation */
+    }
+
+    .details {
+        margin-bottom: 5px; /* Reduce space between details */
+    }
+
+    .dsk {
+        margin-top: -330px; /* Adjust position to fit on smaller screens */
+        
+    }
+    
+
+  
+    
+}

@@ -57,7 +57,7 @@
                                             <!-- Price in Rupiah -->
                                             <div class="text-left ml-4">
                                                 <h5 class="text-red">
-                                                    Rp {{ number_format((float) $course->price, 0, ',', '.') }}
+                                                    {{ $course->price}}
                                                     <span style="font-weight: normal; font-size: 14px; color: gray;">/6 month</span>
                                                 </h5>
                                                 

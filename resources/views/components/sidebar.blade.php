@@ -18,21 +18,21 @@
             @if (Auth::user()->role == 'user')
             <li class="menu-header">Dashboard</li>
             <li class="{{ Request::is('home') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('home') }}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a class="nav-link" href="{{ url('home') }}"><i class="fa fa-tachometer-alt"></i><span>Dashboard</span></a>
             </li>
             @endif
 
             {{--  SuperAdmin --}}
             @if (Auth::user()->role == 'superadmin')
             <li class="{{ Request::is('home-admin') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/home-admin') }}"><i class="fas fa-fire"></i><span>Dashboard Admin</span></a>
+                <a class="nav-link" href="{{ url('/home-admin') }}"><i class="fa fa-tachometer-alt"></i><span>Dashboard Admin</span></a>
             </li>
             @endif
 
             {{-- Mentor --}}
             @if (Auth::user()->role == 'mentor')
             <li class="{{ Request::is('home-mentor') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/home-mentor') }}"><i class="fas fa-fire"></i><span>Dashboard Mentor</span></a>
+                <a class="nav-link" href="{{ url('/home-mentor') }}"><i class="fas fa-tachometer-alt"></i><span>Dashboard Mentor</span></a>
             </li>
             @endif
 
@@ -42,6 +42,10 @@
             <li class="{{ Request::is('mentor') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('mentor') }}"><i class="fas fa-book"></i> <span>mentor material</span></a>
             </li>
+
+            <li class="#">
+                <a class="nav-link" href="#"><i class="fas fa fa-check-square"></i> <span>Course Assessment</span></a>
+            </li>
             @endif
 
             {{--  SuperAdmin --}}
@@ -50,20 +54,31 @@
             <li class="{{ Request::is('hakakses') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('hakakses') }}"><i class="fas fa-user-shield"></i> <span>Access Rights</span></a>
             </li>
+            <li class="#">
+                <a class="nav-link" href="#"><i class="fas fa-credit-card fa-lg"></i> <span>Customer Payment</span></a>
+            </li>
             @endif
 
             @if (Auth::user()->role == 'superadmin') 
             <li class="menu-header">Course materials</li>
             <li class="{{ Request::is('course-admin') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('course-admin') }}"><i class="fas fa-user-shield"></i> <span>Course</span></a>
+                <a class="nav-link" href="{{ url('course-admin') }}"><i class="fas fa-graduation-cap"></i> <span>Course</span></a>
             </li> 
             <li class="{{ Request::is('course.material.create') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('course.material.create') }}"><i class="fas fa-user-shield"></i> <span>Materi Pelajaran</span></a>
             </li>
              @endif 
 
+             @if (Auth::user()->role == 'user') 
+            <li class="menu-header">Learning</li>
+            <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
+                <a class="nav-link" href="#"><i class="fas fa-university"></i> <span>My Course</span></a>
+            </li>
+            </li>
+            @endif
+
             <!-- Profile and change password -->
-            <li class="menu-header">Profile</li>
+            <li class="menu-header">PROFILE</li>
             <li class="{{ Request::is('profile/edit') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('profile/edit') }}"><i class="far fa-user"></i> <span>Profile</span></a>
             </li>
@@ -73,11 +88,7 @@
 
 
             <li class="menu-header">Starter</li>
-            @if (Auth::user()->role == 'user') 
-            <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
-                <a class="nav-link" href="#"><i class="fas fa-university"></i> <span>my course</span></a>
-            </li>
-            @endif
+            
             <li class="{{ Request::is('Settings') ? 'active' : '' }}">
                 <a class="nav-link" href="#"><i class="fas fa-tag"></i> <span>Settings</span></a>
 

@@ -78,7 +78,7 @@
                                 <div class="col-sm-12 col-md-7">
                                     <div class="input-group">
                                         <span class="input-group-text">Rp</span>
-                                        <input type="text" name="price" value="{{ number_format((float)$course->price, 0, ',', '.') }}" class="form-control" placeholder="Course Price" required>
+                                        <input type="text" name="price" value="{{ $course->price}}" class="form-control" placeholder="Course Price" required>
                                     </div>
                                 </div>
                             </div>
@@ -112,10 +112,11 @@
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Image</label>
                                 <div class="col-sm-12 col-md-7">
-                                    <input type="file" name="image" class="form-control">
-                                    <img src="/images/{{ $course->image }}" class="img-fluid mt-3" alt="Course Image" style="max-width: 300px;">
+                                    <input type="file" name="image" id="imageInput" class="form-control" accept="image/*" onchange="previewImage(event)">
+                                    <img id="imagePreview" src="/images/{{ $course->image }}" class="img-fluid mt-3" alt="Course Image" style="max-width: 300px;">
                                 </div>
                             </div>
+
 
                             <!-- Submit Button -->
                             <div class="form-group row mb-4">
@@ -129,4 +130,15 @@
             </div>
         </section>
     </div>
+
+    <script>
+        function previewImage(event) {
+            const image = document.getElementById('imagePreview');
+            image.src = URL.createObjectURL(event.target.files[0]);
+            image.onload = () => {
+                URL.revokeObjectURL(image.src); // menghapus URL object setelah gambar di-load
+            }
+        }
+    </script>
+    
 @endsection
