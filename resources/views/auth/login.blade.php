@@ -30,7 +30,7 @@
             <img src="{{ asset('img/signin.png') }}" alt="">
             <p class="subheader">Do you have an account?</p>
 
-            <a href="{{ route('register') }}" class="btn btn-master btn-primary">Sign Up</a>
+            <a href="{{ route('register') }}" class="lft btn btn-master btn-primary">Sign Up</a>
         </div>
 
         <div class="right">
@@ -70,7 +70,7 @@
                 
 
                 <div class="d-flex justify-content-center mt-4">
-                    <button type="submit" class="btn btn-border btn-primary">Sign In</button>
+                    <button type="submit" class="btn btn-border btn-primary w-75">Sign In</button>
                 </div>
                 
                 

@@ -64,7 +64,7 @@ body {
 .login-user .right .header-third {
     height: 20px;
     font-size: 22px;
-    color: #FDDE55;
+    color: #f3bf39;
     font-weight: 500;
     margin-top: -20px;
     margin-bottom: 50px;
@@ -132,10 +132,23 @@ body {
 }
 
 .login-user .left .btn-primary {
-    background: #FDDE55;
-    color: #fff;
-    width: 200px;
+  background: #FDDE55;
+  color: #222226;
+  width: 200px;
 }
+
+/* Warna tombol berubah menjadi biru saat di-hover */
+.login-user .left .btn-primary:hover {
+  background-color: #007bff; /* Biru */
+  color: #fff;
+}
+
+/* Warna tombol tetap biru saat ditekan (active) */
+.login-user .left .btn-primary:active {
+  background-color: #0056b3; /* Warna biru yang lebih gelap untuk efek ditekan */
+  color: #fff;
+}
+
 
 .login-user .right .btn-primary {
     background: #f3bf39;
@@ -1158,6 +1171,184 @@ color: white;
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+
+/*Global Login*/
+
+/* Media query for iPad */
+@media screen and (max-width: 1024px) {
+    .login-user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .login-user .left, .login-user .right {
+        width: 100%;
+        padding: 40px;
+        text-align: center;
+    }
+
+    .login-user .left .header-third {
+        margin-top: 50px;
+        font-size: 24px;
+    }
+
+    .login-user .left img {
+        height: 200px;
+        margin-bottom: 20px;
+    }
+
+    .login-user .right {
+        margin-top: 20px;
+    }
+
+    .login-user .right .header-third {
+        font-size: 28px;
+    }
+
+    .login-user .right .form-control {
+        margin-top: 20px;
+    }
+
+    .login-user .right .btn-border {
+        width: 100%;
+    }
+}
+
+.login-user .left {
+    background-color: #222226;
+    width: 50%;
+    min-height: 950px;
+    text-align: center;
+    float: left;
+    border-radius: 0px 40px 30px 0px;
+}
+
+.login-user .right {
+    width: 50%;
+    float: left;
+    padding: 120px;
+}
+
+/* Other styles remain the same... */
+/*Global Login*/
+
+/* Media query for iPad */
+ /* @media screen and (max-width: 1024px) {
+  .login-user {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .login-user .left, .login-user .right {
+      width: 100%;
+      padding: 40px;
+      text-align: center;
+  }
+
+  .login-user .left .header-third {
+      margin-top: 50px;
+      font-size: 24px;
+  }
+
+  .login-user .left img {
+      height: 200px;
+      margin-bottom: 20px;
+  }
+
+  .login-user .right {
+      margin-top: 20px;
+  }
+
+  .login-user .right .header-third {
+      font-size: 28px;
+  }
+
+  .login-user .right .form-control {
+      margin-top: 20px;
+  }
+
+  .login-user .right .btn-border {
+      width: 100%;
+  }
+}
+
+.login-user .left {
+  background-color: #222226;
+  width: 50%;
+  min-height: 950px;
+  text-align: center;
+  float: left;
+  border-radius: 0px 40px 30px 0px;
+}
+
+.login-user .right {
+  width: 50%;
+  float: left;
+  padding: 120px;
+}  */
+
+
+
+
+
+
+
+
+/*Global Login*/
+
+/* Tampilan standar untuk layar besar (landscape) */
+.login-user .left {
+  background-color: #222226;
+  width: 50%;
+  min-height: 950px;
+  text-align: center;
+  float: left;
+  border-radius: 0px 40px 30px 0px;
+}
+
+.login-user .right {
+  width: 50%;
+  float: left;
+  padding: 120px;
+}
+
+/* Sembunyikan left panel pada iPad potrait (vertikal) */
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .login-user .left {
+      display: none;
+  }
+
+  .login-user .right {
+      width: 100%;
+      padding: 60px;
+  }
+}
+
+/* Warna tombol berubah menjadi biru saat di-hover */
+.login-user .left .btn-primary:hover {
+background-color: #007bff;
+color: #fff;
+}
+
+/* Warna tombol tetap biru saat ditekan (active) */
+.login-user .left .btn-primary:active {
+background-color: #0056b3;
+color: #fff;
+}
+
+.login-user .right .btn-primary {
+  background: #f3bf39;
+  color: #fff;
+  width: 300px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+/* Other styles remain the same... */
+
 
 
 /*# sourceMappingURL=main.css.map */

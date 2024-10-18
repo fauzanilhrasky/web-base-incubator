@@ -55,7 +55,7 @@
                 <a class="nav-link" href="{{ url('hakakses') }}"><i class="fas fa-user-shield"></i> <span>Access Rights</span></a>
             </li>
             <li class="#">
-                <a class="nav-link" href="#"><i class="fas fa-credit-card fa-lg"></i> <span>Customer Payment</span></a>
+                <a class="nav-link" href=""><i class="fas fa-credit-card fa-lg"></i> <span>Customer Payment</span></a>
             </li>
             @endif
 
