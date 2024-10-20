@@ -28,6 +28,12 @@
                 <a class="nav-link" href="{{ url('/home-admin') }}"><i class="fa fa-tachometer-alt"></i><span>Dashboard Admin</span></a>
             </li>
             @endif
+            
+            @if (Auth::user()->role == 'superadmin')
+            <li class="{{ Request::is('/payment/pending') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/payment/pending') }}"><i class="fa fa-tachometer-alt"></i><span>Pembayaran Pending</span></a>
+            </li>
+            @endif
 
             {{-- Mentor --}}
             @if (Auth::user()->role == 'mentor')
@@ -71,8 +77,8 @@
 
              @if (Auth::user()->role == 'user') 
             <li class="menu-header">Learning</li>
-            <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
-                <a class="nav-link" href="#"><i class="fas fa-university"></i> <span>My Course</span></a>
+            <li class="{{ Request::is('my.courses') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('my.courses') }}"><i class="fas fa-university"></i> <span>My Course</span></a>
             </li>
             </li>
             @endif

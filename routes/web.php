@@ -58,6 +58,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/course/{id}/checkout', [PaymentController::class, 'checkout'])->name('checkout');
     Route::post('/course/{id}/payment', [PaymentController::class, 'createPayment'])->name('course.payment');
     Route::post('/course/{id}/status', [PaymentController::class, 'updatePaymentStatus'])->name('payment.status');
+    Route::post('/payment/{paymentId}/confirm', [PaymentController::class, 'confirmPayment'])->name('payment.confirm');
+    Route::get('/payment/{paymentId}/detail_confirm',[PaymentController::class, 'showConfirmDetails'])->name('payment.details');
+    Route::get('/payment/pending',[PaymentController::class, 'pendingPayment'])->name('payment.pending');
+    Route::get('my-courses', [PaymentController::class, 'myCourses'])->name('my.courses');
+
 
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');

@@ -67,6 +67,13 @@ class CourseController extends Controller
         $materials = $course->materials; // Retrieve the materials for the course
         return view('layouts.admin.course.show', compact('course', 'materials'));
     }
+    
+    public function showCourseUser(Course $course)
+    {
+
+        $materials = $course->materials; // Retrieve the materials for the course
+        return view('layouts.admin.course.show', compact('course', 'materials'));
+    }
 
     public function detail(Course $course)
     {
