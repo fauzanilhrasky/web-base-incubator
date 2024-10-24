@@ -89,4 +89,6 @@ class PaymentController extends Controller
         return view('layouts.admin.course.my_courses', compact('payments'));
     }
 
+    
+
 }

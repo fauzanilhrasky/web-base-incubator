@@ -2,7 +2,7 @@
 <div class="main-sidebar sidebar-style-3 ">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="#">
+            <a>
                 <img src="{{ asset('img/incubator.png') }}" alt="Logo" style="width: 70px;">
             </a>
         </div>
@@ -24,16 +24,13 @@
 
             {{--  SuperAdmin --}}
             @if (Auth::user()->role == 'superadmin')
+            <li class="menu-header">Dashboard</li>
             <li class="{{ Request::is('home-admin') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('/home-admin') }}"><i class="fa fa-tachometer-alt"></i><span>Dashboard Admin</span></a>
             </li>
             @endif
             
-            @if (Auth::user()->role == 'superadmin')
-            <li class="{{ Request::is('/payment/pending') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/payment/pending') }}"><i class="fa fa-tachometer-alt"></i><span>Pembayaran Pending</span></a>
-            </li>
-            @endif
+           
 
             {{-- Mentor --}}
             @if (Auth::user()->role == 'mentor')
@@ -60,8 +57,9 @@
             <li class="{{ Request::is('hakakses') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('hakakses') }}"><i class="fas fa-user-shield"></i> <span>Access Rights</span></a>
             </li>
-            <li class="#">
-                <a class="nav-link" href=""><i class="fas fa-credit-card fa-lg"></i> <span>Customer Payment</span></a>
+
+            <li class="{{ Request::is('/payment/pending') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/payment/pending') }}"><i class="fas fa-credit-card fa-lg"></i><span>Customer Payment</span></a>
             </li>
             @endif
 

@@ -1,17 +1,18 @@
 @auth
 <div class="navbar-bg"></div>
 <nav class="navbar navbar-expand-lg main-navbar">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto b">
         <li>
             <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg">
-                <i class="fas fa-bars"></i>
+                <i class="fas fa-bars" style=" color: black; "></i>
             </a>
         </li>
+        
         <li class="dropdown">
             <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 <img alt="image" src="{{ asset('img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
-                <div class="d-sm-none d-lg-inline-block">
-                    Hai, {{ auth()->check() ? substr(auth()->user()->name, 0, 10) : 'Tamu' }}
+                <div class="d-sm-none d-lg-inline-block text-dark">
+                    Hello, {{ auth()->check() ? substr(auth()->user()->name, 0, 10) : 'Tamu' }}
                 </div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
