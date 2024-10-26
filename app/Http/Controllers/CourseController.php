@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\Material;
+use App\Models\Payment;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class CourseController extends Controller
 {
@@ -86,7 +89,9 @@ class CourseController extends Controller
     public function detail(Course $course)
     {
         $materials = $course->materials;
-        return view('layouts.admin.course.detail',compact('course','materials'));
+
+        $isEnrolled = Payment::where('course_id', $course->id)->where('user_id', Auth::id())->where('status', 'completed')->exists();
+        return view('layouts.admin.course.detail',compact('course','materials','isEnrolled'));
     }
 
     public function homeMaterial()
@@ -226,8 +231,34 @@ class CourseController extends Controller
         return redirect()->route('course.show', $course->id)->with('success', 'Material updated successfully.');
     }
     
+    public function enroll($courseId)
+{
+    $course = Course::findOrFail($courseId);
+    $user = Auth::user();
 
+    $existingPayment = Payment::where('user_id', $user->id)
+                                ->where('course_id', $courseId)
+                                ->where('status', 'completed')
+                                ->first();
 
+    if ($existingPayment) {
+        return redirect()->route('my.courses')->with('info', 'You are already enrolled in this course.');
+    }
+
+    if (!$course->isPaid) {
+        Payment::create([
+            'user_id' => $user->id,
+            'course_id' => $courseId,
+            'amount' => 0,
+            'status' => 'completed',
+            'payment_proof' => null,
+        ]);
+
+        return redirect()->route('my.courses')->with('success', 'You have successfully enrolled in this course!');
+    }
+
+    return redirect()->route('checkout', $courseId)->withErrors(['Course is not free. Please proceed to checkout.']);
+}
 
 
 }

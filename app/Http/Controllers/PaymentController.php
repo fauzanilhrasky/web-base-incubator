@@ -85,10 +85,12 @@ class PaymentController extends Controller
     }
 
     public function myCourses() {
-        $payments = Payment::with('course')->where('user_id', Auth::id())->where('status','completed')->get();
+        $payments = Payment::with('course')
+                    ->where('user_id', Auth::id())
+                    ->where('status', 'completed')
+                    ->get();
+    
         return view('layouts.admin.course.my_courses', compact('payments'));
     }
-
     
-
 }

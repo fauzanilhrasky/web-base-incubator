@@ -63,6 +63,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/payment/{paymentId}/detail_confirm',[PaymentController::class, 'showConfirmDetails'])->name('payment.details');
     Route::get('/payment/pending',[PaymentController::class, 'pendingPayment'])->name('payment.pending');
     Route::get('my-courses', [PaymentController::class, 'myCourses'])->name('my.courses');
+    Route::post('/enroll/{courseId}', [CourseController::class, 'enroll'])->name('course.enroll');
 
     // profile
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
