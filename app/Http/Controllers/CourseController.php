@@ -64,6 +64,8 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      */
+
+    //  show admin
     public function show(Course $course)
     {
 
@@ -71,7 +73,17 @@ class CourseController extends Controller
         return view('layouts.admin.course.show', compact('course', 'materials'));
     }
 
-    //detail users
+
+    // showmaterial mentor
+    public function showMaterial(Course $course)
+    {
+
+        $materials = $course->materials; // Retrieve the materials for the course
+        return view('layouts.mentor.CourseMentor.showmaterial', compact('course', 'materials'));
+    }
+
+
+    //detail/show users
     public function showdetail(Course $course)
     {
 

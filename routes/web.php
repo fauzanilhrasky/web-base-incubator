@@ -39,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/store-course-admin', [CourseController::class, 'store'])->name('course.store');
     Route::get('/show-course-admin/{course}', [CourseController::class, 'show'])->name('course.show');
     Route::get('/show-course/{course}', [CourseController::class, 'showDetail'])->name('course.showdetail');
+   
 
     Route::get('/edit-course-admin/{course}', [CourseController::class, 'edit'])->name('course.edit');
     Route::put('/edit-course-admin/{course}', [CourseController::class, 'update'])->name('course.update');
@@ -48,7 +49,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/course/{course}/material', [CourseController::class,'storeMaterial'])->name('course.material.store');
     Route::get('/courses/{course}/material/{material}/edit', [CourseController::class, 'editMaterial'])->name('course.material.edit');
     Route::put('/courses/{course}/material/{material}', [CourseController::class, 'updateMaterial'])->name('course.material.update');
+    Route::get('/show-material/{course}', [CourseController::class, 'showMaterial'])->name('CourseMentor.showmaterial');
 
+    
     // user
     Route::get('/detail-course/{course}', [CourseController::class, 'detail'])->name('course.detail');
 

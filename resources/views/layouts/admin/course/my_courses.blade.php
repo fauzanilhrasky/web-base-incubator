@@ -99,7 +99,31 @@
                     </table>
                 @endif
         </table>  --}}
+        
 
+         <!-- SweetAlert Notifications -->
+         @if(session('success'))
+         <script>
+             Swal.fire({
+                 icon: 'success',
+                 title: 'Congratulations you succeeded!',
+                 text: '{{ session('success') }}',
+                 confirmButtonText: 'OK'
+             });
+         </script>
+     @endif
+
+     @if(session('info'))
+         <script>
+             Swal.fire({
+                 icon: 'info',
+                 title: 'Informasi',
+                 text: '{{ session('info') }}',
+                 confirmButtonText: 'OK'
+             });
+         </script>
+     @endif
 
     </div>
+    
 @endsection

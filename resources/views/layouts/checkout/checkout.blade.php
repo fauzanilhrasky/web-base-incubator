@@ -51,22 +51,18 @@
                                             
                                                 <hr>
 
-                                                
-
-
-                                                  {{-- Upload Payment Proof --}}
-                                            <div class="col-md-12 mt-4">
-                                                <label for="payment-proof" class="form-label text-dark">Upload Payment</label>
-                                                <input type="file" class="form-control" id="payment-proof" name="payment_proof" required>
-                                                <div class="invalid-feedback">
-                                                    Payment proof is required.
+                                                {{-- Upload Payment Proof --}}
+                                                <div class="col-md-12 mt-4">
+                                                    <label for="payment-proof" class="form-label text-dark">Upload Payment</label>
+                                                    <input type="file" class="form-control" id="payment-proof" name="payment_proof" required>
+                                                    <div class="invalid-feedback">
+                                                        Payment proof is required.
+                                                    </div>
                                                 </div>
                                             </div>
-                                
-                                            </div>
 
-                                              <!-- Course Price -->
-                                              <div class="col-md-3 mt-5">
+                                            <!-- Course Price -->
+                                            <div class="col-md-3 mt-5">
                                                 <label for="cc-expiration" class="form-label">Price :</label>
                                                 <h5 class="mt-2" style="color:rgb(255, 20, 20)">
                                                     {{ $course->price }}
@@ -76,10 +72,11 @@
                                                 </h5>
                                             </div>
                                         
-                                        <button id="checkout-btn" class="w-100 btn btn-primary btn-lg mt-5" type="submit">
-                                            Continue to checkout
-                                        </button>
-                                    </form>
+                                            <button id="checkout-btn" class="w-100 btn btn-primary btn-lg mt-5" type="submit">
+                                                Continue to checkout
+                                            </button>
+                                        </form>
+                                    </div>
                                 </main>
                             </div>
                         </div>
@@ -94,20 +91,31 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             document.getElementById('checkout-btn').addEventListener('click', function (event) {
-                event.preventDefault(); // Mencegah form terkirim langsung
+                event.preventDefault(); // Prevent form from submitting directly
+
+                const paymentProof = document.getElementById('payment-proof');
                 
-                // SweetAlert2 notification
-                Swal.fire({
-                    title: 'Checkout Successfully!',
-                    text: 'Successfully, you have checked out. Please wait for confirmation of acceptance from the admin. If it has been accepted, please always check your "My Course" page.',
-                    icon: 'success',
-                    confirmButtonText: 'OK'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        // Submit form jika pengguna klik 'OK'
-                        document.getElementById('checkout-form').submit();
-                    }
-                });
+                if (paymentProof.files.length === 0) {
+                    // Show validation message if payment proof is not provided
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Please upload your payment proof to continue.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                } else {
+                    // SweetAlert2 notification for successful checkout
+                    Swal.fire({
+                        title: 'Checkout Successfully!',
+                        text: 'Successfully, you have checked out. Please wait for confirmation of acceptance from the admin. If it has been accepted, please always check your "My Course" page.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            document.getElementById('checkout-form').submit();
+                        }
+                    });
+                }
             });
         </script>
     @endpush

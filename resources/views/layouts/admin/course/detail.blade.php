@@ -59,10 +59,10 @@
                                 </h5>
                             </ul>
 
-                            <<div class="d-grid gap-2">
+                            <div class="d-grid gap-2">
                                 @if ($isEnrolled)
-                                    <a href="{{ route('course.show', $course->id) }}"
-                                        class="btn btn-info btn-block w-75">View Course</a>
+                                <a href="{{ route('course.showdetail', $course->id) }}" class="btn btn-info w-75 d-flex justify-content-center mx-auto">View Course</a>
+
                                 @elseif ($course->isPaid)
                                     <form action="{{ route('checkout', $course->id) }}" method="GET">
                                         <button type="submit" class="btn btn-warning btn-block w-75">Buy Now</button>
@@ -163,4 +163,5 @@
     </section>
 
     </div>
+    
 @endsection

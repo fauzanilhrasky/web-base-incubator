@@ -13,13 +13,13 @@
         </div>
 
         <table class="table align-middle mb-0 bg-white">
-            <thead class="bg-light">
+            <thead class="bg-dark">
                 <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Status</th>
-                    <th>Price</th>
-                    <th>Actions</th>
+                    <th class="text-white">Name</th>
+                    <th  class="text-white">Category</th>
+                    <th  class="text-white">Status</th>
+                    <th  class="text-white">Price</th>
+                    <th  class="text-white">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,7 +48,7 @@
                             {{ $course->price ? $course->price : 'Free' }}
                         </td>
                         <td>
-                            <a href="{{ route('course.edit', $course->id) }}" class="btn btn-link btn-sm btn-rounded">
+                            <a href="{{ route('CourseMentor.showmaterial', $course->id) }}" class="btn btn-link btn-sm btn-rounded">
                                 Detail   
                             </a>
                         </td>
