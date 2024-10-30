@@ -6,8 +6,10 @@
     <div class="main-content">
         <div class="row justify-content-center">
             <div class="col-lg-12">
-                <div class="card">
+                
+                <div class="card">             
                     <div class="card-header">
+                       
                         <h3>{{ $course->name }}</h3>
                     </div>
                 </div>
@@ -21,9 +23,9 @@
 
                 <div class="row justify-content-center">
                     <div class="col-lg-11 bg-white p-4" style="border-radius: 10px;">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4>Course</h4> <!-- Judul atau teks lain yang relevan -->
-                            <a class="btn btn-success" href="{{ route('course.material.create', $course->id) }}">Create New materials</a>
+                        <div class="d-flex justify-content-between align-items-center mb-20">
+                            <h4>Course</h4> 
+                            <a class="btn btn-success mb-4" href="{{ route('course.material.create', $course->id) }}">Create New materials</a>
                         </div>
                         <div class="accordion" id="accordionPanelsStayOpenExample">
                             @foreach ($materials as $index => $material)
@@ -48,8 +50,13 @@
                                                 <li>
                                                     <a class="dropdown-item" href="{{ route('course.material.edit', ['course' => $course->id, 'material' => $material->id]) }}">Edit</a>
                                                 </li>
+
                                                 <li>
-                                                    <form action="#" method="POST" onsubmit="return confirm('Are you sure you want to delete this material?');">
+                                                    <a class="dropdown-item" href="#">create proyek</a>
+                                                </li>
+
+                                                <li>
+                                                    <form action="{{ route('course.material.destroy', ['course' => $course->id, 'material' => $material->id]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this material?');">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="dropdown-item">Delete</button>
@@ -77,6 +84,7 @@
                                                         <img src="{{ asset('uploads/' . $material->image) }}" alt="Image" style="max-width: 100px;">
                                                     </div>
                                                 @endif
+                                                
                                             </div>
 
                                             <hr>

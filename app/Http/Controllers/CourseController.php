@@ -207,6 +207,14 @@ class CourseController extends Controller
     {
         return view('layouts.admin.material.edit', compact('course', 'material'));
     }
+
+    
+    public function destroyMaterial(Course $course, Material $material)
+    {
+        $material->delete(); // Menghapus data material
+        return redirect()->route('CourseMentor.showmaterial', $course->id)->with('success', 'Material deleted successfully.');
+    }
+
     
 
     public function updateMaterial(Request $request, Course $course, Material $material)

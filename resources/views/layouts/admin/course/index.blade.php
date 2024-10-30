@@ -53,7 +53,7 @@
                                             </div>
                                             <p>{{ \Illuminate\Support\Str::limit($course->detail, 100) }}</p>
                                         </div>
-                                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <div class=" d-flex justify-content-between align-items-center mt-auto">
                                             <!-- Price in Rupiah -->
                                             <div class="text-left ml-4">
                                                 <h5 class="text-red">
@@ -65,7 +65,7 @@
 
                                             
                                             <!-- Dropdown Menu for Actions -->
-                                            <div class="dropdown">
+                                            <div class="dropdown bg-transparent">
                                                 <a href="#" data-toggle="dropdown" class="btn btn-icon btn-outline-secondary dropdown-toggle" aria-expanded="false">
                                                     <i class="fas fa-ellipsis-v"></i>
                                                 </a>

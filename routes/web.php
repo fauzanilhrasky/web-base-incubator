@@ -38,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/create-course-admin', [CourseController::class, 'create'])->name('course.create');
     Route::post('/store-course-admin', [CourseController::class, 'store'])->name('course.store');
     Route::get('/show-course-admin/{course}', [CourseController::class, 'show'])->name('course.show');
+    
     Route::get('/show-course/{course}', [CourseController::class, 'showDetail'])->name('course.showdetail');
    
 
@@ -49,6 +50,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/course/{course}/material', [CourseController::class,'storeMaterial'])->name('course.material.store');
     Route::get('/courses/{course}/material/{material}/edit', [CourseController::class, 'editMaterial'])->name('course.material.edit');
     Route::put('/courses/{course}/material/{material}', [CourseController::class, 'updateMaterial'])->name('course.material.update');
+    Route::delete('/courses/{course}/material/{material}', [CourseController::class, 'destroyMaterial'])->name('course.material.destroy');
+
     Route::get('/show-material/{course}', [CourseController::class, 'showMaterial'])->name('CourseMentor.showmaterial');
 
     

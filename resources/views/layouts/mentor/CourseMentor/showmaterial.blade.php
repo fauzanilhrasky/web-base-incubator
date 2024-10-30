@@ -55,6 +55,10 @@
                                                         <button type="submit" class="dropdown-item">Delete</button>
                                                     </form>
                                                 </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#"><span class="">Student Details</span></a>
+                                                </li>
+
                                             </ul>
                                         </div>
                                     </h1>

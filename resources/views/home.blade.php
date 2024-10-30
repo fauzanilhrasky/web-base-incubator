@@ -12,10 +12,10 @@
 
     <section class="section">
         <div class="section-body">
-            <div class="container-fluid">
+            <div class="container-fluid mt-4">
                 <div class="row justify-content-center">
                     <!-- Background Column -->
-                    <div class="col-12 bg-white-400 p-4 rounded shadow-sm">
+                    <div class="col-12 bg-white p-4 rounded shadow-sm">
                         <!-- Dropdown for category selection -->
                         <div class="mb-4">
                             <select id="url_select66e28d97b5db92" 
@@ -58,9 +58,9 @@
                                                     <p>{{ \Illuminate\Support\Str::limit($course->detail, 100) }}</p>
                                                 </div>
                                                 <!-- Price Section -->
-                                                <div class="article-footer d-flex justify-content-between align-items-center">
+                                                <div class="article-details d-flex justify-content-between align-items-center">
                                                     <div class="text-left">
-                                                        <h5 class="text-dark"><span class="text-dark"></span> {{ $course->price }}
+                                                        <h5 class="text-dark ">{{ $course->price }}
                                                             <span style="font-weight: normal; font-style:italic; font-size: 14px; color: gray;">/6 month</span>
                                                         </h5>
                                                     </div>
