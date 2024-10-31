@@ -78,8 +78,9 @@ class CourseController extends Controller
     public function showMaterial(Course $course)
     {
 
-        $materials = $course->materials; // Retrieve the materials for the course
-        return view('layouts.mentor.CourseMentor.showmaterial', compact('course', 'materials'));
+        $materials = $course->materials; 
+        $enrolledUsers = $course->payments()->where('status','completed')->with('user')->get()->pluck('user');
+        return view('layouts.mentor.CourseMentor.showmaterial', compact('course', 'materials', 'enrolledUsers'));
     }
 
 
