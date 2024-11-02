@@ -6,10 +6,8 @@
     <div class="main-content">
         <div class="row justify-content-center">
             <div class="col-lg-12">
-
                 <div class="card">
                     <div class="card-header">
-
                         <h3>{{ $course->name }}</h3>
                     </div>
                 </div>
@@ -23,17 +21,16 @@
 
                 <div class="row justify-content-center">
                     <div class="col-lg-11 bg-white p-4" style="border-radius: 10px;">
-                        <div class="d-flex justify-content-between align-items-center mb-20">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
                             <h4>Course</h4>
-                            <a class="btn btn-success mb-4" href="{{ route('course.material.create', $course->id) }}">Create
-                                New materials</a>
+                            <a class="btn btn-success mb-4" href="{{ route('course.material.create', $course->id) }}">
+                                Create New Materials
+                            </a>
                         </div>
                         <div class="accordion" id="accordionPanelsStayOpenExample">
                             @foreach ($materials as $index => $material)
-                                <div class="accordion-item"
-                                    style="margin-bottom: 15px; border-radius: 10px; overflow: hidden;">
-                                    <h1 class="accordion-header d-flex justify-content-between align-items-center"
-                                        id="heading{{ $index }}">
+                                <div class="accordion-item" style="margin-bottom: 15px; border-radius: 10px; overflow: hidden;">
+                                    <h1 class="accordion-header d-flex justify-content-between align-items-center" id="heading{{ $index }}">
                                         <button class="accordion-button {{ $index === 0 ? '' : 'collapsed' }}"
                                             type="button" data-bs-toggle="collapse"
                                             data-bs-target="#panelsStayOpen-collapse{{ $index }}"
@@ -46,30 +43,18 @@
 
                                         <!-- Dropdown for Edit/Delete -->
                                         <div class="dropdown">
-                                            <button class="btn btn-light" type="button"
-                                                id="dropdownMenuButton{{ $index }}" data-bs-toggle="dropdown"
-                                                aria-expanded="false" style="border: none; background-color: transparent;">
+                                            <button class="btn btn-light" type="button" id="dropdownMenuButton{{ $index }}" data-bs-toggle="dropdown" aria-expanded="false" style="border: none; background-color: transparent;">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </button>
-                                            <ul class="dropdown-menu dropdown-menu-end"
-                                                aria-labelledby="dropdownMenuButton{{ $index }}">
+                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton{{ $index }}">
                                                 <li>
-                                                    <a class="dropdown-item"
-                                                        href="{{ route('course.material.edit', ['course' => $course->id, 'material' => $material->id]) }}">Edit</a>
+                                                    <a class="dropdown-item" href="{{ route('course.material.edit', ['course' => $course->id, 'material' => $material->id]) }}">Edit</a>
                                                 </li>
-
                                                 <li>
-                                                    <a class="dropdown-item"
-                                                        href="{{ route('assignment.create', ['course' => $course->id, 'material' => $material->id]) }}">Add
-                                                        Assignment</a>
-
+                                                    <a class="dropdown-item" href="{{ route('assignment.create', ['course' => $course->id, 'material' => $material->id]) }}">Add Assignment</a>
                                                 </li>
-
                                                 <li>
-                                                    <form
-                                                        action="{{ route('course.material.destroy', ['course' => $course->id, 'material' => $material->id]) }}"
-                                                        method="POST"
-                                                        onsubmit="return confirm('Are you sure you want to delete this material?');">
+                                                    <form action="{{ route('course.material.destroy', ['course' => $course->id, 'material' => $material->id]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this material?');">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="dropdown-item">Delete</button>
@@ -79,108 +64,84 @@
                                         </div>
                                     </h1>
 
-                                    <div id="panelsStayOpen-collapse{{ $index }}"
-                                        class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}"
-                                        aria-labelledby="heading{{ $index }}">
+                                    <div id="panelsStayOpen-collapse{{ $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" aria-labelledby="heading{{ $index }}">
                                         <div class="accordion-body">
-                                            <strong>
-                                                <h5>Description</h5>
-                                            </strong> {{ $material->content }}<br>
+                                            <strong><h5>Description</h5></strong>
+                                            <p>{{ $material->content }}</p>
                                             <hr>
 
                                             <div class="d-flex justify-content-between mt-3">
                                                 @if ($material->file)
                                                     <div class="col">
-                                                        <i class="fas fa-book me-2"></i>
-                                                        <a
-                                                            href="{{ asset('files/' . $material->file) }}">{{ $material->file }}</a>
+                                                        <i class="fas fa-file-alt me-2"></i>
+                                                        <a href="{{ asset('files/' . $material->file) }}">{{ $material->file }}</a>
                                                     </div>
                                                 @endif
                                                 @if ($material->image)
                                                     <div class="col">
                                                         <strong>Image:</strong>
-                                                        <img src="{{ asset('uploads/' . $material->image) }}"
-                                                            alt="Image" style="max-width: 100px;">
+                                                        <img src="{{ asset('uploads/' . $material->image) }}" alt="Image" style="max-width: 100px;">
                                                     </div>
                                                 @endif
-
                                             </div>
 
                                             <hr>
 
-                                            <!-- Begin revised code from the activity block -->
+                                            <!-- Display Assignments -->
                                             <ul class="list-unstyled">
-                                                <li class="activity activity-wrapper assign modtype_assign hasinfo"
-                                                    id="module-3522" data-for="cmitem" data-id="3522" data-indexed="true">
-                                                    <div class="activity-item focus-control"
-                                                        data-activityname="Praktikum Pertemuan 2"
-                                                        data-region="activity-card">
-                                                        <div class="bulkselect d-none" data-for="cmBulkSelect">
-                                                            <input id="cmCheckbox3522" type="checkbox" data-id="3522"
-                                                                data-action="toggleSelectionCm" data-bulkcheckbox="1"
-                                                                disabled="">
-                                                            <label class="sr-only" for="cmCheckbox3522">Select activity
-                                                                Praktikum Pertemuan 2</label>
-                                                        </div>
-
-                                                        <div class="activity-grid">
-                                                            <!-- Activity icon -->
-                                                            <div
-                                                                class="activity-icon activityiconcontainer smaller assessment courseicon align-self-start mr-2">
-                                                                <img src="https://learning-if.polibatam.ac.id/theme/image.php/moove/assign/1724726077/monologo?filtericon=1"
-                                                                    class="activityicon" data-region="activity-icon"
-                                                                    data-id="3522" alt="">
-                                                            </div>
-
-                                                            <!-- Activity name -->
-                                                            <div
-                                                                class="activity-name-area activity-instance d-flex flex-column mr-2">
-                                                                <div
-                                                                    class="activitytitle modtype_assign position-relative align-self-start">
-                                                                    <div class="activityname">
-                                                                        <a href="https://learning-if.polibatam.ac.id/mod/assign/view.php?id=3522"
-                                                                            class="aalink stretched-link">
-                                                                            <span class="instancename">Praktikum Pertemuan 2
-                                                                                <span
-                                                                                    class="accesshide">Assignment</span></span>
-                                                                        </a>
+                                                @if ($material->assignments && $material->assignments->isNotEmpty())
+                                                    @foreach ($material->assignments as $assignment)
+                                                        <li class="activity activity-wrapper assign modtype_assign hasinfo" id="module-{{ $assignment->id }}" data-for="cmitem" data-id="{{ $assignment->id }}" data-indexed="true">
+                                                            <div class="activity-item focus-control" data-activityname="{{ $assignment->title }}" data-region="activity-card">
+                                                                <div class="activity-grid">
+                                                                    <!-- Activity icon -->
+                                                                    <div class="activity-icon activityiconcontainer smaller assessment courseicon align-self-start mr-2">
+                                                                        <img src="https://learning-if.polibatam.ac.id/theme/image.php/moove/assign/1724726077/monologo?filtericon=1" class="activityicon" data-region="activity-icon" data-id="{{ $assignment->id }}" alt="">
                                                                     </div>
+
+                                                                    <!-- Activity name -->
+                                                                    <div class="activity-name-area activity-instance d-flex flex-column mr-2">
+                                                                        <div class="activitytitle modtype_assign position-relative align-self-start">
+                                                                            <div class="activityname">
+                                                                                <span class="instancename">{{ $assignment->title }}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Activity dates -->
+                                                                    <div data-region="activity-dates" class="activity-dates mr-sm-2">
+                                                                        <div><strong>Opened:</strong> {{ \Carbon\Carbon::parse($assignment->opened_at)->format('d M Y, H:i A') }}</div>
+                                                                        <div><strong>Due:</strong> {{ \Carbon\Carbon::parse($assignment->due_date)->format('d M Y, H:i A') }}</div>
+                                                                    </div>
+
+                                                                    <!-- Activity description -->
+                                                                    <div class="activity-altcontent d-flex text-break activity-description">
+                                                                        <div class="no-overflow">
+                                                                            <p>{{ $assignment->description }}</p>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Display assignment files -->
+                                                                    @if ($assignment->file)
+                                                                        <div class="mt-2">
+                                                                            <i class="fas fa-file-download me-2"></i>
+                                                                            <a href="{{ asset('assignments/' . $assignment->file) }}">{{ $assignment->file }}</a>
+                                                                        </div>
+                                                                    @endif
                                                                 </div>
                                                             </div>
-
-                                                            <!-- Activity dates -->
-                                                            <div data-region="activity-dates"
-                                                                class="activity-dates mr-sm-2">
-                                                                <div><strong>Opened:</strong> Tuesday, 3 September 2024,
-                                                                    12:00 AM</div>
-                                                                <div><strong>Due:</strong> Tuesday, 10 September 2024, 12:00
-                                                                    AM</div>
-                                                            </div>
-
-                                                            <!-- Activity description -->
-                                                            <div
-                                                                class="activity-altcontent d-flex text-break activity-description">
-                                                                <div class="no-overflow">
-                                                                    <p>Pada materi minggu ke-2 telah dipaparkan beberapa
-                                                                        metode yang ada dalam agile project management,</p>
-                                                                    <p>selanjutnya tentukan metode agile yang akan kalian
-                                                                        gunakan untuk pengembangan PBL masing-masing tim dan
-                                                                        bagaimana kerangka kerjanya.</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
+                                                        </li>
+                                                    @endforeach
+                                                @else
+                                                    <li>No assignments available for this material.</li>
+                                                @endif
                                             </ul>
-                                            <!-- End revised code -->
 
                                         </div>
-
                                     </div>
                                 </div>
                             @endforeach
                         </div>
-
                     </div>
                 </div>
             </div>
