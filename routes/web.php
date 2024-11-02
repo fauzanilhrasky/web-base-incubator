@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +56,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/show-material/{course}', [CourseController::class, 'showMaterial'])->name('CourseMentor.showmaterial');
 
     
+    // Assigment
+    Route::get('/course/{course}/material/{material}/assignment/create',[AssignmentController::class,'create'])->name('assignment.create');
+    Route::post('/course/{course}/material/{material}/assignment/store',[AssignmentController::class,'store'])->name('assignment.store');
+
+
     // user
     Route::get('/detail-course/{course}', [CourseController::class, 'detail'])->name('course.detail');
 

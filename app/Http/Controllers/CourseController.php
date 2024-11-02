@@ -68,18 +68,19 @@ class CourseController extends Controller
     //  show admin
     public function show(Course $course)
     {
-
-        $materials = $course->materials; // Retrieve the materials for the course
+        // Eager load materials and their assignments
+        $materials = $course->materials()->with('assignments')->get();
         return view('layouts.admin.course.show', compact('course', 'materials'));
     }
+
 
 
     // showmaterial mentor
     public function showMaterial(Course $course)
     {
 
-        $materials = $course->materials; 
-        $enrolledUsers = $course->payments()->where('status','completed')->with('user')->get()->pluck('user');
+        $materials = $course->materials;
+        $enrolledUsers = $course->payments()->where('status', 'completed')->with('user')->get()->pluck('user');
         return view('layouts.mentor.CourseMentor.showmaterial', compact('course', 'materials', 'enrolledUsers'));
     }
 
@@ -88,14 +89,14 @@ class CourseController extends Controller
     public function showdetail(Course $course)
     {
 
-        $materials = $course->materials; // Retrieve the materials for the course
+        $materials = $course->materials;
         return view('layouts.admin.course.showdetail', compact('course', 'materials'));
     }
 
     public function showCourseUser(Course $course)
     {
 
-        $materials = $course->materials; // Retrieve the materials for the course
+        $materials = $course->materials;
         return view('layouts.admin.course.show', compact('course', 'materials'));
     }
 
@@ -104,7 +105,7 @@ class CourseController extends Controller
         $materials = $course->materials;
 
         $isEnrolled = Payment::where('course_id', $course->id)->where('user_id', Auth::id())->where('status', 'completed')->exists();
-        return view('layouts.admin.course.detail',compact('course','materials','isEnrolled'));
+        return view('layouts.admin.course.detail', compact('course', 'materials', 'isEnrolled'));
     }
 
     public function homeMaterial()
@@ -121,7 +122,7 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        $mentors = User::where('role', 'mentor')->get();  // Fetch mentors for the edit form
+        $mentors = User::where('role', 'mentor')->get();
         return view('layouts.admin.course.edit', compact('course', 'mentors'));
     }
 
@@ -134,7 +135,7 @@ class CourseController extends Controller
             'name' => 'required',
             'detail' => 'required',
             'category' => 'required',
-            'mentor_id' => 'required|exists:users,id', // Mentor validation
+            'mentor_id' => 'required|exists:users,id',
             'price' => 'required',
             'isPaid' => 'required',
         ]);
@@ -173,6 +174,7 @@ class CourseController extends Controller
         return view('layouts.admin.material.create', compact('course'));
     }
 
+
     /**
      * Store material for the specified course.
      */
@@ -209,14 +211,14 @@ class CourseController extends Controller
         return view('layouts.admin.material.edit', compact('course', 'material'));
     }
 
-    
+
     public function destroyMaterial(Course $course, Material $material)
     {
         $material->delete(); // Menghapus data material
         return redirect()->route('CourseMentor.showmaterial', $course->id)->with('success', 'Material deleted successfully.');
     }
 
-    
+
 
     public function updateMaterial(Request $request, Course $course, Material $material)
     {
@@ -225,10 +227,10 @@ class CourseController extends Controller
             'content' => 'required',
             'file' => 'nullable|file|mimes:png,jpg,pdf,doc,docx|max:2048',
         ]);
-    
+
         // Siapkan input untuk diupdate
         $input = $request->all();
-    
+
         // Jika ada file baru yang diunggah
         if ($request->hasFile('file')) {
             // Hapus file lama jika ada
@@ -238,48 +240,48 @@ class CourseController extends Controller
                     unlink($oldFilePath);
                 }
             }
-    
+
             // Simpan file baru
             $file = $request->file('file');
             $materialFile = date('YmdHis') . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('files'), $materialFile);
             $materialInput['file'] = $materialFile;
         }
-    
+
         // Update material dengan data baru
         $material->update($input);
-    
+
         return redirect()->route('course.show', $course->id)->with('success', 'Material updated successfully.');
     }
-    
+
     public function enroll($courseId)
-{
-    $course = Course::findOrFail($courseId);
-    $user = Auth::user();
+    {
+        $course = Course::findOrFail($courseId);
+        $user = Auth::user();
 
-    $existingPayment = Payment::where('user_id', $user->id)
-                                ->where('course_id', $courseId)
-                                ->where('status', 'completed')
-                                ->first();
+        $existingPayment = Payment::where('user_id', $user->id)
+            ->where('course_id', $courseId)
+            ->where('status', 'completed')
+            ->first();
 
-    if ($existingPayment) {
-        return redirect()->route('my.courses')->with('info', 'You are already enrolled in this course.');
+        if ($existingPayment) {
+            return redirect()->route('my.courses')->with('info', 'You are already enrolled in this course.');
+        }
+
+        if (!$course->isPaid) {
+            Payment::create([
+                'user_id' => $user->id,
+                'course_id' => $courseId,
+                'amount' => 0,
+                'status' => 'completed',
+                'payment_proof' => null,
+            ]);
+
+            return redirect()->route('my.courses')->with('success', 'You have successfully enrolled in this course!');
+        }
+
+        return redirect()->route('checkout', $courseId)->withErrors(['Course is not free. Please proceed to checkout.']);
     }
-
-    if (!$course->isPaid) {
-        Payment::create([
-            'user_id' => $user->id,
-            'course_id' => $courseId,
-            'amount' => 0,
-            'status' => 'completed',
-            'payment_proof' => null,
-        ]);
-
-        return redirect()->route('my.courses')->with('success', 'You have successfully enrolled in this course!');
-    }
-
-    return redirect()->route('checkout', $courseId)->withErrors(['Course is not free. Please proceed to checkout.']);
-}
 
 
 }

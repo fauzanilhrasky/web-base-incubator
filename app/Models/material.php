@@ -20,5 +20,10 @@ class Material extends Model
     public function material() {
         return $this->hasMany(Material::class);
     }
+
+    public function assignments()
+    {
+        return $this->hasMany(Assignment::class);
+    }
     
 }
