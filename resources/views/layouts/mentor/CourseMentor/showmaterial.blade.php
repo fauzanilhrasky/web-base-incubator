@@ -85,11 +85,13 @@
 
                                     <div id="panelsStayOpen-collapse{{ $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" aria-labelledby="heading{{ $index }}">
                                         <div class="accordion-body">
-                                            <strong><h5>Description</h5></strong>
-                                            {{ $material->content }}
-                                            <hr>
-
-                                            <!-- File and Image Display -->
+                                            <strong><h5>Description</h5></strong> {{ $material->content }}<br>
+                                    
+                                            <!-- Conditionally Rendered HR -->
+                                            @if ($material->file || $material->image || ($material->assignments && $material->assignments->isNotEmpty()))
+                                                <hr>
+                                            @endif
+                                    
                                             <div class="d-flex justify-content-between mt-3">
                                                 @if ($material->file)
                                                     <div class="col">
@@ -104,38 +106,68 @@
                                                     </div>
                                                 @endif
                                             </div>
-
-                                            <hr>
-
-                                            <!-- Activity List -->
+                                    
+                                            <!-- Conditionally Rendered HR for Assignments -->
+                                            @if ($material->assignments && $material->assignments->isNotEmpty())
+                                                <hr>
+                                            @endif
+                                    
+                                            <!-- Display Assignments -->
                                             <ul class="list-unstyled">
-                                                <li class="activity activity-wrapper assign modtype_assign hasinfo" id="module-3522" data-for="cmitem" data-id="3522" data-indexed="true">
-                                                    <div class="activity-item focus-control" data-activityname="Praktikum Pertemuan 2" data-region="activity-card">
-                                                        <div class="activity-grid">
-                                                            <div class="activity-icon activityiconcontainer smaller assessment courseicon align-self-start mr-2">
-                                                                <img src="https://learning-if.polibatam.ac.id/theme/image.php/moove/assign/1724726077/monologo?filtericon=1" class="activityicon" data-region="activity-icon" data-id="3522" alt="">
-                                                            </div>
-                                                            <div class="activity-name-area activity-instance d-flex flex-column mr-2">
-                                                                <div class="activitytitle modtype_assign position-relative align-self-start">
-                                                                    <div class="activityname">
-                                                                        <a href="https://learning-if.polibatam.ac.id/mod/assign/view.php?id=3522" class="aalink stretched-link">
-                                                                            <span class="instancename">Praktikum Pertemuan 2 <span class="accesshide">Assignment</span></span>
-                                                                        </a>
+                                                @if ($material->assignments && $material->assignments->isNotEmpty())
+                                                    @foreach ($material->assignments as $assignment)
+                                                        <li class="activity activity-wrapper assign modtype_assign hasinfo" id="module-{{ $assignment->id }}" data-for="cmitem" data-id="{{ $assignment->id }}" data-indexed="true">
+                                                            <div class="activity-item focus-control" data-activityname="{{ $assignment->title }}" data-region="activity-card">
+                                                                <div class="d-flex align-items-start"> <!-- Flex container for icon and title -->
+                                                                    <!-- Activity icon -->
+                                                                    <div class="activity-icon activityiconcontainer smaller assessment courseicon me-2">
+                                                                        <i class="fas fa-file fa-lg activityicon" data-region="activity-icon" data-id="{{ $assignment->id }}"></i>
+                                                                    </div>
+                                                                    
+                                                                    <!-- Activity name -->
+                                                                    <div class="activity-name-area activity-instance">
+                                                                        <div class="activitytitle modtype_assign position-relative">
+                                                                            <div class="activityname">
+                                                                                <a href="#" data-bs-toggle="tooltip" data-bs-title="Default tooltip">
+                                                                                    <h6>{{ $assignment->title }}</h6>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                            
+                                                                        <!-- Activity dates -->
+                                                                        <div data-region="activity-dates" class="activity-dates">
+                                                                            <div>
+                                                                                <strong>Opened:</strong> {{ \Carbon\Carbon::parse($assignment->opened_at)->format('d M Y, H:i A') }}
+                                                                                <strong>Due:</strong> {{ \Carbon\Carbon::parse($assignment->due_date)->format('d M Y, H:i A') }}
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <hr class="my-2"> <!-- Garis batas di bawah Opened dan Due -->
+                                            
+                                                                        <!-- Activity description -->
+                                                                        <div class="activity-altcontent d-flex text-break activity-description mt-2">
+                                                                            <div class="no-overflow">
+                                                                                <p>{{ $assignment->description }}</p>
+                                                                            </div>
+                                                                        </div>
+                                            
+                                                                        <!-- Display assignment files -->
+                                                                        @if ($assignment->file)
+                                                                            <div class="mt-2">
+                                                                                <i class="fas fa-file-download me-2"></i>
+                                                                                <a href="{{ asset('assignments/' . $assignment->file) }}">{{ $assignment->file }}</a>
+                                                                            </div>
+                                                                        @endif
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div data-region="activity-dates" class="activity-dates mr-sm-2">
-                                                                <div><strong>Opened:</strong> Tuesday, 3 September 2024, 12:00 AM</div>
-                                                                <div><strong>Due:</strong> Tuesday, 10 September 2024, 12:00 AM</div>
-                                                            </div>
-                                                            <div class="activity-altcontent d-flex text-break activity-description">
-                                                                <p>Pada materi minggu ke-2 telah dipaparkan beberapa metode yang ada dalam agile project management,</p>
-                                                                <p>selanjutnya tentukan metode agile yang akan kalian gunakan untuk pengembangan PBL masing-masing tim dan bagaimana kerangka kerjanya.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
+                                                        </li>
+                                                    @endforeach
+                                                @else
+                                                    <li>No assignments available for this material.</li>
+                                                @endif
                                             </ul>
+                                            
                                         </div>
                                     </div>
                                 </div>

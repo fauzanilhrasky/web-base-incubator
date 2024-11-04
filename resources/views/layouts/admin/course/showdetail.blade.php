@@ -62,10 +62,12 @@
                                     <div id="panelsStayOpen-collapse{{ $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" aria-labelledby="heading{{ $index }}">
                                         <div class="accordion-body">
                                             <strong><h5>Description</h5></strong> {{ $material->content }}<br>
-                                            <hr>
-                                        
-                                           
-                                        
+                                    
+                                            <!-- Conditionally Rendered HR -->
+                                            @if ($material->file || $material->image || ($material->assignments && $material->assignments->isNotEmpty()))
+                                                <hr>
+                                            @endif
+                                    
                                             <div class="d-flex justify-content-between mt-3">
                                                 @if ($material->file)
                                                     <div class="col">
@@ -80,9 +82,73 @@
                                                     </div>
                                                 @endif
                                             </div>
+                                    
+                                            <!-- Conditionally Rendered HR for Assignments -->
+                                            @if ($material->assignments && $material->assignments->isNotEmpty())
+                                                <hr>
+                                            @endif
+                                    
+                                            <!-- Display Assignments -->
+                                            <ul class="list-unstyled">
+                                                @if ($material->assignments && $material->assignments->isNotEmpty())
+                                                    @foreach ($material->assignments as $assignment)
+                                                        <li class="activity activity-wrapper assign modtype_assign hasinfo" id="module-{{ $assignment->id }}" data-for="cmitem" data-id="{{ $assignment->id }}" data-indexed="true">
+                                                            <div class="activity-item focus-control" data-activityname="{{ $assignment->title }}" data-region="activity-card">
+                                                                <div class="d-flex align-items-start"> <!-- Flex container for icon and title -->
+                                                                    <!-- Activity icon -->
+                                                                    <div class="activity-icon activityiconcontainer smaller assessment courseicon me-2">
+                                                                        <i class="fas fa-file fa-lg activityicon" data-region="activity-icon" data-id="{{ $assignment->id }}"></i>
+                                                                    </div>
+                                                                    
+                                                                    <!-- Activity name -->
+                                                                    <div class="activity-name-area activity-instance">
+                                                                        <div class="activitytitle modtype_assign position-relative">
+                                                                            <div class="activityname">
+                                                                                <a href="#" data-bs-toggle="tooltip" data-bs-title="Default tooltip">
+                                                                                    <h6>{{ $assignment->title }}</h6>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                            
+                                                                        <!-- Activity dates -->
+                                                                        <div data-region="activity-dates" class="activity-dates">
+                                                                            <div>
+                                                                                <strong>Opened:</strong> {{ \Carbon\Carbon::parse($assignment->opened_at)->format('d M Y, H:i A') }}
+                                                                               
+                                                                                <strong>Due:</strong> {{ \Carbon\Carbon::parse($assignment->due_date)->format('d M Y, H:i A') }}
+                                                                            </div>
+                                                                            
+                                                                        </div>
+
+                                                                        <hr class="my-2"> <!-- Garis batas di bawah Opened dan Due -->
+                                            
+                                                                        <!-- Activity description -->
+                                                                        <div class="activity-altcontent d-flex text-break activity-description mt-2">
+                                                                            <div class="no-overflow">
+                                                                                <p>{{ $assignment->description }}</p>
+                                                                            </div>
+                                                                        </div>
+                                            
+                                                                        <!-- Display assignment files -->
+                                                                        @if ($assignment->file)
+                                                                            <div class="mt-2">
+                                                                                <i class="fas fa-file-download me-2"></i>
+                                                                                <a href="{{ asset('assignments/' . $assignment->file) }}">{{ $assignment->file }}</a>
+                                                                            </div>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    @endforeach
+                                                @else
+                                                    <li>No assignments available for this material.</li>
+                                                @endif
+                                            </ul>
+                                            
                                         </div>
-                                        
                                     </div>
+                                    
                                 </div>
                             @endforeach
                         </div>

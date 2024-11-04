@@ -7,9 +7,35 @@
         <div class="row justify-content-center">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header d-flex justify-content-between">
                         <h3>{{ $course->name }}</h3>
+                        <!-- Drawer Toggle Button -->
+                        <div class="drawer-toggles d-flex">
+                            <div class="drawer-toggler drawer-right-toggle ml-auto d-print-none">
+                                <button id="drawerToggleButton" class="btn icon-no-margin bg-dark" data-toggler="drawers" data-action="toggle"
+                                        data-target="theme_boost-drawers-blocks" data-toggle="tooltip"
+                                        data-placement="right" data-original-title="Open block drawer"
+                                        title="Open block drawer">
+                                    <span class="sr-only">Open block drawer</span>
+                                    <span class="dir-rtl-hide"><i class="icon fa fa-chevron-left fa-fw text-white" aria-hidden="true"></i></span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
+                    <!-- Block Drawer Content -->
+                    <aside id="block-drawer" class="drawercontent drag-container d-none bg-white mt-sm-auto" style="width: 250px; position: fixed; right: 0; top: 80px; height: 100%; z-index: 1050;">
+                        <div class="d-flex justify-content-between align-items-center p-3">
+                            <h5 class="mt-5">Enrolled Users</h5>
+                            <button id="drawerCloseButton" class="btn btn-close" title="Close drawer">
+                                <span class="sr-only">Close drawer</span>
+                            </button>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            @foreach ($enrolledUsers as $user)
+                                <li class="list-group-item">{{ $user->name }} - {{ $user->email }}</li>
+                            @endforeach
+                        </ul>
+                    </aside>
                 </div>
             </div>
         </div>
@@ -66,14 +92,17 @@
 
                                     <div id="panelsStayOpen-collapse{{ $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" aria-labelledby="heading{{ $index }}">
                                         <div class="accordion-body">
-                                            <strong><h5>Description</h5></strong>
-                                            <p>{{ $material->content }}</p>
-                                            <hr>
-
+                                            <strong><h5>Description</h5></strong> {{ $material->content }}<br>
+                                    
+                                            <!-- Conditionally Rendered HR -->
+                                            @if ($material->file || $material->image || ($material->assignments && $material->assignments->isNotEmpty()))
+                                                <hr>
+                                            @endif
+                                    
                                             <div class="d-flex justify-content-between mt-3">
                                                 @if ($material->file)
                                                     <div class="col">
-                                                        <i class="fas fa-file-alt me-2"></i>
+                                                        <i class="fas fa-book me-2"></i>
                                                         <a href="{{ asset('files/' . $material->file) }}">{{ $material->file }}</a>
                                                     </div>
                                                 @endif
@@ -84,50 +113,61 @@
                                                     </div>
                                                 @endif
                                             </div>
-
-                                            <hr>
-
+                                    
+                                            <!-- Conditionally Rendered HR for Assignments -->
+                                            @if ($material->assignments && $material->assignments->isNotEmpty())
+                                                <hr>
+                                            @endif
+                                    
                                             <!-- Display Assignments -->
                                             <ul class="list-unstyled">
                                                 @if ($material->assignments && $material->assignments->isNotEmpty())
                                                     @foreach ($material->assignments as $assignment)
                                                         <li class="activity activity-wrapper assign modtype_assign hasinfo" id="module-{{ $assignment->id }}" data-for="cmitem" data-id="{{ $assignment->id }}" data-indexed="true">
                                                             <div class="activity-item focus-control" data-activityname="{{ $assignment->title }}" data-region="activity-card">
-                                                                <div class="activity-grid">
+                                                                <div class="d-flex align-items-start"> <!-- Flex container for icon and title -->
                                                                     <!-- Activity icon -->
-                                                                    <div class="activity-icon activityiconcontainer smaller assessment courseicon align-self-start mr-2">
-                                                                        <img src="https://learning-if.polibatam.ac.id/theme/image.php/moove/assign/1724726077/monologo?filtericon=1" class="activityicon" data-region="activity-icon" data-id="{{ $assignment->id }}" alt="">
+                                                                    <div class="activity-icon activityiconcontainer smaller assessment courseicon me-2">
+                                                                        <i class="fas fa-file fa-lg activityicon" data-region="activity-icon" data-id="{{ $assignment->id }}"></i>
                                                                     </div>
-
+                                                                    
                                                                     <!-- Activity name -->
-                                                                    <div class="activity-name-area activity-instance d-flex flex-column mr-2">
-                                                                        <div class="activitytitle modtype_assign position-relative align-self-start">
+                                                                    <div class="activity-name-area activity-instance">
+                                                                        <div class="activitytitle modtype_assign position-relative">
                                                                             <div class="activityname">
-                                                                                <span class="instancename">{{ $assignment->title }}</span>
+                                                                                <a href="#" data-bs-toggle="tooltip" data-bs-title="Default tooltip">
+                                                                                    <h6>{{ $assignment->title }}</h6>
+                                                                                </a>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-
-                                                                    <!-- Activity dates -->
-                                                                    <div data-region="activity-dates" class="activity-dates mr-sm-2">
-                                                                        <div><strong>Opened:</strong> {{ \Carbon\Carbon::parse($assignment->opened_at)->format('d M Y, H:i A') }}</div>
-                                                                        <div><strong>Due:</strong> {{ \Carbon\Carbon::parse($assignment->due_date)->format('d M Y, H:i A') }}</div>
-                                                                    </div>
-
-                                                                    <!-- Activity description -->
-                                                                    <div class="activity-altcontent d-flex text-break activity-description">
-                                                                        <div class="no-overflow">
-                                                                            <p>{{ $assignment->description }}</p>
+                                            
+                                                                        <!-- Activity dates -->
+                                                                        <div data-region="activity-dates" class="activity-dates flex justify-between items-center">
+                                                                            <div>
+                                                                                <strong>Opened:</strong> {{ \Carbon\Carbon::parse($assignment->opened_at)->format('d M Y, H:i A') }}
+                                                                            
+                                                                                <strong>Due:</strong> {{ \Carbon\Carbon::parse($assignment->due_date)->format('d M Y, H:i A') }}
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-
-                                                                    <!-- Display assignment files -->
-                                                                    @if ($assignment->file)
-                                                                        <div class="mt-2">
-                                                                            <i class="fas fa-file-download me-2"></i>
-                                                                            <a href="{{ asset('assignments/' . $assignment->file) }}">{{ $assignment->file }}</a>
+                                                                        
+                                                                        <hr class="my-2"> <!-- Garis batas di bawah Opened dan Due -->
+                                                                        
+                                                                        <!-- Activity description -->
+                                                                        <div class="activity-altcontent d-flex text-break activity-description mt-2">
+                                                                            <div class="no-overflow">
+                                                                                <p>{{ $assignment->description }}</p>
+                                                                            </div>
                                                                         </div>
-                                                                    @endif
+                                                                        
+                                            
+                                                                        <!-- Display assignment files -->
+                                                                        @if ($assignment->file)
+                                                                            <div class="mt-2">
+                                                                                <i class="fas fa-file-download me-2"></i>
+                                                                                <a href="{{ asset('assignments/' . $assignment->file) }}">{{ $assignment->file }}</a>
+                                                                            </div>
+                                                                        @endif
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -136,7 +176,7 @@
                                                     <li>No assignments available for this material.</li>
                                                 @endif
                                             </ul>
-
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -147,4 +187,16 @@
             </div>
         </section>
     </div>
+
+    <script>
+        document.getElementById('drawerToggleButton').addEventListener('click', function () {
+            const drawer = document.getElementById('block-drawer');
+            drawer.classList.toggle('d-none');
+        });
+    
+        document.getElementById('drawerCloseButton').addEventListener('click', function () {
+            const drawer = document.getElementById('block-drawer');
+            drawer.classList.add('d-none');
+        });
+    </script>
 @endsection

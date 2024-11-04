@@ -68,9 +68,10 @@ class CourseController extends Controller
     //  show admin
     public function show(Course $course)
     {
-        // Eager load materials and their assignments
         $materials = $course->materials()->with('assignments')->get();
-        return view('layouts.admin.course.show', compact('course', 'materials'));
+        $enrolledUsers = $course->payments()->where('status', 'completed')->with('user')->get()->pluck('user');
+        
+        return view('layouts.admin.course.show', compact('course', 'materials', 'enrolledUsers'));
     }
 
 
