@@ -174,9 +174,39 @@
     .dsk {
         margin-top: -330px; /* Adjust position to fit on smaller screens */
         
-    }
+    } 
+}
 
+.submission-table {
+    border: 1px solid rgb(226, 226, 226); /* Border luar tabel */
+}
 
+.submission-table th.upl {
+    border-bottom: 1px solid rgb(226, 226, 226); /* Garis bawah untuk header */
+    border-right: 1px solid rgb(226, 226, 226); /* Garis vertikal di sebelah kanan header */
+    width: 30%; /* Mengatur lebar kolom header */
+    background-color: #f8f9fa; /* Warna latar belakang header */
+    color: #343a40; /* Warna teks header */
+    text-align: left; /* Rata kiri untuk teks header */
+    padding: 8px; /* Padding untuk header */
+}
 
-    
+.submission-table td {
+    border-bottom: 1px solid rgb(226, 226, 226); /* Garis bawah untuk cell */
+    padding: 8px; /* Padding untuk cell */
+    color: #495057; /* Warna teks cell */
+}
+
+.submission-table td a {
+    color: black; /* Warna tautan */
+    text-decoration: none; /* Menghapus garis bawah dari tautan */
+}
+
+.submission-table td a:hover {
+    text-decoration: underline; /* Menambahkan garis bawah saat hover */
+}
+
+#add {
+    margin-left: 40px;
+    width: 200px; /* Sesuaikan ukuran lebar sesuai kebutuhan */
 }

@@ -59,7 +59,8 @@ Route::middleware(['auth'])->group(function () {
     // Assigment
     Route::get('/course/{course}/material/{material}/assignment/create',[AssignmentController::class,'create'])->name('assignment.create');
     Route::post('/course/{course}/material/{material}/assignment/store',[AssignmentController::class,'store'])->name('assignment.store');
-
+    Route::get('/upload-course/{course}/material/{material}/assignment/upload', [AssignmentController::class, 'showUpload'])->name('assignment.upload');
+    Route::post('/upload-course/{course}/material/{material}/assignment/upload', [AssignmentController::class, 'store'])->name('assignment.upload');
 
     // user
     Route::get('/detail-course/{course}', [CourseController::class, 'detail'])->name('course.detail');
