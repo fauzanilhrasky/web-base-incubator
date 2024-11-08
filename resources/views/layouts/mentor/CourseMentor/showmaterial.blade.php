@@ -128,7 +128,7 @@
                                                                     <div class="activity-name-area activity-instance">
                                                                         <div class="activitytitle modtype_assign position-relative">
                                                                             <div class="activityname">
-                                                                                <a href="#" data-bs-toggle="tooltip" data-bs-title="Default tooltip">
+                                                                                <a href="{{ route('assignment.detailUpload', ['course' => $course->id, 'material' => $material->id]) }}" data-bs-toggle="tooltip" data-bs-title="Default tooltip">
                                                                                     <h6>{{ $assignment->title }}</h6>
                                                                                 </a>
                                                                             </div>
@@ -138,11 +138,12 @@
                                                                         <div data-region="activity-dates" class="activity-dates">
                                                                             <div>
                                                                                 <strong>Opened:</strong> {{ \Carbon\Carbon::parse($assignment->opened_at)->format('d M Y, H:i A') }}
+                                                                                |
                                                                                 <strong>Due:</strong> {{ \Carbon\Carbon::parse($assignment->due_date)->format('d M Y, H:i A') }}
                                                                             </div>
                                                                         </div>
 
-                                                                        <hr class="my-2"> <!-- Garis batas di bawah Opened dan Due -->
+                                                                        <hr class="my-2"> 
                                             
                                                                         <!-- Activity description -->
                                                                         <div class="activity-altcontent d-flex text-break activity-description mt-2">

@@ -42,7 +42,8 @@
                                 <!-- Dropdown Menu -->
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <li><a class="dropdown-item" href="#">Edit</a></li>
-                                    <li><a class="dropdown-item text-danger" href="#" onclick="return confirm('Are you sure you want to delete this course?')">Delete</a></li>
+                                    <li><a class="dropdown-item" href="#">Detail Submission</a></li>
+                                    {{-- <li><a class="dropdown-item text-danger" href="#" onclick="return confirm('Are you sure you want to delete this course?')">Delete</a></li> --}}
                                 </ul>
                             </div>
                         </div>

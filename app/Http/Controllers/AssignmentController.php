@@ -15,13 +15,22 @@ class AssignmentController extends Controller
         return view('layouts.admin.assignment.create', compact('course', 'material'));
     }
 
+    
+    // upload assignment
     public function showUpload(Course $course, Material $material)
     {
-        // Ambil assignment yang terkait dengan material
+       
         $assignment = Assignment::where('material_id', $material->id)->first();
     
-        // Kirim data assignment ke view
+        
         return view('layouts.admin.assignment.upload', compact('course', 'material', 'assignment'));
+    }
+
+    public function detailUpload(Course $course, Material $material)
+    {
+        $assignment = Assignment::where('material_id', $material->id)->first();
+    
+        return view('layouts.mentor.assignment.upload', compact('course', 'material', 'assignment'));
     }
     
 

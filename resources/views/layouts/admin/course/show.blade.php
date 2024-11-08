@@ -145,12 +145,12 @@
                                                                         <div data-region="activity-dates" class="activity-dates flex justify-between items-center">
                                                                             <div>
                                                                                 <strong>Opened:</strong> {{ \Carbon\Carbon::parse($assignment->opened_at)->format('d M Y, H:i A') }}
-                                                                            
+                                                                                |
                                                                                 <strong>Due:</strong> {{ \Carbon\Carbon::parse($assignment->due_date)->format('d M Y, H:i A') }}
                                                                             </div>
                                                                         </div>
                                                                         
-                                                                        <hr class="my-2"> <!-- Garis batas di bawah Opened dan Due -->
+                                                                        <hr class="my-2"> 
                                                                         
                                                                         <!-- Activity description -->
                                                                         <div class="activity-altcontent d-flex text-break activity-description mt-2">

@@ -114,6 +114,7 @@
                                                                         <div data-region="activity-dates" class="activity-dates">
                                                                             <div>
                                                                                 <strong>Opened:</strong> {{ \Carbon\Carbon::parse($assignment->opened_at)->format('d M Y, H:i A') }}
+                                                                                |
                                                                                
                                                                                 <strong>Due:</strong> {{ \Carbon\Carbon::parse($assignment->due_date)->format('d M Y, H:i A') }}
                                                                             </div>
