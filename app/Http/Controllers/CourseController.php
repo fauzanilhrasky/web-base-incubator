@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Assignment;
 use App\Models\Course;
 use App\Models\Material;
 use App\Models\Payment;
 use App\Models\User;
+use App\Models\UserSubmission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -70,7 +72,7 @@ class CourseController extends Controller
     {
         $materials = $course->materials()->with('assignments')->get();
         $enrolledUsers = $course->payments()->where('status', 'completed')->with('user')->get()->pluck('user');
-        
+
         return view('layouts.admin.course.show', compact('course', 'materials', 'enrolledUsers'));
     }
 
@@ -85,14 +87,80 @@ class CourseController extends Controller
         return view('layouts.mentor.CourseMentor.showmaterial', compact('course', 'materials', 'enrolledUsers'));
     }
 
+    // User upload submission
+    public function submitAssignment(Request $request, $assignmentId)
+    {
+        $request->validate([
+            'file' => 'required|mimes:pdf,doc,docx,zip|max:2048'
+        ]);
+
+
+        $destinationPath = 'uploads/user_submissions/';
+        $fileName = date('YmdHis') . '.' . $request->file('file')->getClientOriginalExtension();
+        $request->file('file')->move(public_path($destinationPath), $fileName);
+
+        UserSubmission::create([
+            'user_id' => auth()->id(),
+            'assignment_id' => $assignmentId,
+            'file' => $fileName,
+        ]);
+
+        return redirect()->back()->with('success', 'Your assignment has been submitted successfully.');
+    }
+
+    public function updateAssignment(Request $request, $assignmentId)
+    {
+        $request->validate([
+            'file' => 'required|mimes:pdf,doc,docx,zip|max:2048',
+        ]);
+
+        $assignment = Assignment::findOrFail($assignmentId);
+
+        // Handle file upload
+        $destinationPath = 'uploads/user_submissions/';
+        $fileName = date('YmdHis') . '.' . $request->file('file')->getClientOriginalExtension();
+        $request->file('file')->move(public_path($destinationPath), $fileName);
+
+        // Update the submission or create a new one
+        UserSubmission::updateOrCreate(
+            ['user_id' => auth()->id(), 'assignment_id' => $assignmentId],
+            ['file' => $fileName]
+        );
+
+        return redirect()->back()->with('success', 'Your assignment has been updated successfully.');
+    }
+
+
+    public function download(UserSubmission $submission)
+    {
+        $filePath = public_path('uploads/user_submissions/' . $submission->file);
+
+        if (file_exists($filePath)) {
+            return response()->download($filePath);
+        }
+
+        return redirect()->back()->with('error', 'File not found.');
+    }
+
+
 
     //detail/show users
     public function showdetail(Course $course)
     {
-
         $materials = $course->materials;
+
+        // Retrieve all assignments and check if the user has submitted each one
+        foreach ($materials as $material) {
+            foreach ($material->assignments as $assignment) {
+                $assignment->userSubmission = UserSubmission::where('user_id', auth()->id())
+                    ->where('assignment_id', $assignment->id)
+                    ->first();
+            }
+        }
+
         return view('layouts.admin.course.showdetail', compact('course', 'materials'));
     }
+
 
     public function showCourseUser(Course $course)
     {

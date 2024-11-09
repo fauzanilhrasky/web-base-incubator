@@ -40,7 +40,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/store-course-admin', [CourseController::class, 'store'])->name('course.store');
     Route::get('/show-course-admin/{course}', [CourseController::class, 'show'])->name('course.show');
     
+
+    // My course user
+    Route::post('/assignments/{assignmentId}/submit', [CourseController::class, 'submitAssignment'])->name('assignments.submit');
     Route::get('/show-course/{course}', [CourseController::class, 'showDetail'])->name('course.showdetail');
+    Route::get('/assignments/download/{submission}', [CourseController::class, 'download'])->name('assignments.download');
+    Route::put('/assignments/update/{assignment}', [CourseController::class, 'updateAssignment'])->name('assignments.update');
+
+
    
 
     Route::get('/edit-course-admin/{course}', [CourseController::class, 'edit'])->name('course.edit');
