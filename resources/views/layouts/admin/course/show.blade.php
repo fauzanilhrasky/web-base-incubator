@@ -136,7 +136,7 @@
                                                                         <div class="activitytitle modtype_assign position-relative">
                                                                             <div class="activityname">
                                                                                 <a href="{{ route('assignment.upload', ['course' => $course->id, 'material' => $material->id]) }}" data-bs-toggle="tooltip" data-bs-title="Default tooltip">
-                                                                                    <h6>{{ $assignment->title }}</h6>
+                                                                                    <h6>Pengumpulan Tugas: {{ $assignment->title }}</h6>
                                                                                 </a>
                                                                             </div>
                                                                         </div>
