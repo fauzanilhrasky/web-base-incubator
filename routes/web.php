@@ -67,13 +67,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/course/{course}/material/{material}/assignment/create',[AssignmentController::class,'create'])->name('assignment.create');
     Route::post('/course/{course}/material/{material}/assignment/store',[AssignmentController::class,'store'])->name('assignment.store');
     Route::get('/upload-course/{course}/material/{material}/assignment/upload', [AssignmentController::class, 'showUpload'])->name('assignment.upload');
-    Route::get('/course/{course}/material/{material}/assignment/detail-upload', [AssignmentController::class, 'detailUpload'])
-    ->name('assignment.detailUpload');
+    Route::get('/course/{course}/material/{material}/assignment/detail-upload', [AssignmentController::class, 'detailUpload'])->name('assignment.detailUpload');
 
    
     // user
     Route::get('/detail-course/{course}', [CourseController::class, 'detail'])->name('course.detail');
+    Route::get('/course/{course}/material/{material}/assignment/detail-upload', [AssignmentController::class, 'userUpload'])->name('assignment.userUpload');
+    Route::get('assignment/{assignmentId}/add', [AssignmentController::class, 'userAdd'])->name('assignment.userAdd');
 
+
+    
     // Mentor
     Route::get('/mentor', [CourseController::class, 'homeMaterial'])->name('mentor');
 

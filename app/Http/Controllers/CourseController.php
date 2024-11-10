@@ -87,6 +87,7 @@ class CourseController extends Controller
         return view('layouts.mentor.CourseMentor.showmaterial', compact('course', 'materials', 'enrolledUsers'));
     }
 
+
     // User upload submission
     public function submitAssignment(Request $request, $assignmentId)
     {

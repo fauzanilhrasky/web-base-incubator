@@ -104,7 +104,7 @@
                                                                         <div
                                                                             class="activitytitle modtype_assign position-relative">
                                                                             <div class="activityname">
-                                                                                <a href="#" data-bs-toggle="tooltip"
+                                                                                <a href="{{ route('assignment.userUpload', ['course' => $course->id, 'material' => $material->id]) }}" data-bs-toggle="tooltip"
                                                                                     data-bs-title="Default tooltip">
                                                                                     <h6>{{ $assignment->title }}</h6>
                                                                                 </a>
@@ -136,7 +136,7 @@
                                                                             </div>
                                                                         </div>
 
-                                                                        <!-- Display Assignment Actions -->
+                                                                        {{-- <!-- Display Assignment Actions -->
                                                                         @if ($assignment->userSubmission)
                                                                             <div>
                                                                                 <p>Submitted File:
@@ -175,7 +175,7 @@
                                                                                     class="btn btn-primary">Submit
                                                                                     Assignment</button>
                                                                             </form>
-                                                                        @endif
+                                                                        @endif --}}
 
 
                                                                     </div>

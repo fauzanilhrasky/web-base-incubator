@@ -32,6 +32,24 @@ class AssignmentController extends Controller
     
         return view('layouts.mentor.assignment.upload', compact('course', 'material', 'assignment'));
     }
+
+    public function userUpload(Course $course, Material $material)
+    {
+        $assignment = Assignment::where('material_id', $material->id)->first();
+    
+        return view('layouts.user.assignment.upload', compact('course', 'material', 'assignment'));
+    }
+    
+    public function userAdd($assignmentId)
+    {
+        $assignment = Assignment::find($assignmentId);
+    
+        if (!$assignment) {
+            return redirect()->back()->with('error', 'Assignment not found.');
+        }
+    
+        return view('layouts.user.assignment.add', compact('assignment'));
+    }
     
 
     public function store(Request $request, Course $course, Material $material)
