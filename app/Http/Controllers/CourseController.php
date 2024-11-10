@@ -77,7 +77,6 @@ class CourseController extends Controller
     }
 
 
-
     // showmaterial mentor
     public function showMaterial(Course $course)
     {
@@ -143,7 +142,31 @@ class CourseController extends Controller
         return redirect()->back()->with('error', 'File not found.');
     }
 
+    // admin review user submission
+    public function reviewSubmissions($courseId, $materialId, $assignmentId) {
+        $assignment = Assignment::findOrFail($assignmentId);
+        $submissions = UserSubmission::where('assignment_id', $assignmentId)->with('user')->get();
+    
+        return view('layouts.admin.assignment.review', compact('assignment', 'submissions', 'courseId', 'materialId'));
+    }
 
+    // admin update status submission, grade ,and comment
+    public function updateSubmission(Request $request, $submissionId) {
+        $request->validate([
+            'status' => 'required|string',
+            'passing_grade' => 'nullable|integer',
+            'comment' => 'nullable|string',
+        ]);
+
+        $submission = UserSubmission::findOrFail($submissionId);
+        $submission->update([
+            'status' => $request->status,
+            'passing_grade' => $request->passing_grade,
+            'comment' => $request->comment
+        ]);
+
+        return redirect()->back()->with('success', 'Submission updated successfuly');
+    }
 
     //detail/show users
     public function showdetail(Course $course)

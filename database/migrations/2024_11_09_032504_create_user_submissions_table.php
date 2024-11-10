@@ -16,6 +16,9 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('assignment_id');
             $table->string('file');
+            $table->string('status')->default('pending');
+            $table->integer('passing_grade')->nullable();
+            $table->text('comment')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

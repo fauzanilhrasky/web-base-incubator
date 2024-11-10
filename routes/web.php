@@ -47,7 +47,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/assignments/download/{submission}', [CourseController::class, 'download'])->name('assignments.download');
     Route::put('/assignments/update/{assignment}', [CourseController::class, 'updateAssignment'])->name('assignments.update');
 
+    Route::get('courses/{course}/materials/{material}/assignments/{assignment}/review', [CourseController::class, 'reviewSubmissions'])
+    ->name('assignments.reviewSubmissions');
 
+    Route::put('/assignments/{submissionId}/update', [CourseController::class, 'updateSubmission'])->name('assignments.updateSubmission');
    
 
     Route::get('/edit-course-admin/{course}', [CourseController::class, 'edit'])->name('course.edit');

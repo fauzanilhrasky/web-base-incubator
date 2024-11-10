@@ -12,6 +12,9 @@ class UserSubmission extends Model
     protected $fillable = [
         'user_id',
         'assignment_id',
+        'status',
+        'passing_grade',
+        'comment',
         'file'
     ];
 

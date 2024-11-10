@@ -46,9 +46,9 @@
                 <a class="nav-link" href="{{ url('mentor') }}"><i class="fas fa-book"></i> <span>mentor material</span></a>
             </li>
 
-            <li class="#">
-                <a class="nav-link" href="#"><i class="fas fa fa-check-square"></i> <span>Course Assessment</span></a>
-            </li>
+            {{-- <li class="#">
+                <a class="nav-link" href="{{ url('assignments.review') }}"><i class="fas fa fa-check-square"></i> <span>Course Assessment</span></a>
+            </li> --}}
             @endif
 
             {{--  SuperAdmin --}}
