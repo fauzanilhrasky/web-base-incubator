@@ -9,7 +9,7 @@
 }
 
 .mdb-btn-custom {
-    background-color: #222226; /* Aturan MDB */
+    background-color: #222226; 
     color: white;
     width: 400px;
 }
@@ -25,8 +25,8 @@
 
 /* pagination */
 .custom-pagination .page-link {
-    background-color: yellow; /* Mengubah warna tombol menjadi kuning */
-    color: #222226; /* Mengubah warna tulisan angka menjadi #222226 */
+    background-color: yellow; /* tombol */
+    color: #222226; /
 }
 
 .custom-pagination .page-link:hover {
@@ -55,8 +55,8 @@
 /* CSS untuk merapikan teks di sebelah kiri */
 .copy {
     text-align: left; /* Menyelaraskan teks ke kiri */
-    margin-left: 0; /* Menghilangkan jarak ke tengah */
-    padding-left: 0; /* Menghilangkan padding yang membuat teks bergeser ke kanan */
+    margin-left: 0; 
+    padding-left: 0; 
     margin-top: 70px;
     flex: 1;
     padding-right: 20px;
@@ -78,11 +78,11 @@
 
 .cart-content {
     height: 100%;
-    max-height: 500px; /* Bisa disesuaikan */
+    max-height: 500px; 
     overflow-y: auto; /* Menggulung jika konten melebihi tinggi */
 }
 
-/* Styling agar layout lebih rapi */
+
 .custom-border {
    
     padding-left: 20px;
@@ -121,7 +121,7 @@
 
 .custom-background .bg-primary, 
 .custom-background .bg-danger {
-    color: white; /* Pastikan badge terlihat jelas */
+    color: white; 
 }
 
 .paragraf{
@@ -147,24 +147,24 @@
 
 @media only screen and (max-width: 1024px) {
     .main-content {
-        padding: 20px; /* Add padding to prevent content from touching edges */
+        padding: 20px; 
     }
 
     .copy {
-        padding-right: 10px; /* Adjust padding for smaller screens */
+        padding-right: 10px; 
     }
 
     .custom-background {
-        padding: 20px; /* Reduce padding for better fit */
+        padding: 20px; 
     }
 
     .support {
-        margin-top: 30px; /* Reduce margin to fit content better */
+        margin-top: 30px; 
     }
 
     .custom-border {
-        padding-left: 10px; /* Adjust padding for smaller screens */
-        margin-top: 20px; /* Add margin for separation */
+        padding-left: 10px; 
+        margin-top: 20px; 
     }
 
     .details {
@@ -183,30 +183,100 @@
 
 .submission-table th.upl {
     border-bottom: 1px solid rgb(226, 226, 226); /* Garis bawah untuk header */
-    border-right: 1px solid rgb(226, 226, 226); /* Garis vertikal di sebelah kanan header */
-    width: 30%; /* Mengatur lebar kolom header */
+    border-right: 1px solid rgb(226, 226, 226); 
+    width: 30%; 
     background-color: #f8f9fa; /* Warna latar belakang header */
     color: #343a40; /* Warna teks header */
-    text-align: left; /* Rata kiri untuk teks header */
-    padding: 8px; /* Padding untuk header */
+    text-align: left; 
+    padding: 8px; 
 }
 
 .submission-table td {
     border-bottom: 1px solid rgb(226, 226, 226); /* Garis bawah untuk cell */
-    padding: 8px; /* Padding untuk cell */
+    padding: 8px; 
     color: #495057; /* Warna teks cell */
 }
 
 .submission-table td a {
     color: black; /* Warna tautan */
-    text-decoration: none; /* Menghapus garis bawah dari tautan */
+    text-decoration: none; 
 }
 
 .submission-table td a:hover {
-    text-decoration: underline; /* Menambahkan garis bawah saat hover */
+    text-decoration: underline; 
 }
 
 #add {
     margin-left: 40px;
-    width: 200px; /* Sesuaikan ukuran lebar sesuai kebutuhan */
+    width: 200px; 
+}
+
+
+/* css iPad screens */
+@media (max-width: 768px) {
+    .breadcrumb-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .review-table th, .review-table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .review-table th {
+        white-space: nowrap;
+    }
+
+    
+    .modal-dialog-centered {
+        max-width: 90%;
+        margin: auto;
+    }
+
+  
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    .review-table {
+        overflow-x: auto;
+        display: block;
+    }
+}
+
+@media (max-width: 820px) {
+    .breadcrumb-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .review-table th, .review-table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .review-table th {
+        white-space: nowrap;
+    }
+
+
+    .modal-dialog-centered {
+        max-width: 90%;
+        margin: auto;
+    }
+
+
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    .review-table {
+        overflow-x: auto;
+        display: block;
+    }
 }

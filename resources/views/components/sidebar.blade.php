@@ -40,7 +40,7 @@
             @endif
 
             {{-- Mentor --}}
-            @if (Auth::user()->role == 'mentor' && Auth::user()->role == 'superadmin')
+            @if (Auth::user()->role == 'mentor' || Auth::user()->role == 'superadmin')
             <li class="menu-header">mentor material</li>
             <li class="{{ Request::is('mentor') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('mentor') }}"><i class="fas fa-book"></i> <span>mentor material</span></a>
@@ -75,7 +75,7 @@
 
              @if (Auth::user()->role == 'user') 
             <li class="menu-header">Learning</li>
-            <li class="{{ Request::is('my.courses') ? 'active' : '' }}">
+            <li class="{{ Request::is('my-courses') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('my.courses') }}"><i class="fas fa-university"></i> <span>My Course</span></a>
             </li>
             </li>

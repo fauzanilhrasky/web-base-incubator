@@ -12,4 +12,9 @@ class Assignment extends Model
     protected $fillable = [
         'title', 'description', 'due_date', 'material_id','file'
     ];
+
+    public function userSubmissions()
+    {
+        return $this->hasMany(UserSubmission::class);
+    }
 }

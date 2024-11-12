@@ -87,47 +87,73 @@ class CourseController extends Controller
     }
 
     // User upload submission
+
+     public function addSubmissions($id)
+    {
+        
+        $assignment = Assignment::with('userSubmissions')->findOrFail($id);
+
+        
+        return view('layouts.user.assignment.add', compact('assignment'));
+    }
     public function submitAssignment(Request $request, $assignmentId)
     {
         $request->validate([
-            'file' => 'required|mimes:pdf,doc,docx,zip|max:2048'
+            'file' => 'nullable|mimes:pdf,doc,docx,zip|max:2048',
+            'link' => 'nullable|url',
         ]);
-
-
-        $destinationPath = 'uploads/user_submissions/';
-        $fileName = date('YmdHis') . '.' . $request->file('file')->getClientOriginalExtension();
-        $request->file('file')->move(public_path($destinationPath), $fileName);
-
-        UserSubmission::create([
-            'user_id' => auth()->id(),
-            'assignment_id' => $assignmentId,
-            'file' => $fileName,
-        ]);
-
-        return redirect()->back()->with('success', 'Your assignment has been submitted successfully.');
+    
+        // Handle file or link submission
+        if ($request->submission_method == 'file') {
+            $fileName = null;
+    
+            if ($request->hasFile('file')) {
+                $fileName = time() . '.' . $request->file('file')->getClientOriginalExtension();
+                $request->file('file')->move(public_path('uploads'), $fileName);
+            }
+    
+            UserSubmission::create([
+                'user_id' => auth()->id(),
+                'assignment_id' => $assignmentId,
+                'file' => $fileName,
+                'link' => null,
+            ]);
+        } elseif ($request->submission_method == 'link') {
+            UserSubmission::create([
+                'user_id' => auth()->id(),
+                'assignment_id' => $assignmentId,
+                'file' => null,
+                'link' => $request->link,
+            ]);
+        }
+    
+        return redirect()->route('assignments.add', $assignmentId)
+                         ->with('success', 'Your assignment has been successfully submitted!');
     }
 
-    public function updateAssignment(Request $request, $assignmentId)
-    {
-        $request->validate([
-            'file' => 'required|mimes:pdf,doc,docx,zip|max:2048',
-        ]);
 
-        $assignment = Assignment::findOrFail($assignmentId);
+public function updateAssignment(Request $request, $assignmentId)
+{
+    $request->validate([
+        'file' => 'nullable|mimes:pdf,doc,docx,zip|max:2048',
+    ]);
 
-        // Handle file upload
-        $destinationPath = 'uploads/user_submissions/';
-        $fileName = date('YmdHis') . '.' . $request->file('file')->getClientOriginalExtension();
-        $request->file('file')->move(public_path($destinationPath), $fileName);
+    $submission = UserSubmission::where('assignment_id', $assignmentId)
+                                ->where('user_id', auth()->id())
+                                ->first();
 
-        // Update the submission or create a new one
-        UserSubmission::updateOrCreate(
-            ['user_id' => auth()->id(), 'assignment_id' => $assignmentId],
-            ['file' => $fileName]
-        );
+    if ($request->hasFile('file')) {
+        $fileName = time() . '.' . $request->file('file')->getClientOriginalExtension();
+        $request->file('file')->move(public_path('uploads'), $fileName);
 
-        return redirect()->back()->with('success', 'Your assignment has been updated successfully.');
+        // Update the file
+        $submission->update(['file' => $fileName]);
     }
+
+    return redirect()->route('assignments.add', $assignmentId)
+                     ->with('success', 'Your assignment has been successfully updated!');
+}
+
 
 
     public function download(UserSubmission $submission)
