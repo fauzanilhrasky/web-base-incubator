@@ -23,32 +23,35 @@
             <div class="section-body">
                 <h2 class="section-title">Manage Courses Upload Assignments</h2>
                 <p class="section-lead">You can update, and delete courses here.</p>
-            
+
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
                         <p>{{ $message }}</p>
                     </div>
                 @endif
-            
+
                 <div class="card">
                     <div class="card-header">
                         <h4 class="text-dark">Courses Upload</h4>
                         <div class="card-header-action">
                             <!-- Dropdown Button -->
                             <div class="dropdown">
-                                <button class="btn btn-icon" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-icon" type="button" id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fas fa-ellipsis-v"></i>
                                 </button>
                                 <!-- Dropdown Menu -->
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <li><a class="dropdown-item" href="#">Edit</a></li>
-                                    <li><a class="dropdown-item text-danger" href="#" onclick="return confirm('Are you sure you want to delete this course?')">Delete</a></li>
+                                    <li><a class="dropdown-item text-danger" href="#"
+                                            onclick="return confirm('Are you sure you want to delete this course?')">Delete</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    
-                    
+
+
                     <div class="card-body">
                         <div class="row">
                             <!-- Kolom pertama -->
@@ -56,30 +59,40 @@
                                 <!-- Activity dates -->
                                 <div data-region="activity-dates" class="activity-dates">
                                     <div class="mt-4">
-                                        <strong>Opened:</strong> {{ \Carbon\Carbon::parse($assignment->opened_at)->format('d M Y, H:i A') }} |
-                                        <strong>Due:</strong> {{ \Carbon\Carbon::parse($assignment->due_date)->format('d M Y, H:i A') }}
+                                        <strong>Opened:</strong>
+                                        {{ \Carbon\Carbon::parse($assignment->opened_at)->format('d M Y, H:i A') }} |
+                                        <strong>Due:</strong>
+                                        {{ \Carbon\Carbon::parse($assignment->due_date)->format('d M Y, H:i A') }}
                                     </div>
                                     <hr>
                                 </div>
 
-                                 <!-- Activity description -->
-                                 <div class="activity-altcontent d-flex text-break activity-description mt-2">
+                                <!-- Activity description -->
+                                <div class="activity-altcontent d-flex text-break activity-description mt-2">
                                     <div class="no-overflow">
                                         <p>{{ $assignment->description }}</p>
                                     </div>
                                 </div>
 
                                 @if ($assignment->file)
-                                <div class="mt-2">
-                                    <i class="fas fa-file-download me-2"></i>
-                                    <a href="{{ asset('assignments/' . $assignment->file) }}">{{ $assignment->file }}</a>
-                                </div>
-                            @endif
+                                    <div class="mt-2">
+                                        <i class="fas fa-file-download me-2"></i>
+                                        <a
+                                            href="{{ asset('assignments/' . $assignment->file) }}">{{ $assignment->file }}</a>
+                                    </div>
+                                @endif
                             </div>
 
-                            <a href="{{ route('assignments.add', $assignment->id) }}" class="btn btn-primary w-25 mt-5">Add Submission</a>
-
-
+                            <!-- Tombol Add/Update Submission -->
+                            @if ($userSubmissions->isNotEmpty())
+                                <a href="{{ route('userSubmit.edit', ['course' => $course->id, 'material' => $material->id, 'assignment' => $assignment->id]) }}"
+                                    class="btn btn-primary w-25 mt-5">
+                                    Edit Submission
+                                </a>
+                            @else
+                                <a href="{{ route('assignments.add', $assignment->id) }}"
+                                    class="btn btn-primary w-25 mt-5">Add Submission</a>
+                            @endif
 
 
                         </div>
@@ -88,51 +101,118 @@
                                 <!-- Submission status -->
                                 <tr>
                                     <th scope="row" class="upl">Submission status:</th>
-                                    <td><span class="text-dark">No submissions have been made yet</span></td>
+                                    <td>
+                                        @if ($userSubmissions->isNotEmpty())
+                                            <ul class="list-unstyled">
+                                                @foreach ($userSubmissions as $submission)
+                                                    <li class="mb-2">
+                                                        <p>Your submission is {{ $submission->status ?? 'Not graded' }}.
+                                                        </p>
+                                                        {{-- <small class="text-muted">Submitted on: {{ $submission->created_at->format('d M Y, H:i A') }}</small> --}}
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @else
+                                            <p>No comments yet.</p>
+                                        @endif
+                                    </td>
                                 </tr>
-                        
+
                                 <!-- Grading status -->
                                 <tr>
                                     <th scope="row" class="upl">Grading status:</th>
-                                    <td><span class="text-dark">Not graded</span></td>
+                                    <td>
+                                        @if ($userSubmissions->isNotEmpty())
+                                            <ul class="list-unstyled bold">
+                                                @foreach ($userSubmissions as $submission)
+                                                    <li class="mb-2">
+                                                        <p>{{ $submission->passing_grade ?? 'Not graded.' }}</p>
+                                                        {{-- <small class="text-muted">Submitted on: {{ $submission->created_at->format('d M Y, H:i A') }}</small> --}}
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @else
+                                            <p>No comments yet.</p>
+                                        @endif
+                                    </td>
                                 </tr>
-                        
+
                                 <!-- Time remaining -->
                                 <tr>
                                     <th scope="row" class="upl">Time remaining:</th>
-                                    <td><span class="text-success">Assignment was submitted 2 hours 13 mins early</span></td>
+                                    <td>
+                                        @if ($userSubmissions->isNotEmpty())
+                                            @foreach ($userSubmissions as $submission)
+                                                <span class="{{ $submission->is_early ? 'text-success' : 'text-danger' }}">
+                                                    Assignment was submitted
+                                                    {{ $submission->time_difference }}
+                                                    {{ $submission->is_early ? 'early' : 'late' }}
+                                                </span>
+                                            @endforeach
+                                        @else
+                                            <span class="text-muted">No submissions yet.</span>
+                                        @endif
+                                    </td>
                                 </tr>
-                        
+
+
                                 <!-- Last modified -->
                                 <tr>
                                     <th scope="row" class="upl">Last modified:</th>
-                                    <td class="text-dark">Wednesday, 18 September 2024, 9:46 PM</td>
+                                    <td>
+                                        @if ($userSubmissions->isNotEmpty())
+                                            {{ $userSubmissions->last()->updated_at->format('d M Y, H:i A') }}
+                                        @else
+                                            <span class="text-muted">No submissions yet.</span>
+                                        @endif
+                                    </td>
                                 </tr>
-                        
+
                                 <!-- File submissions -->
                                 <tr>
                                     <th scope="row" class="upl">File submissions:</th>
                                     <td>
-                                        <i class="fas fa-file-pdf text-danger me-2"></i>
-                                        <a href="{{ asset('assignments/' . $assignment->file) }}">{{ $assignment->file }}</a>
-                                        <small class="text-dark">18 September 2024, 9:46 PM</small>
+                                        @if ($userSubmissions->isNotEmpty())
+                                            <i class="fas fa-file-pdf text-danger me-2"></i>
+                                            <a href="{{ asset('uploads/' . $userSubmissions->last()->file_name) }}">
+                                                {{ $userSubmissions->last()->file_name }}
+                                            </a>
+                                            <small class="text-dark">
+                                                {{ $userSubmissions->last()->updated_at->format('d M Y, H:i A') }}
+                                            </small>
+                                        @else
+                                            <span class="text-muted">No submissions yet.</span>
+                                        @endif
                                     </td>
                                 </tr>
-                        
+
                                 <!-- Submission comments -->
                                 <tr>
-                                    <th scope="row" class="upl">Submission comments:</th>
-                                    <td><a href="#">Comments (0)</a></td>
+                                    <th scope="row" class="upl">S ubmission comments:</th>
+                                    <td>
+                                        @if ($userSubmissions->isNotEmpty())
+                                            <ul class="list-unstyled">
+                                                @foreach ($userSubmissions as $submission)
+                                                    <li class="mb-2">
+                                                        <p>{{ $submission->comment ?? 'No comments yet.' }}</p>
+                                                        {{-- <small class="text-muted">Submitted on: {{ $submission->created_at->format('d M Y, H:i A') }}</small> --}}
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @else
+                                            <p>No comments yet.</p>
+                                        @endif
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
-                        
-                        
-                        
+
+
+
                     </div>
                 </div>
             </div>
-            
+
         </section>
     </div>
 @endsection

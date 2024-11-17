@@ -27,4 +27,5 @@ class UserSubmission extends Model
     }
 
 
+
 }

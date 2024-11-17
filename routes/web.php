@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/create-course-admin', [CourseController::class, 'create'])->name('course.create');
     Route::post('/store-course-admin', [CourseController::class, 'store'])->name('course.store');
     Route::get('/show-course-admin/{course}', [CourseController::class, 'show'])->name('course.show');
-    
+
 
     // My course user
     Route::post('/assignments/{assignmentId}/submit', [CourseController::class, 'submitAssignment'])->name('assignments.submit');
@@ -48,32 +48,40 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/assignments/update/{assignment}', [CourseController::class, 'updateAssignment'])->name('assignments.update');
 
     Route::get('courses/{course}/materials/{material}/assignments/{assignment}/review', [CourseController::class, 'reviewSubmissions'])
-    ->name('assignments.reviewSubmissions');
+        ->name('assignments.reviewSubmissions');
 
     Route::put('/assignments/{submissionId}/update', [CourseController::class, 'updateSubmission'])->name('assignments.updateSubmission');
-   
+
 
     Route::get('/edit-course-admin/{course}', [CourseController::class, 'edit'])->name('course.edit');
     Route::put('/edit-course-admin/{course}', [CourseController::class, 'update'])->name('course.update');
     Route::delete('/{course}', [CourseController::class, 'destroy'])->name('course.destroy');
-    
-    Route::get('/course/{course}/material/create', [CourseController::class,'createMaterial'])->name('course.material.create');
-    Route::post('/course/{course}/material', [CourseController::class,'storeMaterial'])->name('course.material.store');
+
+    Route::get('/course/{course}/material/create', [CourseController::class, 'createMaterial'])->name('course.material.create');
+    Route::post('/course/{course}/material', [CourseController::class, 'storeMaterial'])->name('course.material.store');
     Route::get('/courses/{course}/material/{material}/edit', [CourseController::class, 'editMaterial'])->name('course.material.edit');
     Route::put('/courses/{course}/material/{material}', [CourseController::class, 'updateMaterial'])->name('course.material.update');
     Route::delete('/courses/{course}/material/{material}', [CourseController::class, 'destroyMaterial'])->name('course.material.destroy');
 
     Route::get('/show-material/{course}', [CourseController::class, 'showMaterial'])->name('CourseMentor.showmaterial');
 
-    
-    // Assigment
-    Route::get('/course/{course}/material/{material}/assignment/create',[AssignmentController::class,'create'])->name('assignment.create');
-    Route::post('/course/{course}/material/{material}/assignment/store',[AssignmentController::class,'store'])->name('assignment.store');
-    Route::get('/upload-course/{course}/material/{material}/assignment/upload', [AssignmentController::class, 'showUpload'])->name('assignment.upload');
-    Route::get('/course/{course}/material/{material}/assignment/detail-upload', [AssignmentController::class, 'detailUpload'])
-    ->name('assignment.detailUpload');
 
-   
+    // Assigment
+    Route::get('/course/{course}/material/{material}/assignment/create', [AssignmentController::class, 'create'])->name('assignment.create');
+    Route::post('/course/{course}/material/{material}/assignment/store', [AssignmentController::class, 'store'])->name('assignment.store');
+
+    // Upload User
+    Route::get('/upload-course/{course}/material/{material}/assignment/upload', [AssignmentController::class, 'showUpload'])->name('assignment.upload');
+    Route::get('courses/{course}/materials/{material}/assignments/{assignment}/edit', [AssignmentController::class, 'edit'])->name('userSubmit.edit');
+    Route::put('courses/{course}/materials/{material}/assignments/{assignment}', [AssignmentController::class, 'update'])->name('userSubmit.update');
+
+
+
+
+    Route::get('/course/{course}/material/{material}/assignment/detail-upload', [AssignmentController::class, 'detailUpload'])
+        ->name('assignment.detailUpload');
+
+
     // user
     Route::get('/detail-course/{course}', [CourseController::class, 'detail'])->name('course.detail');
     Route::get('/assignment/{id}/add', [CourseController::class, 'addSubmissions'])->name('assignments.add');
@@ -86,8 +94,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/course/{id}/payment', [PaymentController::class, 'createPayment'])->name('course.payment');
     Route::post('/course/{id}/status', [PaymentController::class, 'updatePaymentStatus'])->name('payment.status');
     Route::post('/payment/{paymentId}/confirm', [PaymentController::class, 'confirmPayment'])->name('payment.confirm');
-    Route::get('/payment/{paymentId}/detail_confirm',[PaymentController::class, 'showConfirmDetails'])->name('payment.details');
-    Route::get('/payment/pending',[PaymentController::class, 'pendingPayment'])->name('payment.pending');
+    Route::get('/payment/{paymentId}/detail_confirm', [PaymentController::class, 'showConfirmDetails'])->name('payment.details');
+    Route::get('/payment/pending', [PaymentController::class, 'pendingPayment'])->name('payment.pending');
     Route::get('my-courses', [PaymentController::class, 'myCourses'])->name('my.courses');
     Route::post('/enroll/{courseId}', [CourseController::class, 'enroll'])->name('course.enroll');
 
