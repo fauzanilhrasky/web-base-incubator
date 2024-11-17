@@ -6,13 +6,13 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>{{ __('Your Courses') }}</h5>
+                        <h5>{{ __('Courses') }}</h5>
                     </div>
                 </div>
             </div>
         </div>
 
-        <table class="table align-middle mb-0 bg-white">
+        <table class="table align-middle mb-0 bg-white table-striped">
             <thead class="bg-dark">
                 <tr>
                     <th class="text-white">Name</th>

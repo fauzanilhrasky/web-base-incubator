@@ -75,7 +75,7 @@
 
              @if (Auth::user()->role == 'user') 
             <li class="menu-header">Learning</li>
-            <li class="{{ Request::is('my.courses') ? 'active' : '' }}">
+            <li class="{{ Request::is('my-courses') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('my.courses') }}"><i class="fas fa-university"></i> <span>My Course</span></a>
             </li>
             </li>

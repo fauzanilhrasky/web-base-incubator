@@ -86,8 +86,7 @@
                                                         <li class="activity activity-wrapper assign modtype_assign hasinfo"
                                                             id="module-{{ $assignment->id }}" data-for="cmitem"
                                                             data-id="{{ $assignment->id }}" data-indexed="true">
-                                                            <div class="activity-item focus-control"
-                                                                data-activityname="{{ $assignment->title }}"
+                                                            <div class="activity-item focus-control" data-activityname="{{ $assignment->title }}"
                                                                 data-region="activity-card">
                                                                 <div class="d-flex align-items-start">
                                                                     <!-- Flex container for icon and title -->
@@ -101,12 +100,10 @@
 
                                                                     <!-- Activity name -->
                                                                     <div class="activity-name-area activity-instance">
-                                                                        <div
-                                                                            class="activitytitle modtype_assign position-relative">
+                                                                        <div class="activitytitle modtype_assign position-relative">
                                                                             <div class="activityname">
-                                                                                <a href="#" data-bs-toggle="tooltip"
-                                                                                    data-bs-title="Default tooltip">
-                                                                                    <h6>{{ $assignment->title }}</h6>
+                                                                                <a href="{{ route('assignment.upload', ['course' => $course->id, 'material' => $material->id]) }}" data-bs-toggle="tooltip" data-bs-title="Default tooltip">
+                                                                                    <h6>Pengumpulan Tugas: {{ $assignment->title }}</h6>
                                                                                 </a>
                                                                             </div>
                                                                         </div>

@@ -77,7 +77,9 @@
                             @endif
                             </div>
 
-                            <button type="submit" class="btn btn-primary mt-5 mb-3" id="add">Add submission</button>
+                            <a href="{{ route('assignments.add', $assignment->id) }}" class="btn btn-primary w-25 mt-5">Add Submission</a>
+
+
 
 
                         </div>
