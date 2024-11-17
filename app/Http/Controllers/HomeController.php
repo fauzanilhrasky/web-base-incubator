@@ -25,9 +25,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $courses = Course::all();
+        $category = $request->get('category');  // Get the selected category from the query string
+        $courses = Course::when($category, function ($query, $category) {
+            return $query->where('category', $category); 
+        })->get();
+
         return view('home', compact('courses'));
     }
 
