@@ -42,7 +42,7 @@ class AssignmentController extends Controller
                 return $submission;
             });
 
-        return view('layouts.admin.assignment.upload', compact('course', 'material', 'assignment', 'userSubmissions'));
+        return view('layouts.user.assignment.upload', compact('course', 'material', 'assignment', 'userSubmissions'));
     }
 
 
@@ -89,7 +89,7 @@ class AssignmentController extends Controller
 
     public function edit(Course $course, Material $material, Assignment $assignment)
     {
-        return view('layouts.admin.assignment.edit', compact('course', 'material', 'assignment'));
+        return view('layouts.user.assignment.edit', compact('course', 'material', 'assignment'));
     }
 
     public function update(Request $request, Course $course, Material $material, Assignment $assignment)

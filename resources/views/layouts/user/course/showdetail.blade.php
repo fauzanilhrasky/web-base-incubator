@@ -133,46 +133,7 @@
                                                                             </div>
                                                                         </div>
 
-                                                                        <!-- Display Assignment Actions -->
-                                                                        @if ($assignment->userSubmission)
-                                                                            <div>
-                                                                                <p>Submitted File:
-                                                                                    {{ $assignment->userSubmission->file }}
-                                                                                </p>
-
-                                                                                <!-- Review Assignment -->
-                                                                                <a href="{{ route('assignments.download', $assignment->userSubmission->id) }}"
-                                                                                    class="btn btn-primary mb-3">Review
-                                                                                    Assignment</a>
-
-                                                                                <!-- Edit/Upload New Assignment -->
-                                                                                <form
-                                                                                    action="{{ route('assignments.update', $assignment->id) }}"
-                                                                                    method="POST"
-                                                                                    enctype="multipart/form-data">
-                                                                                    @csrf
-                                                                                    @method('PUT')
-                                                                                    <input type="file" name="file"
-                                                                                        required>
-                                                                                    <button type="submit"
-                                                                                        class="btn btn-secondary">Edit/Upload
-                                                                                        New Assignment</button>
-                                                                                </form>
-                                                                            </div>
-                                                                        @else
-                                                                            <!-- If no submission, show the Submit form -->
-                                                                            <form
-                                                                                action="{{ route('assignments.submit', $assignment->id) }}"
-                                                                                method="POST"
-                                                                                enctype="multipart/form-data">
-                                                                                @csrf
-                                                                                <input type="file" name="file"
-                                                                                    required>
-                                                                                <button type="submit"
-                                                                                    class="btn btn-primary">Submit
-                                                                                    Assignment</button>
-                                                                            </form>
-                                                                        @endif
+                                                                        
 
 
                                                                     </div>

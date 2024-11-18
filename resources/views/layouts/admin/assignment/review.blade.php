@@ -12,15 +12,15 @@
         </div>
     </div>
 
-    <table class="table align-middle mb-0 bg-white">
-        <thead class="bg-light">
+    <table class="table align-middle mb-0 mt-4 bg-white">
+        <thead class="bg-dark">
             <tr>
-                <th>User</th>
-                <th>File</th>
-                <th>Status</th>
-                <th>Grade</th>
-                <th>Comment</th>
-                <th>Action</th>
+                <th class="text-white">User</th>
+                <th class="text-white">File</th>
+                <th class="text-white">Status</th>
+                <th class="text-success">Grade</th>
+                <th class="text-white">Comment</th>
+                <th class="text-primary">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -28,14 +28,15 @@
             <tr>
                 <td>{{ $submission->user->name }}</td>
                 <td>
-                    <a href="{{ route('assignments.download', $submission->id) }}"
-                        class="btn btn-primary btn-sm">Download</a>
+                    <a href="{{ route('assignments.download', $submission->id) }}" class="text-primary">
+                        {{ $submission->file }}
+                    </a>
                 </td>
                 <td>{{ ucfirst($submission->status) }}</td>
                 <td>{{ $submission->passing_grade ?? 'N/A' }}</td>
                 <td>{{ $submission->comment ?? 'No comment' }}</td>
                 <td>
-                    <button class="btn btn-secondary btn-sm" data-bs-toggle="modal"
+                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal"
                         data-bs-target="#updateModal{{ $submission->id }}">Grade/Comment</button>
                 </td>
             </tr>
@@ -76,7 +77,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Save changes</button>
                             </div>
                         </div>

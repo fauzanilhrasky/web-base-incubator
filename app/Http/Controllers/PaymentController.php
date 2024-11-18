@@ -90,7 +90,7 @@ class PaymentController extends Controller
                     ->where('status', 'completed')
                     ->get();
     
-        return view('layouts.admin.course.my_courses', compact('payments'));
+        return view('layouts.user.course.my_courses', compact('payments'));
     }
     
 }

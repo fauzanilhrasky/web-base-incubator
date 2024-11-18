@@ -207,7 +207,7 @@ public function updateAssignment(Request $request, $assignmentId)
             }
         }
 
-        return view('layouts.admin.course.showdetail', compact('course', 'materials'));
+        return view('layouts.user.course.showdetail', compact('course', 'materials'));
     }
 
 
@@ -223,7 +223,7 @@ public function updateAssignment(Request $request, $assignmentId)
         $materials = $course->materials;
 
         $isEnrolled = Payment::where('course_id', $course->id)->where('user_id', Auth::id())->where('status', 'completed')->exists();
-        return view('layouts.admin.course.detail', compact('course', 'materials', 'isEnrolled'));
+        return view('layouts.user.course.detail', compact('course', 'materials', 'isEnrolled'));
     }
 
     public function homeMaterial()

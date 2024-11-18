@@ -21,8 +21,8 @@
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">Manage Courses Upload Assignments</h2>
-                <p class="section-lead">You can update, and delete courses here.</p>
+                <h2 class="section-title"> Upload Assignments</h2>
+                <p class="section-lead">You can upload, and update courses here.</p>
 
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
@@ -34,20 +34,7 @@
                     <div class="card-header">
                         <h4 class="text-dark">Courses Upload</h4>
                         <div class="card-header-action">
-                            <!-- Dropdown Button -->
-                            <div class="dropdown">
-                                <button class="btn btn-icon" type="button" id="dropdownMenuButton"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                                <!-- Dropdown Menu -->
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a class="dropdown-item" href="#">Edit</a></li>
-                                    <li><a class="dropdown-item text-danger" href="#"
-                                            onclick="return confirm('Are you sure you want to delete this course?')">Delete</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -188,7 +175,7 @@
 
                                 <!-- Submission comments -->
                                 <tr>
-                                    <th scope="row" class="upl">S ubmission comments:</th>
+                                    <th scope="row" class="upl">Submission comments:</th>
                                     <td>
                                         @if ($userSubmissions->isNotEmpty())
                                             <ul class="list-unstyled">

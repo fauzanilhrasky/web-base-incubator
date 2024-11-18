@@ -21,7 +21,7 @@
                             <form method="GET" action="{{ route('home') }}">
                                 @csrf
                                 <select id="category_select" class="custom-select w-100" name="category" style="max-width: 400px; border-radius: 8px; border: 1px solid #252525;" onchange="this.form.submit()">
-                                    <option value="" {{ request('category') == '' ? 'selected' : '' }}>All</option>
+                                    <option value="" {{ request('category') == '' ? 'selected' : '' }}> All subject options</option>
                                     <option value="programming" {{ request('category') == 'programming' ? 'selected' : '' }}>Programmer</option>
                                     <option value="design" {{ request('category') == 'design' ? 'selected' : '' }}>UI UX design</option>
                                     <option value="iot" {{ request('category') == 'iot' ? 'selected' : '' }}>Internet Of Things (IoT)</option>
