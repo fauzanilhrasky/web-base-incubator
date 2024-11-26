@@ -68,9 +68,7 @@
             <li class="{{ Request::is('course-admin') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('course-admin') }}"><i class="fas fa-graduation-cap"></i> <span>Course</span></a>
             </li> 
-            <li class="{{ Request::is('course.material.create') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('course.material.create') }}"><i class="fas fa-user-shield"></i> <span>Materi Pelajaran</span></a>
-            </li>
+            
              @endif 
 
              @if (Auth::user()->role == 'user') 
@@ -78,6 +76,14 @@
             <li class="{{ Request::is('my-courses') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('my.courses') }}"><i class="fas fa-university"></i> <span>My Course</span></a>
             </li>
+            <li class="{{ Request::is('assessment-user') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('assessment-user') }}">
+                    <i class="fas fa-clipboard-list"></i> 
+                    <span>Assessment</span>
+                </a>
+            </li>
+            
+            
             </li>
             @endif
 

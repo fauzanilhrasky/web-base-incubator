@@ -18,17 +18,18 @@ class LoginController extends Controller
     }
 
     protected function authenticated($request, $user)
-    {
-        // Redirect berdasarkan role pengguna
-        switch ($user->role) {
-            case 'superadmin':
-                return redirect('/home-admin');
-            case 'mentor':
-                return redirect('/home-mentor');
-            case 'user':
-                return redirect('/home');
-            default:
-                return redirect('/home'); // Fallback jika role tidak dikenal
-        }
+{
+    switch ($user->role) {
+        case 'superadmin':
+            return redirect('/home-admin');
+        case 'mentor':
+            return redirect('/home-mentor');
+        case 'user':
+            $request->session()->flash('status', 'login-success'); // Tambahkan ini
+            return redirect('/home');
+        default:
+            return redirect('/home');
     }
+}
+
 }

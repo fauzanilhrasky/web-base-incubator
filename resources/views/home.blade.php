@@ -91,5 +91,65 @@
             </div>
         </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            @if (session('status') === 'login-success')
+                Swal.fire({
+                    title: 'Package Available',
+                    html: `
+                    <p>Are you ready? If so, <br> please click the button below</p>
+                        <div class="mt-4 mb-4" style="display: flex; justify-content: space-between; text-align: left;  padding: 10px; border-radius: 8px;">
+                            <!-- Basic Package -->
+                            <div class="style-popup">
+                                <h5 class="text-dark text-center">Basic</h5>
+                                <p>
+                                    <div class="text-muted">- Microlearning.</div>
+                                    <div class="text-muted mt-1">- Self-learning.</div> 
+                                    <div class="text-muted mt-1">- Free Courses.</div>
+                                    <div class="text-muted mt-1">- Quizzes and Tests.</div>
+                                    <div class="text-muted mt-1">- basic discussion.</div>
+                                    <div class="text-muted mt-1">- Simple Certificate.</div>                                
+                                </p>
+                            </div>
+                            <!-- Advance Package -->
+                             <div class="style-popup">
+                                <h5 class="text-success text-center">Advance</h5>
+                                <p>
+                                    <div class="text-muted">- Advanced Courses.</div>
+                                    <div class="text-muted mt-1">- Interactive Learning.</div>
+                                    <div class="text-muted mt-1">- Mentored Learning.</div>
+                                    <div class="text-muted mt-1">- Certification.</div>
+                                    <div class="text-muted mt-1">- Team Learning.</div>
+                                    <div class="text-muted mt-1">- Full Evaluation.</div>                                 
+                                </p>
+                            </div>
+                        </div>
+                    `,
+                    icon: 'info',
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes I Can',
+                    cancelButtonText: 'Close',
+                    customClass: {
+                        confirmButton: 'btn btn-primary me-4 btn-lg',
+                        cancelButton: 'btn btn-danger btn-lg'
+                    },
+                    buttonsStyling: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        console.log('User clicked Yes I Can');
+                    } else {
+                        console.log('User clicked Close');
+                    }
+                });
+            @endif
+        });
+    </script>
+    
+    
+
 </div>
 @endsection
+
+

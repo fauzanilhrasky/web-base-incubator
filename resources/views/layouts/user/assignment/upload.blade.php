@@ -161,8 +161,8 @@
                                     <td>
                                         @if ($userSubmissions->isNotEmpty())
                                             <i class="fas fa-file-pdf text-danger me-2"></i>
-                                            <a href="{{ asset('uploads/' . $userSubmissions->last()->file_name) }}">
-                                                {{ $userSubmissions->last()->file_name }}
+                                            <a href="{{ asset('uploads/' . $userSubmissions->last()->file) }}">
+                                                {{ $userSubmissions->last()->file }}
                                             </a>
                                             <small class="text-dark">
                                                 {{ $userSubmissions->last()->updated_at->format('d M Y, H:i A') }}

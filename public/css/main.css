@@ -1123,29 +1123,28 @@ color: white;
 /* Media query for smaller screens (e.g., tablet) */
 @media (max-width: 1024px) {
   .inc {
-    margin-left: -400px; /* Adjust as per desired margin for smaller screens */
+    margin-left: -400px; 
   }
 
   .hidden {
-    margin-right: -300px; /* Adjust as per desired margin for smaller screens */
+    margin-right: -300px; 
   }
 }
 
-/* Media query for even smaller screens (e.g., mobile devices) */
 @media (max-width: 768px) {
   .inc {
-    margin-left: -300px; /* Adjust as per desired margin for mobile */
+    margin-left: -300px; 
   }
 
   .hidden {
-    margin-right: -330px; /* Adjust as per desired margin for mobile */
+    margin-right: -330px; 
   }
 }
 .card {
   display: flex;
   justify-content: center; /* Menempatkan konten di tengah secara horizontal */
   align-items: center;     /* Menempatkan konten di tengah secara vertikal */
-  flex-direction: column;  /* Mengatur elemen di dalamnya secara vertikal */
+  flex-direction: column; 
 }
 
 .card .card-img-top {
@@ -1345,6 +1344,50 @@ color: #fff;
   width: 300px;
   margin-top: 50px;
   text-align: center;
+}
+
+
+
+@media (max-width: 768px) {
+  .banner .copywriting h1 {
+      font-size: 1.8rem; /* Ubah ukuran teks heading */
+  }
+
+  .banner .copywriting .support {
+      font-size: 1rem; /* Sesuaikan ukuran teks */
+      line-height: 1.5;
+  }
+
+  .banner img {
+      width: 80%; /* Kurangi ukuran gambar agar lebih proporsional */
+  }
+
+  .services .service-item {
+      margin-bottom: 20px; /* Tambahkan jarak antar service item */
+  }
+
+  .benefits .item-benefit img {
+      max-width: 60px; /* Kurangi ukuran ikon */
+      margin-bottom: 10px;
+  }
+
+  .benefits .item-benefit h3 {
+      font-size: 1.2rem;
+  }
+
+  .call-to-action h3 {
+      font-size: 1.5rem;
+  }
+
+  .call-to-action p {
+      font-size: 1rem;
+      line-height: 1.6;
+  }
+
+  .carousel img {
+      max-width: 100%;
+      height: auto; /* Pastikan gambar carousel tetap responsif */
+  }
 }
 
 /* Other styles remain the same... */

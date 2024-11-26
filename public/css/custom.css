@@ -280,3 +280,65 @@
         display: block;
     }
 }
+
+/* popup setelah login */
+.style-popup {
+    width: 48%;
+    border: 1px solid #d1cfcf;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+
+
+/* assessment user */
+@media (max-width: 768px) {
+  
+    .user-assignment-title, .user-name {
+        font-size: 1.5rem; /* text size */
+        text-align: center;
+    }
+
+   
+    .user-table-container {
+        overflow-x: auto;
+    }
+    
+    table {
+        width: 100%;
+        table-layout: auto;
+    }
+
+    
+    .table th, .table td {
+        word-wrap: break-word;
+        white-space: normal;
+    }
+
+   
+    .user-button-container .btn {
+        width: 100%; 
+        max-width: 300px; 
+    }
+
+    
+    .user-table-container {
+        padding: 0 10px;
+    }
+
+   
+    .table th, .table td {
+        font-size: 0.9rem;
+    }
+}
+
+
+@media (min-width: 769px) {
+    .user-assignment-title, .user-name {
+        font-size: 2rem;
+    }
+
+    .user-button-container .btn {
+        width: 25%; /* Limit button width */
+    }
+}

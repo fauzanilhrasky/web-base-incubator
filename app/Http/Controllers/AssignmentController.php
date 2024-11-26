@@ -17,6 +17,12 @@ class AssignmentController extends Controller
         return view('layouts.admin.assignment.create', compact('course', 'material'));
     }
 
+    // assessment
+    public function assessment()
+{
+    return view('layouts.user.assignment.assessment');
+}
+
 
     // upload assignment user
     public function showUpload(Course $course, Material $material)

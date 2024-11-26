@@ -96,6 +96,9 @@ class CourseController extends Controller
         
         return view('layouts.user.assignment.add', compact('assignment'));
     }
+
+
+
     public function submitAssignment(Request $request, $assignmentId)
     {
         $request->validate([

@@ -27,7 +27,8 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     // home user
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->middleware('web')->name('home');
+
     // home admin
     Route::get('/home-admin', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('superadmin');
     // home mentor
@@ -85,6 +86,8 @@ Route::middleware(['auth'])->group(function () {
     // user
     Route::get('/detail-course/{course}', [CourseController::class, 'detail'])->name('course.detail');
     Route::get('/assignment/{id}/add', [CourseController::class, 'addSubmissions'])->name('assignments.add');
+    Route::get('/assessment-user', [AssignmentController::class, 'assessment'])->name('assessment.user');
+
 
     // Mentor
     Route::get('/mentor', [CourseController::class, 'homeMaterial'])->name('mentor');
