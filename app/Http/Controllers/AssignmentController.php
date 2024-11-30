@@ -19,9 +19,16 @@ class AssignmentController extends Controller
 
     // assessment
     public function assessment()
-{
-    return view('layouts.user.assignment.assessment');
-}
+    {
+        $assignments = Assignment::with(['material.course', 'userSubmissions.user'])->paginate(5);
+
+        if ($assignments->isEmpty()) {
+            return back()->with('error', 'No data found.');
+        }
+
+        return view('layouts.user.assignment.assessment', compact('assignments'));
+    }
+
 
 
     // upload assignment user

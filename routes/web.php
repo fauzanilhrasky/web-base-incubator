@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PDFController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -77,6 +78,8 @@ Route::middleware(['auth'])->group(function () {
     Route::put('courses/{course}/materials/{material}/assignments/{assignment}', [AssignmentController::class, 'update'])->name('userSubmit.update');
 
 
+    // PDF
+    Route::get('/generate-pdf', [PDFController::class, 'generatePDF'])->name('generate.pdf');
 
 
     Route::get('/course/{course}/material/{material}/assignment/detail-upload', [AssignmentController::class, 'detailUpload'])

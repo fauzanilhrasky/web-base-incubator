@@ -17,4 +17,15 @@ class Assignment extends Model
     {
         return $this->hasMany(UserSubmission::class);
     }
+
+    public function material() {
+        return $this->belongsTo(Material::class);
+    }
+
+    public function course()
+{
+    return $this->belongsTo(Course::class);
+}
+
+    
 }
