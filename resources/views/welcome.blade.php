@@ -11,12 +11,12 @@
                 <div class="row">
                     <div class="col-lg-6 col-12 copywriting">
                         <p class="story">
-                            LEARN FROM EXPERT
+                            Innovation & Impact
                         </p>
                         <h1 class="header">
-                            <span class="text-white"> Start Developing your ideas by</span> <span class="text-yellow">Learning Online</span> 
+                            <span class="text-blue"> Start Developing your ideas by</span> <span class="text-yellow">Learning Online</span> 
                         </h1>
-                        <p class="support">
+                        <p class=" text-blue">
                             Our app can help junior developers who are really <br> passionate about pursuing online learning.
                         </p>
                         <p class="cta">
@@ -36,13 +36,13 @@
     </div>
 </section>
 
-<section class="banner2">
+{{-- <section class="banner2">
     <div class="row brands">
         <div class="col-lg-12 col-12 text-center">
             <img src="{{ asset('img/brands.png') }}" alt="">
         </div>
     </div>
-</section>
+</section> --}}
 
 <section id="explanation" class="explanation section dark-background">
     <img src="{{ asset('img/penjelasan.png') }}" alt="">
@@ -57,17 +57,16 @@
                   </div>
 
                 <h1 class="primary-header">
-                    Forward Innovation
+                    We are innovation builders for startups,<br> corporates and government
                 </h1>
 
                 <p class="support">
-                    Our mission is to drive sustainable growth by fostering a culture of innovation and excellence.<br> 
-                    We are committed to delivering cutting-edge solutions that exceed our customers' expectations,<br>
-                    leveraging the latest technologies and creative approaches.
+                    Base Founded in 2019 when we saw some local startups struggling in an event.<br> 
+                    we had a vision to share our knowledge and know-how to better deliver these <br>
+                    potential innovation to a better stage.<br>
+                    As we progress we saw an opportunity to cater more diverse customer for
                     <br>
-                    <br>
-                    Through continuous improvement and a passion for innovation, We aim to set new standards in our industry, <br> 
-                    ensuring long-term success for our stakeholders and making a positive impact on the communities we serve 
+                    their innovation needs through incubation/acceleration, workshops, and events that have impact. 
                 </p>
             
               </div>

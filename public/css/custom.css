@@ -25,7 +25,7 @@
 
 /* pagination */
 .custom-pagination .page-link {
-    background-color: yellow; /* tombol */
+    background-color: #173655; /* tombol */
     color: #222226; /
 }
 
@@ -34,7 +34,7 @@
 }
 
 .custom-pagination .active .page-link {
-    background-color: #ffc107; /* Warna tombol aktif */
+    background-color: #173655; /* Warna tombol aktif */
     color: white; /* Warna tulisan aktif */
 }
 

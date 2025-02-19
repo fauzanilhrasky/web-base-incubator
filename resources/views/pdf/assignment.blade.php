@@ -17,11 +17,11 @@
     </style>
 </head>
 <body>
-    <h2>Assignments Report</h2>
+    <h3 class="text-center justify-center">Assignments Report</h3>
     <table>
         <thead>
             <tr>
-                <th>Course Material Title</th>
+                <th class="bg-black">Course Material Title</th>
                 <th>Assignment Link</th>
                 <th>Value</th>
                 <th>Comment</th>
